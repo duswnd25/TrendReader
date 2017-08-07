@@ -1,5 +1,6 @@
 const lezhin = require('./blog/parse_lezhin');
 const drama = require('./blog/parse_drama');
+const rainist = require('./blog/parse_rainist');
 
 exports.getData = function (type, rootCallback) {
     switch (type) {
@@ -10,6 +11,11 @@ exports.getData = function (type, rootCallback) {
             break;
         case 'drama':
             drama.getData(function (result) {
+                rootCallback(result);
+            });
+            break;
+        case 'rainist':
+            rainist.getData(function (result) {
                 rootCallback(result);
             });
             break;

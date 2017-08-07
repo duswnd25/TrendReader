@@ -9,7 +9,7 @@
 
     <!-- a태그의 밑줄, 파란효과 제거-->
     <link rel="stylesheet" href="./public/css/remove_a_line.css">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" crossorigin="anonymous"></script>
 
     <!-- Angular Material-->
@@ -35,8 +35,8 @@
 <body>
 <div ng-app="trendReaderApp" class="row col-lg-12">
     <!-- Lezhin Blog Start -->
-    <a href="{{ article_link }}">
-        <div class="col-md-3" ng-controller="lezhin_controller">
+    <div class="col-md-3" ng-controller="lezhin_controller">
+        <a href="{{ article_link }}">
             <!-- CardView Start -->
             <md-card class="_md">
                 <md-card-header>
@@ -62,13 +62,13 @@
                 </md-card-content>
             </md-card>
             <!-- CardView End -->
-        </div>
-    </a>
+        </a>
+    </div>
     <!-- Lezhin Blog End -->
 
     <!-- Draman Blog Start -->
-    <a href="{{ article_link }}">
-        <div class="col-md-3" ng-controller="drama_controller">
+    <div class="col-md-3" ng-controller="drama_controller">
+        <a href="{{ article_link }}">
             <!-- CardView Start -->
             <md-card class="_md">
                 <md-card-header>
@@ -94,9 +94,41 @@
                 </md-card-content>
             </md-card>
             <!-- CardView End -->
-        </div>
-    </a>
+        </a>
+    </div>
     <!-- Draman Blog End -->
+
+    <!-- Rainist Blog Start -->
+    <div class="col-md-3" ng-controller="rainist_controller">
+        <a href="{{ article_link }}">
+            <!-- CardView Start -->
+            <md-card class="_md">
+                <md-card-header>
+                    <md-card-avatar>
+                        <!-- Logo Image-->
+                        <img ng-src="{{ blog_favicon_src }}">
+                    </md-card-avatar>
+                    <md-card-header-text>
+                        <span class="md-title">{{ blog_name }}</span>
+                        <span class="md-subhead">{{ blog_update }}</span>
+                    </md-card-header-text>
+                </md-card-header>
+                <img ng-src="{{ blog_header_image_src }}" class="md-card-image" style="height: 100px">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{ article_title }}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p>
+                        {{ article_summary }}
+                    </p>
+                </md-card-content>
+            </md-card>
+            <!-- CardView End -->
+        </a>
+    </div>
+    <!-- Rainist Blog End -->
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
