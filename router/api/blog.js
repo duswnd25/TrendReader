@@ -7,7 +7,6 @@ module.exports = function (app) {
             if (result.blog_name === 'NODATA') {
                 return res.status(404).json({error: '종류를 입력해주세요.'});
             } else {
-                console.log(result);
                 return res.json(result);
             }
         });
