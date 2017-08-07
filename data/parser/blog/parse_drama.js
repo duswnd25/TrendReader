@@ -21,10 +21,12 @@ exports.getData = function (rootCallback) {
             let parseLink = titleItem.children('a').attr('href');
 
             // Date
-            let parseDate = '';
+            let parseDate = ''; // 메인화면에 표시되지 않음
 
             // Summary
-            let parseSummary = $('article').eq(0).children('div.post-article').eq(0).children('p').eq(0).text();
+            let parseSummary = $('div.row').eq(0)
+                .children('div.post-770.post.type-post.status-publish.format-standard.hentry.category-develop.tag-aws.tag-code-deploy.tag-23.post-container.masonry-element.col-md-4')
+                .eq(0).children('div.post-article').eq(0).children('p').eq(0).text();
 
             let data = resultItem.getResultItem();
             data.blog_name = blogName;
