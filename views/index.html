@@ -6,6 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
+
+    <!-- a태그의 밑줄, 파란효과 제거-->
+    <style type="text/css">
+        a:link {
+            color: red;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" crossorigin="anonymous"></script>
 
     <!-- Angular Material-->
@@ -31,69 +50,67 @@
 <body>
 <div ng-app="trendReaderApp" class="row col-lg-12">
     <!-- Lezhin Blog Start -->
-    <div class="col-md-3" ng-controller="lezhin_controller">
-        <!-- CardView Start -->
-        <md-card class="_md">
-            <md-card-header>
-                <md-card-avatar>
-                    <!-- Logo Image-->
-                    <img ng-src="{{ blog_favicon_src }}">
-                </md-card-avatar>
-                <md-card-header-text>
-                    <span class="md-title">{{ blog_name }}</span>
-                    <span class="md-subhead">{{ blog_update }}</span>
-                </md-card-header-text>
-            </md-card-header>
-            <img ng-src="{{ blog_header_image_src }}" class="md-card-image" style="height: 100px">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">{{ article_title }}</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <p>
-                    {{ article_summary }}
-                </p>
-                <a class="pull-right" href="{{ article_link }}">
-                    <i class="fa fa-external-link fa-6"></i>
-                </a>
-            </md-card-content>
-        </md-card>
-        <!-- CardView End -->
-    </div>
+    <a href="{{ article_link }}">
+        <div class="col-md-3" ng-controller="lezhin_controller">
+            <!-- CardView Start -->
+            <md-card class="_md">
+                <md-card-header>
+                    <md-card-avatar>
+                        <!-- Logo Image-->
+                        <img ng-src="{{ blog_favicon_src }}">
+                    </md-card-avatar>
+                    <md-card-header-text>
+                        <span class="md-title">{{ blog_name }}</span>
+                        <span class="md-subhead">{{ blog_update }}</span>
+                    </md-card-header-text>
+                </md-card-header>
+                <img ng-src="{{ blog_header_image_src }}" class="md-card-image" style="height: 100px">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{ article_title }}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p>
+                        {{ article_summary }}
+                    </p>
+                </md-card-content>
+            </md-card>
+            <!-- CardView End -->
+        </div>
+    </a>
     <!-- Lezhin Blog End -->
 
     <!-- Draman Blog Start -->
-    <div class="col-md-3" ng-controller="drama_controller">
-        <!-- CardView Start -->
-        <md-card class="_md">
-            <md-card-header>
-                <md-card-avatar>
-                    <!-- Logo Image-->
-                    <img ng-src="{{ blog_favicon_src }}">
-                </md-card-avatar>
-                <md-card-header-text>
-                    <span class="md-title">{{ blog_name }}</span>
-                    <span class="md-subhead">{{ blog_update }}</span>
-                </md-card-header-text>
-            </md-card-header>
-            <img ng-src="{{ blog_header_image_src }}" class="md-card-image" style="height: 100px">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">{{ article_title }}</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <p>
-                    {{ article_summary }}
-                </p>
-                <a class="pull-right" href="{{ article_link }}">
-                    <i class="fa fa-external-link fa-6"></i>
-                </a>
-            </md-card-content>
-        </md-card>
-        <!-- CardView End -->
-    </div>
+    <a href="{{ article_link }}">
+        <div class="col-md-3" ng-controller="drama_controller">
+            <!-- CardView Start -->
+            <md-card class="_md">
+                <md-card-header>
+                    <md-card-avatar>
+                        <!-- Logo Image-->
+                        <img ng-src="{{ blog_favicon_src }}">
+                    </md-card-avatar>
+                    <md-card-header-text>
+                        <span class="md-title">{{ blog_name }}</span>
+                        <span class="md-subhead">{{ blog_update }}</span>
+                    </md-card-header-text>
+                </md-card-header>
+                <img ng-src="{{ blog_header_image_src }}" class="md-card-image" style="height: 100px">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{ article_title }}</span>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p>
+                        {{ article_summary }}
+                    </p>
+                </md-card-content>
+            </md-card>
+            <!-- CardView End -->
+        </div>
+    </a>
     <!-- Draman Blog End -->
 </div>
 
