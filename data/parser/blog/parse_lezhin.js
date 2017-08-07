@@ -33,7 +33,7 @@ exports.getData = function (rootCallback) {
             data.article_title = parseTitle;
             data.article_date = parseDate;
             data.article_link = parseLink;
-            data.article_summary = parseSummary.substring(0, 100) + '...';
+            parseSummary.length > 100 ? data.article_summary = parseSummary.substring(0, 100) + '...' : parseSummary;
 
             rootCallback(data);
         })
