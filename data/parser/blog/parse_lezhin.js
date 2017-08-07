@@ -16,14 +16,14 @@ exports.getData = function (rootCallback) {
             let $ = cheerio.load(htmlString);
 
             // Title
-            let itemTitle = $('h2.post-title').eq(0);
-            let parseTitle = itemTitle.children('a').text();
-            let parseLink = rootUrl + itemTitle.children('a').attr('href');
+            let titleItem = $('h2.post-title').eq(0);
+            let parseTitle = titleItem.children('a').text();
+            let parseLink = rootUrl + titleItem.children('a').attr('href');
 
             // Date
             let parseDate = $('p.post-date').eq(0).text().trim();
 
-            // PreVie
+            // Summary
             let parseSummary = $('div.post-summary').eq(0).text();
 
             let data = resultItem.getResultItem();
@@ -33,7 +33,7 @@ exports.getData = function (rootCallback) {
             data.article_title = parseTitle;
             data.article_date = parseDate;
             data.article_link = parseLink;
-            parseSummary.length > 100 ? data.article_summary = parseSummary.substring(0, 100) + '...' : parseSummary;
+            data.article_summary = parseSummary.length > 100 ? parseSummary.substring(0, 100) + '...' : parseSummary;
 
             rootCallback(data);
         })
