@@ -6,7 +6,8 @@ exports.getResultItem = function () {
         'article_title': '',
         'article_date': '',
         'article_link': '',
-        'article_summary': ''
+        'article_summary': '',
+        'is_new': true
     }
     return (data);
 }
