@@ -1,0 +1,34 @@
+{
+  "name": "trendreader",
+  "version": "0.0.1",
+  "description": "기술 블로그 모음",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duswnd25/TrendReader.git"
+  },
+  "keywords": [
+    "Trend",
+    "Tech",
+    "Blog"
+  ],
+  "author": "YeonJung Kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/duswnd25/TrendReader/issues"
+  },
+  "homepage": "https://github.com/duswnd25/TrendReader#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "promise": "^8.0.1",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}
