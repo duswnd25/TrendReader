@@ -62,6 +62,39 @@
         <!-- CardView End -->
     </div>
     <!-- Lezhin Blog End -->
+
+    <!-- Draman Blog Start -->
+    <div class="col-md-3" ng-controller="drama_controller">
+        <!-- CardView Start -->
+        <md-card class="_md">
+            <md-card-header>
+                <md-card-avatar>
+                    <!-- Logo Image-->
+                    <img ng-src="{{ blog_favicon_src }}">
+                </md-card-avatar>
+                <md-card-header-text>
+                    <span class="md-title">{{ blog_name }}</span>
+                    <span class="md-subhead">{{ blog_update }}</span>
+                </md-card-header-text>
+            </md-card-header>
+            <img ng-src="{{ blog_header_image_src }}" class="md-card-image" style="height: 100px">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{ article_title }}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p>
+                    {{ article_summary }}
+                </p>
+                <a class="pull-right" href="{{ article_link }}">
+                    <i class="fa fa-external-link fa-6"></i>
+                </a>
+            </md-card-content>
+        </md-card>
+        <!-- CardView End -->
+    </div>
+    <!-- Draman Blog End -->
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -74,22 +107,7 @@
         crossorigin="anonymous"></script>
 
 <!-- Controller -->
-<script>
-    let app = angular.module("trendReaderApp", []);
-
-    app.controller("lezhin_controller", function ($scope, $http) {
-        $http.get("./api/blog/lezhin").then(function (result) {
-            console.log(result);
-            $scope.blog_name = result.data.blog_name;
-            $scope.blog_favicon_src = result.data.blog_favicon_src;
-            $scope.blog_header_image_src = result.data.blog_header_src;
-            $scope.article_title = result.data.article_title;
-            $scope.article_link = result.data.article_link;
-            $scope.article_summary = result.data.article_summary;
-            $scope.blog_update = result.data.article_date;
-        });
-    });
-</script>
+<script src="./public/js/blog_controller.js"></script>
 
 </body>
 </html>
