@@ -3,6 +3,7 @@ const drama = require('./blog/parse_drama');
 const rainist = require('./blog/parse_rainist');
 const spoqa = require('./blog/parse_spoqa');
 const jandi = require('./blog/parse_jandi');
+const sk = require('./blog/parse_sk');
 
 exports.getData = function (type, rootCallback) {
     switch (type) {
@@ -28,6 +29,11 @@ exports.getData = function (type, rootCallback) {
             break;
         case 'jandi':
             jandi.getData(function (result) {
+                rootCallback(result);
+            });
+            break;
+        case 'sk':
+            sk.getData(function (result) {
                 rootCallback(result);
             });
             break;
