@@ -15,26 +15,31 @@ exports.getData = function (rootCallback) {
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
 
+            // Article
+            let articleItem = $('li.post-item').eq(0).children('div.post-author-info').eq(0);
+
             // Title
-            let parseTitle = $('span.post-title-words').eq(0).text();
-            let parseLink = $('h2.post-title').eq(0).children('a').eq(0).attr('href');
+            let titleItem = articleItem.children('h2.post-title').eq(0).children('a').eq(0);
+            let parseTitle = titleItem.children('span.post-title-words').eq(0).text();
+            let parseLink = titleItem.attr('href');
 
             // Date
-            let parseDate = $('span.post-date').eq(0).text();
+            let parseDate = articleItem.children('span.post-date').eq(0).text();
 
             // Summary
-            let parseSummary = $('p.post-description').eq(0).text();
+            let parseSummary = articleItem.children('p.post-description').eq(0).text();
 
-            let data = resultItem.getResultItem();
-            data.blog_name = blogName;
-            data.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-            data.blog_header_src = headerSrc;
-            data.article_title = parseTitle;
-            data.article_date = parseDate;
-            data.article_link = rootUrl + parseLink;
-            data.article_summary = parseSummary;
+            // Result
+            let result = resultItem.getResultItem();
+            result.blog_name = blogName;
+            result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.blog_header_src = headerSrc;
+            result.article_title = parseTitle;
+            result.article_date = parseDate;
+            result.article_link = rootUrl + parseLink;
+            result.article_summary = parseSummary;
 
-            rootCallback(data);
+            rootCallback(result);
         })
         .catch(function (err) {
             console.log(err);
