@@ -25,7 +25,10 @@ exports.getData = function (rootCallback) {
             // Date
             let parseDate = ''; // 메인화면에 표시되지 않음
 
-            // Summary
+            /**
+             * Summary
+             * post-article 클래스를 가진 요소가 2가지 이기 때문에 1로 해줘야함
+             */
             let parseSummary = articleItem.children('div.post-article').eq(1).children('p').eq(0).text();
 
             // Result
