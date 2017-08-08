@@ -2,6 +2,7 @@ const lezhin = require('./blog/parse_lezhin');
 const drama = require('./blog/parse_drama');
 const rainist = require('./blog/parse_rainist');
 const spoqa = require('./blog/parse_spoqa');
+const jandi = require('./blog/parse_jandi');
 
 exports.getData = function (type, rootCallback) {
     switch (type) {
@@ -22,6 +23,11 @@ exports.getData = function (type, rootCallback) {
             break;
         case 'spoqa':
             spoqa.getData(function (result) {
+                rootCallback(result);
+            });
+            break;
+        case 'jandi':
+            jandi.getData(function (result) {
                 rootCallback(result);
             });
             break;
