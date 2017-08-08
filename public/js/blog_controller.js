@@ -1,10 +1,20 @@
+// Masonry
+let elem = document.querySelector('.grid');
+let msnry = new Masonry(elem, {
+    // options
+    itemSelector: '.grid-item',
+    columnWidth: 200
+});
+
+// AngularJS
 let app = angular.module("trendReaderApp", []);
+
 
 function view_create($http, item, callback) {
     $http.get("./api/blog/" + item).then(function (result) {
 
         let view = '<!-- Blog Start -->\n' +
-            '    <div class="col-md-3">\n' +
+            '    <div class="col-md-3 grid-item">\n' +
             '        <a href="' + result.data.article_link + '">\n' +
             '            <!-- CardView Start -->\n' +
             '            <md-card class="_md">\n' +
@@ -41,7 +51,7 @@ function view_create($http, item, callback) {
 
 app.controller("blog_controller", function ($scope, $http) {
     let list = [
-        'drama', 'lezhin', 'spoqa', 'rainist',
+        'drama', 'lezhin', 'spoqa', 'rainist', 'jandi'
     ];
 
     list.forEach(function (item) {

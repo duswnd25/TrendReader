@@ -12,3 +12,11 @@ a:hover {
     color: black;
     text-decoration: underline;
 }
+
+.grid-item {
+    width: 200px;
+}
+
+.grid-item--width2 {
+    width: 400px;
+}
