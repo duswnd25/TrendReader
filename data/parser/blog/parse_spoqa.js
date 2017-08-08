@@ -29,7 +29,7 @@ exports.getData = function (rootCallback) {
             data.blog_name = blogName;
             data.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
             data.blog_header_src = headerSrc;
-            data.article_title = parseTitle;
+            data.article_title = parseTitle.length > 16 ? parseTitle.substring(0, 16) : parseTitle;
             data.article_date = parseDate;
             data.article_link = rootUrl + parseLink;
             data.article_summary = parseSummary.length > 100 ? parseSummary.substring(0, 100) + '...' : parseSummary;
