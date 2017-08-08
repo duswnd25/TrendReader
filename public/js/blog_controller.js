@@ -51,7 +51,7 @@ function view_create($http, item, callback) {
 
 app.controller("blog_controller", function ($scope, $http) {
     let list = [
-        'drama', 'lezhin', 'spoqa', 'rainist', 'jandi', 'sk', 'add2paper', 'realm','linchpin'
+        'drama', 'lezhin', 'spoqa', 'rainist', 'jandi', 'sk', 'add2paper', 'realm', 'linchpin', 'outsider'
     ];
 
     list.forEach(function (item) {
