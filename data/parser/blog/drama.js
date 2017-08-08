@@ -15,8 +15,10 @@ exports.getData = function (rootCallback) {
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
 
+            // Article
+            let articleItem = $('article').eq(0);
             // Title
-            let titleItem = $('h2.title').eq(0);
+            let titleItem = articleItem.children('div.post-article.post-title').eq(0).children('h2.title').eq(0);
             let parseTitle = titleItem.children('a').text();
             let parseLink = titleItem.children('a').attr('href');
 
@@ -24,20 +26,19 @@ exports.getData = function (rootCallback) {
             let parseDate = ''; // 메인화면에 표시되지 않음
 
             // Summary
-            let parseSummary = $('div.row').eq(0)
-                .children('div.post-770.post.type-post.status-publish.format-standard.hentry.category-develop.tag-aws.tag-code-deploy.tag-23.post-container.masonry-element.col-md-4')
-                .eq(0).children('div.post-article').eq(0).children('p').eq(0).text();
+            let parseSummary = articleItem.children('div.post-article').eq(1).children('p').eq(0).text();
 
-            let data = resultItem.getResultItem();
-            data.blog_name = blogName;
-            data.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-            data.blog_header_src = headerSrc;
-            data.article_title = parseTitle;
-            data.article_date = parseDate;
-            data.article_link = parseLink;
-            data.article_summary = parseSummary;
+            // Result
+            let result = resultItem.getResultItem();
+            result.blog_name = blogName;
+            result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.blog_header_src = headerSrc;
+            result.article_title = parseTitle;
+            result.article_date = parseDate;
+            result.article_link = parseLink;
+            result.article_summary = parseSummary;
 
-            rootCallback(data);
+            rootCallback(result);
         })
         .catch(function (err) {
             console.log(err);
