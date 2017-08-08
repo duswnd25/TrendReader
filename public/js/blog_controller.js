@@ -1,19 +1,52 @@
 let app = angular.module("trendReaderApp", []);
 
-function initData($scope, $http, type) {
-    $http.get("./api/blog/" + type).then(function (result) {
-        console.log(result);
-        $scope.blog_name = result.data.blog_name;
-        $scope.blog_favicon_src = result.data.blog_favicon_src;
-        $scope.blog_header_image_src = result.data.blog_header_src;
-        $scope.article_title = result.data.article_title;
-        $scope.article_link = result.data.article_link;
-        $scope.article_summary = result.data.article_summary;
-        $scope.blog_update = result.data.article_date;
+function view_create($http, item, callback) {
+    $http.get("./api/blog/" + item).then(function (result) {
+
+        let view = '<!-- Blog Start -->\n' +
+            '    <div class="col-md-3">\n' +
+            '        <a href="' + result.data.article_link + '">\n' +
+            '            <!-- CardView Start -->\n' +
+            '            <md-card class="_md">\n' +
+            '                <md-card-header>\n' +
+            '                    <md-card-avatar>\n' +
+            '                        <!-- Logo Image-->\n' +
+            '                        <img src="' + result.data.blog_favicon_src + '">\n' +
+            '                    </md-card-avatar>\n' +
+            '                    <md-card-header-text>\n' +
+            '                        <span class="md-title">' + result.data.blog_name + '</span>\n' +
+            '                        <span class="md-subhead">' + result.data.article_date + '</span>\n' +
+            '                    </md-card-header-text>\n' +
+            '                </md-card-header>\n' +
+            '                <img src="' + result.data.blog_header_src + '" class="md-card-image" style="height: 100px">\n' +
+            '                <md-card-title>\n' +
+            '                    <md-card-title-text>\n' +
+            '                        <span class="md-headline">' + result.data.article_title + '</span>\n' +
+            '                    </md-card-title-text>\n' +
+            '                </md-card-title>\n' +
+            '                <md-card-content>\n' +
+            '                    <p>\n' +
+            '                        ' + result.data.article_summary + '\n' +
+            '                    </p>\n' +
+            '                </md-card-content>\n' +
+            '            </md-card>\n' +
+            '            <!-- CardView End -->\n' +
+            '        </a>\n' +
+            '    </div>\n' +
+            '    <!-- Blog End -->';
+
+        callback(view);
     });
 }
 
 app.controller("blog_controller", function ($scope, $http) {
-    $scope.list = [{name: 'lezhin'}, {name: 'drama'}, {name: 'rainist'}, {name: 'spoqa'}];
-    initData($scope, $http, $scope.list.name);
+    let list = [
+        'drama', 'lezhin', 'spoqa', 'rainist',
+    ];
+
+    list.forEach(function (item) {
+        view_create($http, item, function (result) {
+            $('#blog_view').append(result);
+        });
+    });
 });
