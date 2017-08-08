@@ -1,9 +1,9 @@
-const lezhin = require('./blog/parse_lezhin');
-const drama = require('./blog/parse_drama');
-const rainist = require('./blog/parse_rainist');
-const spoqa = require('./blog/parse_spoqa');
-const jandi = require('./blog/parse_jandi');
-const sk = require('./blog/parse_sk');
+const lezhin = require('./blog/lezhin');
+const drama = require('./blog/drama');
+const rainist = require('./blog/rainist');
+const spoqa = require('./blog/spoqa');
+const jandi = require('./blog/jandi');
+const sk = require('./blog/sk');
 
 exports.getData = function (type, rootCallback) {
     switch (type) {
