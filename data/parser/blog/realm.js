@@ -36,7 +36,7 @@ exports.getData = function (rootCallback) {
             result.blog_name = blogName;
             result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
             result.blog_header_src = parseHeaderSrc;
-            result.article_title = parseTitle.text();
+            result.article_title = parseTitle;
             result.article_date = parseDate;
             result.article_link = 'https://news.realm.io' + parseLink;
             result.article_summary = parseSummary;
