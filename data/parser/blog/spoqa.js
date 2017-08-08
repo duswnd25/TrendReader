@@ -44,4 +44,4 @@ exports.getData = function (rootCallback) {
         .catch(function (err) {
             console.log(err);
         });
-}
+};

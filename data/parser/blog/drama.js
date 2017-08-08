@@ -1,7 +1,7 @@
 // TODO 변경필요
 const blogName = 'Drama & Company';
 const rootUrl = 'http://blog.dramancompany.com/category/develop/';
-const headerSrc = 'http://blog.dramancompany.com/wp-content/uploads/2015/11/2000_dark.png';
+let headerSrc = 'http://blog.dramancompany.com/wp-content/uploads/2015/11/2000_dark.png'; // 표시 없음
 
 // Module
 const cheerio = require('cheerio');
@@ -17,19 +17,23 @@ exports.getData = function (rootCallback) {
 
             // Article
             let articleItem = $('article').eq(0);
+
             // Title
-            let titleItem = articleItem.children('div.post-article.post-title').eq(0).children('h2.title').eq(0);
-            let parseTitle = titleItem.children('a').text();
-            let parseLink = titleItem.children('a').attr('href');
+            let titleItem = articleItem.children('div.post-article.post-title').eq(0)
+                .children('h2.title').eq(0)
+                .children('a').eq(0);
+            let parseTitle = titleItem.text();
+            let parseLink = titleItem.attr('href');
 
             // Date
-            let parseDate = ''; // 메인화면에 표시되지 않음
+            let parseDate = ''; // 표시 없음
 
             /**
              * Summary
              * post-article 클래스를 가진 요소가 2가지 이기 때문에 1로 해줘야함
              */
-            let parseSummary = articleItem.children('div.post-article').eq(1).children('p').eq(0).text();
+            let parseSummary = articleItem.children('div.post-article').eq(1)
+                .children('p').eq(0).text();
 
             // Result
             let result = resultItem.getResultItem();
@@ -46,4 +50,4 @@ exports.getData = function (rootCallback) {
         .catch(function (err) {
             console.log(err);
         });
-}
+};

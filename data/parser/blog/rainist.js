@@ -1,7 +1,6 @@
 // TODO 변경필요
 const blogName = 'Rainist';
 const rootUrl = 'https://medium.com/rainist-engineering';
-const headerSrc = 'https://rainist.com/static/e3d9ee1cbeb0f6c95295abcdbdaf9a33.svg';
 
 // Module
 const cheerio = require('cheerio');
@@ -19,24 +18,29 @@ exports.getData = function (rootCallback) {
             let parseTitle = $('div.u-letterSpacingTight.u-lineHeightTighter.u-fontSize24').eq(0).text();
             let parseLink = $('div.u-lineHeightBase.postItem').eq(0).children('a').eq(0).attr('href');
 
+            // Header
+            let parsingHeaderSrc = $('div.u-lineHeightBase.postItem').eq(0).children('a').eq(0).css('background-image');
+            parsingHeaderSrc = parsingHeaderSrc.replace('url(','').replace(')','').replace(/\"/gi, "");
+
             // Date
             let parseDate = $('time').eq(0).attr('datetime');
 
             // Summary
             let parseSummary = $('div.u-contentSansThin.u-lineHeightBaseSans.u-fontSize24.u-xs-fontSize18').eq(0).text();
 
-            let data = resultItem.getResultItem();
-            data.blog_name = blogName;
-            data.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + 'https://rainist.com/';
-            data.blog_header_src = headerSrc;
-            data.article_title = parseTitle;
-            data.article_date = parseDate;
-            data.article_link = parseLink;
-            data.article_summary = parseSummary;
+            // Result
+            let result = resultItem.getResultItem();
+            result.blog_name = blogName;
+            result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + 'https://rainist.com/';
+            result.blog_header_src = parsingHeaderSrc;
+            result.article_title = parseTitle;
+            result.article_date = parseDate;
+            result.article_link = parseLink;
+            result.article_summary = parseSummary;
 
-            rootCallback(data);
+            rootCallback(result);
         })
         .catch(function (err) {
             console.log(err);
         });
-}
+};

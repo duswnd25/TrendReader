@@ -17,8 +17,13 @@ exports.getData = function (rootCallback) {
             let articleItem = $('div.post.quick').eq(0).children('div.article-block.flex.center.column').eq(0);
 
             // Title
-            let parseTitle = articleItem.children('a.news-headline.col-xs-12.col-sm-10.text-center').eq(0);
-            let parseLink = parseTitle.attr('href');
+            let titleItem = articleItem.children('a.news-headline.col-xs-12.col-sm-10.text-center').eq(0);
+            let parseTitle = titleItem.text();
+            let parseLink = titleItem.attr('href');
+
+            // Header
+            let parseHeaderSrc = articleItem.children('a.post.quick.header-image').eq(0)
+                .children('img.col-xs-12.article-img').eq(0).attr('data-cfsrc');
 
             // Date
             let parseDate = ''; // 표시 없음
@@ -26,21 +31,19 @@ exports.getData = function (rootCallback) {
             // Summary
             let parseSummary = ''; // 표시 없음
 
-            let parseHeaderSrc = articleItem.children('a.post.quick.header-image').eq(0)
-                .children('img.col-xs-12.article-img').eq(0).attr('data-cfsrc');
+            // Result
+            let result = resultItem.getResultItem();
+            result.blog_name = blogName;
+            result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.blog_header_src = parseHeaderSrc;
+            result.article_title = parseTitle.text();
+            result.article_date = parseDate;
+            result.article_link = 'https://news.realm.io' + parseLink;
+            result.article_summary = parseSummary;
 
-            let data = resultItem.getResultItem();
-            data.blog_name = blogName;
-            data.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-            data.blog_header_src = parseHeaderSrc
-            data.article_title = parseTitle.text();
-            data.article_date = parseDate;
-            data.article_link = 'https://news.realm.io' + parseLink;
-            data.article_summary = parseSummary;
-
-            rootCallback(data);
+            rootCallback(result);
         })
         .catch(function (err) {
             console.log(err);
         });
-}
+};

@@ -12,35 +12,45 @@ const resultItem = require(rootPath + '/data/parser/result_item');
 exports.getData = function (rootCallback) {
     requestPromise(rootUrl)
         .then(function (htmlString) {
+
             let $ = cheerio.load(htmlString);
 
-            let articleItem = $('article.post-summary.post-format-standard.clearfix').eq(0);
+            // Article
+            let articleItem = $('article.post-summary.post-format-standard.clearfix').eq(0)
+                .children('div.post-details').eq(0);
 
             // Title
-            let parseTitle = articleItem.children('div.post-details').eq(0).children('h2.post-title').eq(0).text();
-            let parseLink = articleItem.children('div.post-details').eq(0).children('p.post-excerpt').eq(0).text();
+            let titleItem = articleItem.children('h2.post-title').eq(0)
+                .children('a').eq(0);
+            let parseTitle = titleItem.text();
+            let parseLink = titleItem.attr('href');
 
             // Date
-            let parseDate = $('li.post-date').eq(0).text();
+            let parseDate = articleItem.children('ul.post-meta.clearfix').eq(0)
+                .children('li.post-date').text();
 
             // Header Image
-            let parseHeaderSrc = articleItem.children('div.post-image').eq(0).children('a').eq(0).children('img').attr('src');
+            let parseHeaderSrc = articleItem.parent().eq(0)
+                .children('div.post-image').eq(0)
+                .children('a').eq(0)
+                .children('img').attr('src');
 
             // Summary
-            let parseSummary = $('div.u-contentSansThin.u-lineHeightBaseSans.u-fontSize24.u-xs-fontSize18').eq(0).text();
+            let parseSummary = articleItem.children('p.post-excerpt').eq(0).text();
 
-            let data = resultItem.getResultItem();
-            data.blog_name = blogName;
-            data.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-            data.blog_header_src = parseHeaderSrc;
-            data.article_title = parseTitle;
-            data.article_date = parseDate;
-            data.article_link = parseLink;
-            data.article_summary = parseSummary;
+            // Result
+            let result = resultItem.getResultItem();
+            result.blog_name = blogName;
+            result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.blog_header_src = parseHeaderSrc;
+            result.article_title = parseTitle;
+            result.article_date = parseDate;
+            result.article_link = parseLink;
+            result.article_summary = parseSummary;
 
-            rootCallback(data);
+            rootCallback(result);
         })
         .catch(function (err) {
             console.log(err);
         });
-}
+};

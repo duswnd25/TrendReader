@@ -1,7 +1,7 @@
 // TODO 변경필요
 const blogName = 'Lezhin Tech';
 const rootUrl = 'http://tech.lezhin.com/';
-const headerSrc = 'http://tech.lezhin.com/assets/img/lezhin_trans_128x128.png';
+const headerSrc = 'http://tech.lezhin.com/assets/img/lezhin_trans_128x128.png'; // 표시 없음
 
 // Module
 const cheerio = require('cheerio');
@@ -15,29 +15,34 @@ exports.getData = function (rootCallback) {
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
 
+            // Article
+            let articleItem = $('li.post-item').eq(0);
+
             // Title
-            let titleItem = $('h2.post-title').eq(0);
+            let titleItem = articleItem.children('h2.post-title').eq(0);
             let parseTitle = titleItem.children('a').text();
             let parseLink = rootUrl + titleItem.children('a').attr('href');
 
             // Date
-            let parseDate = $('p.post-date').eq(0).text().trim();
+            let parseDate = articleItem.children('div.post-meta').eq(0)
+                .children('p.post-date').eq(0).text();
 
             // Summary
-            let parseSummary = $('div.post-summary').eq(0).text();
+            let parseSummary = articleItem.children('div.post-summary').eq(0).text();
 
-            let data = resultItem.getResultItem();
-            data.blog_name = blogName;
-            data.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-            data.blog_header_src = headerSrc;
-            data.article_title = parseTitle;
-            data.article_date = parseDate;
-            data.article_link = parseLink;
-            data.article_summary = parseSummary;
+            // Result
+            let result = resultItem.getResultItem();
+            result.blog_name = blogName;
+            result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.blog_header_src = headerSrc;
+            result.article_title = parseTitle;
+            result.article_date = parseDate;
+            result.article_link = parseLink;
+            result.article_summary = parseSummary;
 
-            rootCallback(data);
+            rootCallback(result);
         })
         .catch(function (err) {
             console.log(err);
         });
-}
+};

@@ -14,32 +14,44 @@ exports.getData = function (rootCallback) {
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
 
+            // Article
+            let articleItem = $('article').eq(0)
+                .children('header.article__header').eq(0);
+
             // Title
-            let titleItem = $('h3.article__title.entry-title').eq(0).children('a').eq(0);
+            let titleItem = articleItem
+                .children('h3.article__title.entry-title').eq(0)
+                .children('a').eq(0);
             let parseTitle = titleItem.text();
             let parseLink = titleItem.attr('href');
 
             // Header
-            let parseHeaderSrc = $('div.article__featured-image').eq(0).children('a').eq(0).children('img').eq(0).attr('src');
+            let parseHeaderSrc = articleItem
+                .children('div.article__featured-image').eq(0)
+                .children('a').eq(0)
+                .children('img').eq(0).attr('src');
 
             // Date
-            let parseDate = $('abbr.published.updated').eq(0).attr('title');
+            let parseDate = articleItem.children('abbr.published.updated').eq(0).attr('title');
 
             // Summary
-            let parseSummary = $('section.article__content.entry-summary').eq(0).children('a').eq(0).children('p').eq(0).text();
+            let parseSummary = articleItem.children('section.article__content.entry-summary').eq(0)
+                .children('a').eq(0)
+                .children('p').eq(0).text();
 
-            let data = resultItem.getResultItem();
-            data.blog_name = blogName;
-            data.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-            data.blog_header_src = parseHeaderSrc;
-            data.article_title = parseTitle;
-            data.article_date = parseDate;
-            data.article_link = rootUrl + parseLink;
-            data.article_summary = parseSummary;
+            // Result
+            let result = resultItem.getResultItem();
+            result.blog_name = blogName;
+            result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.blog_header_src = parseHeaderSrc;
+            result.article_title = parseTitle;
+            result.article_date = parseDate;
+            result.article_link = rootUrl + parseLink;
+            result.article_summary = parseSummary;
 
-            rootCallback(data);
+            rootCallback(result);
         })
         .catch(function (err) {
             console.log(err);
         });
-}
+};
