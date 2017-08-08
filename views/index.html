@@ -33,9 +33,9 @@
     <![endif]-->
 </head>
 <body>
-<div ng-app="trendReaderApp" class="row col-lg-12">
-    <!-- Lezhin Blog Start -->
-    <div class="col-md-3" ng-controller="lezhin_controller">
+<div ng-app="trendReaderApp" class="row col-lg-12" ng-controller="blog_controller">
+    <!-- Blog Start -->
+    <div class="col-md-3" data-ng-repeat="info in list">
         <a href="{{ article_link }}">
             <!-- CardView Start -->
             <md-card class="_md">
@@ -64,103 +64,7 @@
             <!-- CardView End -->
         </a>
     </div>
-    <!-- Lezhin Blog End -->
-
-    <!-- Draman Blog Start -->
-    <div class="col-md-3" ng-controller="drama_controller">
-        <a href="{{ article_link }}">
-            <!-- CardView Start -->
-            <md-card class="_md">
-                <md-card-header>
-                    <md-card-avatar>
-                        <!-- Logo Image-->
-                        <img ng-src="{{ blog_favicon_src }}">
-                    </md-card-avatar>
-                    <md-card-header-text>
-                        <span class="md-title">{{ blog_name }}</span>
-                        <span class="md-subhead">{{ blog_update }}</span>
-                    </md-card-header-text>
-                </md-card-header>
-                <img ng-src="{{ blog_header_image_src }}" class="md-card-image" style="height: 100px">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">{{ article_title }}</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-content>
-                    <p>
-                        {{ article_summary }}
-                    </p>
-                </md-card-content>
-            </md-card>
-            <!-- CardView End -->
-        </a>
-    </div>
-    <!-- Draman Blog End -->
-
-    <!-- Rainist Blog Start -->
-    <div class="col-md-3" ng-controller="rainist_controller">
-        <a href="{{ article_link }}">
-            <!-- CardView Start -->
-            <md-card class="_md">
-                <md-card-header>
-                    <md-card-avatar>
-                        <!-- Logo Image-->
-                        <img ng-src="{{ blog_favicon_src }}">
-                    </md-card-avatar>
-                    <md-card-header-text>
-                        <span class="md-title">{{ blog_name }}</span>
-                        <span class="md-subhead">{{ blog_update }}</span>
-                    </md-card-header-text>
-                </md-card-header>
-                <img ng-src="{{ blog_header_image_src }}" class="md-card-image" style="height: 100px">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">{{ article_title }}</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-content>
-                    <p>
-                        {{ article_summary }}
-                    </p>
-                </md-card-content>
-            </md-card>
-            <!-- CardView End -->
-        </a>
-    </div>
-    <!-- Rainist Blog End -->
-
-    <!-- Spoqa Blog Start -->
-    <div class="col-md-3" ng-controller="spoqa_controller">
-        <a href="{{ article_link }}">
-            <!-- CardView Start -->
-            <md-card class="_md">
-                <md-card-header>
-                    <md-card-avatar>
-                        <!-- Logo Image-->
-                        <img ng-src="{{ blog_favicon_src }}">
-                    </md-card-avatar>
-                    <md-card-header-text>
-                        <span class="md-title">{{ blog_name }}</span>
-                        <span class="md-subhead">{{ blog_update }}</span>
-                    </md-card-header-text>
-                </md-card-header>
-                <img ng-src="{{ blog_header_image_src }}" class="md-card-image" style="height: 100px">
-                <md-card-title>
-                    <md-card-title-text>
-                        <span class="md-headline">{{ article_title }}</span>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-content>
-                    <p>
-                        {{ article_summary }}
-                    </p>
-                </md-card-content>
-            </md-card>
-            <!-- CardView End -->
-        </a>
-    </div>
-    <!-- spoqa Blog End -->
+    <!-- Blog End -->
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
