@@ -1,7 +1,7 @@
 // TODO 변경필요
 const blogName = '애드투페이퍼';
 const rootUrl = 'http://add2paper.github.io/';
-const headerSrc = rootUrl + '/images/blog-cover.png';
+const headerSrc = rootUrl + '/images/blog-cover.png'; // 게시글 표시 이미지 없음
 
 // Module
 const cheerio = require('cheerio');
@@ -15,6 +15,7 @@ exports.getData = function (rootCallback) {
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
 
+            // Article
             let articleItem = $('section.index').eq(0).children('div').eq(0);
 
             // Title
