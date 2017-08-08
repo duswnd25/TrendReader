@@ -13,18 +13,7 @@ function initData($scope, $http, type) {
     });
 }
 
-app.controller("lezhin_controller", function ($scope, $http) {
-    initData($scope, $http, 'lezhin');
-});
-
-app.controller("drama_controller", function ($scope, $http) {
-    initData($scope, $http, 'drama');
-});
-
-app.controller("rainist_controller", function ($scope, $http) {
-    initData($scope, $http, 'rainist');
-});
-
-app.controller("spoqa_controller", function ($scope, $http) {
-    initData($scope, $http, 'spoqa');
+app.controller("blog_controller", function ($scope, $http) {
+    $scope.list = [{name: 'lezhin'}, {name: 'drama'}, {name: 'rainist'}, {name: 'spoqa'}];
+    initData($scope, $http, $scope.list.name);
 });
