@@ -27,7 +27,7 @@ exports.getData = function (rootCallback) {
             let parseSummary = titleItem.children('p.post-excerpt').eq(0).text();
 
             // Date
-            let parseDate = articleItem.children('div.post-meta').eq(0).children('p.post-date').text();
+            let parseDate = articleItem.children('div.post-meta').eq(0).children('p.post-date').eq(0).text();
 
             // Result
             let result = resultItem.getResultItem();
