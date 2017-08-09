@@ -10,9 +10,6 @@ const port = process.env.PORT || 1234;
 const mainRouter = require('./router/main/main.js')(app);
 const apiRouter = require('./router/api/blog.js')(app);
 
-// In Express, this lets you call newrelic from within a template.
-app.locals.newrelic = newrelic;
-
 // Express 설정
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
