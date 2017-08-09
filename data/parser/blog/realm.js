@@ -22,8 +22,8 @@ exports.getData = function (rootCallback) {
             let parseLink = titleItem.attr('href');
 
             // Header
-            let parseHeaderSrc = articleItem.children('a.post.quick.header-image').eq(0)
-                .children('img.col-xs-12.article-img').eq(0).attr('data-cfsrc');
+            let parseHeaderSrc = 'http://' + articleItem.children('a.post.quick.header-image').eq(0)
+                .children('img.col-xs-12.article-img').eq(0).attr('data-cfsrc').replace("//", "");
 
             // Date
             let parseDate = ''; // 표시 없음
