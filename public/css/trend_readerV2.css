@@ -21,9 +21,10 @@ a:hover {
     width: 800px;
 }
 
-.tr-blog-info-container{
+.tr-blog-info-container {
     padding: 10px;
 }
+
 .tr-favicon {
     width: 30px;
     height: 30px;
@@ -35,11 +36,11 @@ a:hover {
     padding-left: 10px;
 }
 
-.tr-container{
+.tr-container {
     margin: 10px auto;
 }
 
-.tr-article-image{
-    width: 320px;
-    height: 180px;
+.tr-article-image {
+    width: 100%;
+    padding: 10px;
 }
