@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
     <!-- a 태그의 커스텀 -->
-    <link rel="stylesheet" href="./public/css/trend_reader.css">
+    <link rel="stylesheet" href="./public/css/trend_readerV2.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" crossorigin="anonymous"></script>
 
@@ -31,15 +31,15 @@
 <body>
 <div id="blog_view" ng-app="trendReaderApp" class="grid col-md-12 container-fluid row" ng-controller="blog_controller">
     <div class="col-md-3 tr-container" ng-repeat="info in list">
-        <a href="{{ info.article_link}}" class="card">
-            <div ng-show="loading" class="loading tr-blog-info-container">
-                <img class="tr-favicon" ng-src="{{ info.blog_favicon_src }}"
+        <a ng-href="{{ info.article_link }}" class="card">
+            <div class="tr-blog-info-container">
+                <img class="tr-favicon" ng-src="{{info.blog_favicon_src }}"
                      alt="블로그 favicon">
-                <h3 class="tr-blog-name">{{ info.blog_name}}</h3>
+                <h3 class="tr-blog-name">{{ info.blog_name }}</h3>
             </div>
             <div class="text-center">
-                <img class="card-img-top tr-article-image img-responsive" alt="게시글 이미지" +
-                     src="{{ info.blog_header_src }}" data-holder-rendered="true">
+                <img class="card-img-top tr-article-image img-responsive" alt="게시글 이미지"
+                     ng-src="{{ info.blog_header_src }}">
                 <div class="card-block">
                     <h4 class="card-title blog-article-title text-center">{{ info.article_title }}</h4>
                     <p class="card-text blog-article-summary">{{ info.article_summary }}
