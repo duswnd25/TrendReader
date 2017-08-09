@@ -31,12 +31,11 @@ function view_create($http, item, callback) {
             '            </div>\n' +
             '        </div>\n' +
             '    </a>\n' +
-            '</div>;'
+            '</div>;';
 
         callback(view);
     });
 }
-
 function getData($http, item, callback) {
     $http.get("./api/blog/" + item).then(function (result) {
         callback(result);

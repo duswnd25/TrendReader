@@ -8,6 +8,6 @@ exports.getResultItem = function () {
         'article_link': '',
         'article_summary': '',
         'is_new': true
-    }
+    };
     return (data);
-}
+};
