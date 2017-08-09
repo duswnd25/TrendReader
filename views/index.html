@@ -9,23 +9,17 @@
     <!-- Stagger Grid by Masonry -->
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 
-    <!-- a태그의 밑줄, 파란효과 제거-->
+    <!-- a 태그의 커스텀 -->
     <link rel="stylesheet" href="./public/css/trend_reader.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" crossorigin="anonymous"></script>
-
-    <!-- Angular Material-->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-
-    <!-- Angular Material Library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/9388fd9475.js"></script>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,17 +29,41 @@
     <![endif]-->
 </head>
 <body>
-<div id="blog_view" ng-app="trendReaderApp" class="grid" ng-controller="blog_controller">
-
+<div id="blog_view" ng-app="trendReaderApp" class="grid col-md-12 container-fluid row" ng-controller="blog_controller">
+    <div class="col-md-3 tr-container" ng-repeat="info in list">
+        <a href="{{ info.article_link}}" class="card">
+            <div ng-show="loading" class="loading tr-blog-info-container">
+                <img class="tr-favicon" src="{{ info.blog_favicon_src }}"
+                     alt="블로그 favicon">
+                <h3 class="tr-blog-name">{{ info.blog_name}}</h3>
+            </div>
+            <div class="text-center">
+                <img class="card-img-top tr-article-image img-responsive" alt="게시글 이미지" +
+                     src="{{ info.blog_header_src }}" data-holder-rendered="true">
+                <div class="card-block">
+                    <h4 class="card-title blog-article-title text-center">{{ info.article_title }}</h4>
+                    <p class="card-text blog-article-summary">{{ info.article_summary }}
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
 </div>
 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+        integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 
 <!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
 
 <!-- Controller -->
