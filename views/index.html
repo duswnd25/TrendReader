@@ -33,7 +33,7 @@
     <div class="col-md-3 tr-container" ng-repeat="info in list">
         <a href="{{ info.article_link}}" class="card">
             <div ng-show="loading" class="loading tr-blog-info-container">
-                <img class="tr-favicon" src="{{ info.blog_favicon_src }}"
+                <img class="tr-favicon" ng-src="{{ info.blog_favicon_src }}"
                      alt="블로그 favicon">
                 <h3 class="tr-blog-name">{{ info.blog_name}}</h3>
             </div>
