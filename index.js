@@ -1,4 +1,4 @@
-require ('newrelic');
+const newrelic = require('newrelic');
 
 // Module
 const bodyParser = require('body-parser');
