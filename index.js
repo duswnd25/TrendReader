@@ -1,7 +1,9 @@
+require ('newrelic');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 1234;
+
 
 const mainRouter = require('./router/main/main.js')(app);
 const apiRouter = require('./router/api/blog.js')(app);

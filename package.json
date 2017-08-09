@@ -27,6 +27,7 @@
     "cheerio": "^1.0.0-rc.2",
     "ejs": "^2.5.7",
     "express": "^4.15.3",
+    "newrelic": "^2.1.0",
     "promise": "^8.0.1",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
