@@ -81,6 +81,9 @@
 <script src="./public/js/blog_controller.js"></script>
 
 <!-- Masonry -->
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js">
+    let $container = jQuery('#masonry-grid');
+    $container.masonry({itemSelector: '#masonry-item', isAnimated: true});
+</script>
 </body>
 </html>
