@@ -14,8 +14,9 @@
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 </head>
 <body>
-<div ng-app="trendReaderApp" class="grid col-md-12 container-fluid row" ng-controller="blog_controller">
-    <div class="grid-item col-lg-3 col-md-4 col-sm-6 col-xs-1 tr-container" ng-repeat="info in list">
+<div id="container" ng-app="trendReaderApp"
+     class="grid col-md-12 container-fluid row " ng-controller="blog_controller">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-1 tr-container" ng-repeat="info in list">
         <a ng-href="{{ info.article_link }}" class="card">
             <div class="tr-blog-info-container">
                 <img class="tr-favicon" ng-src="{{info.blog_favicon_src }}"
@@ -36,12 +37,6 @@
 </div>
 
 <!-- JavaScript -->
-
-<!-- AngularJS -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" crossorigin="anonymous"></script>
-
-<!-- Font Awesome -->
-<script src="https://use.fontawesome.com/9388fd9475.js"></script>
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,8 +60,18 @@
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
 
+
+<!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" crossorigin="anonymous"></script>
+
 <!-- Controller -->
 <script src="./public/js/blog_controller.js"></script>
+
+<!-- Masonry -->
+<script src="./public/js/masonry/jquery.masonry.min.js"></script>
+
+<!-- Font Awesome -->
+<script src="https://use.fontawesome.com/9388fd9475.js"></script>
 
 </body>
 </html>
