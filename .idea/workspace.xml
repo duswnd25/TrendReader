@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b61e8b34-57ac-43ff-8557-0a1a75a63978" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/css/trend_reader.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/add2paper.js" afterPath="$PROJECT_DIR$/data/parser/blog/add2paper.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/drama.js" afterPath="$PROJECT_DIR$/data/parser/blog/drama.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/jandi.js" afterPath="$PROJECT_DIR$/data/parser/blog/jandi.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/kakao.js" afterPath="$PROJECT_DIR$/data/parser/blog/kakao.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/lezhin.js" afterPath="$PROJECT_DIR$/data/parser/blog/lezhin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/linchpin.js" afterPath="$PROJECT_DIR$/data/parser/blog/linchpin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/line.js" afterPath="$PROJECT_DIR$/data/parser/blog/line.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/outsider.js" afterPath="$PROJECT_DIR$/data/parser/blog/outsider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/rainist.js" afterPath="$PROJECT_DIR$/data/parser/blog/rainist.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/realm.js" afterPath="$PROJECT_DIR$/data/parser/blog/realm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/sk.js" afterPath="$PROJECT_DIR$/data/parser/blog/sk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/spoqa.js" afterPath="$PROJECT_DIR$/data/parser/blog/spoqa.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/unity.js" afterPath="$PROJECT_DIR$/data/parser/blog/unity.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/woowabros.js" afterPath="$PROJECT_DIR$/data/parser/blog/woowabros.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/result_item.js" afterPath="$PROJECT_DIR$/data/parser/result_item.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/blog_controller.js" afterPath="$PROJECT_DIR$/public/js/blog_controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.html" afterPath="$PROJECT_DIR$/views/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,33 +31,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="blog_controller.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/js/blog_controller.js">
+      <file leaf-file-name="lezhin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/parser/blog/lezhin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" column="34" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
+            <state relative-caret-position="305">
+              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/index.html">
+      <file leaf-file-name="linchpin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/parser/blog/linchpin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="6" column="117" lean-forward="false" selection-start-line="6" selection-start-column="117" selection-end-line="6" selection-end-column="117" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="322">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="card.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/card.css">
+      <file leaf-file-name="line.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/parser/blog/line.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="305">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="outsider.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/parser/blog/outsider.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="40" column="33" lean-forward="false" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rainist.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/parser/blog/rainist.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="realm.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/parser/blog/realm.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spoqa.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/parser/blog/spoqa.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sk.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/parser/blog/sk.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="unity.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/parser/blog/unity.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="woowabros.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/parser/blog/woowabros.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="943">
+              <caret line="41" column="12" lean-forward="false" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -73,6 +153,7 @@
       <find>tr-blog-info-container</find>
       <find>tr-container</find>
       <find>grid-item</find>
+      <find>trend</find>
     </findStrings>
     <replaceStrings>
       <replace>let</replace>
@@ -97,25 +178,10 @@
         <option value="$PROJECT_DIR$/views/card.html" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/data/parser/blog/tmon.js" />
-        <option value="$PROJECT_DIR$/data/parser/result_item.js" />
         <option value="$PROJECT_DIR$/router/api/blog.js" />
         <option value="$PROJECT_DIR$/public/css/trend_readerV1.css" />
         <option value="$PROJECT_DIR$/public/css/trend_readerV2.css" />
         <option value="$PROJECT_DIR$/data/parser/parse_manager.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/add2paper.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/drama.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/jandi.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/kakao.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/lezhin.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/linchpin.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/line.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/outsider.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/rainist.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/realm.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/sk.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/spoqa.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/unity.js" />
-        <option value="$PROJECT_DIR$/data/parser/blog/woowabros.js" />
         <option value="$PROJECT_DIR$/public/css/waterfall/test.js" />
         <option value="$PROJECT_DIR$/public/js/waterfall/jquery.js" />
         <option value="$PROJECT_DIR$/public/js/waterfall/jquery.waterfall.js" />
@@ -135,6 +201,21 @@
         <option value="$PROJECT_DIR$/public/js/blog_controller.js" />
         <option value="$PROJECT_DIR$/public/css/trend_reader.css" />
         <option value="$PROJECT_DIR$/views/index.html" />
+        <option value="$PROJECT_DIR$/data/parser/result_item.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/add2paper.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/drama.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/jandi.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/kakao.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/lezhin.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/linchpin.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/line.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/outsider.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/rainist.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/realm.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/spoqa.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/sk.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/unity.js" />
+        <option value="$PROJECT_DIR$/data/parser/blog/woowabros.js" />
       </list>
     </option>
   </component>
@@ -185,19 +266,20 @@
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="TrendReader" type="cbb8eebc:String" user="TrendReader" />
-              <item name="public" type="cbb8eebc:String" user="public" />
+              <item name="data" type="cbb8eebc:String" user="data" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="TrendReader" type="cbb8eebc:String" user="TrendReader" />
-              <item name="public" type="cbb8eebc:String" user="public" />
-              <item name="css" type="cbb8eebc:String" user="css" />
+              <item name="data" type="cbb8eebc:String" user="data" />
+              <item name="parser" type="cbb8eebc:String" user="parser" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="TrendReader" type="cbb8eebc:String" user="TrendReader" />
-              <item name="public" type="cbb8eebc:String" user="public" />
-              <item name="js" type="cbb8eebc:String" user="js" />
+              <item name="data" type="cbb8eebc:String" user="data" />
+              <item name="parser" type="cbb8eebc:String" user="parser" />
+              <item name="blog" type="cbb8eebc:String" user="blog" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
@@ -316,12 +398,12 @@
       <workItem from="1502284547135" duration="26663000" />
       <workItem from="1502378262555" duration="6719000" />
       <workItem from="1502389317852" duration="1593000" />
-      <workItem from="1502390940668" duration="713000" />
+      <workItem from="1502390940668" duration="924000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143319000" />
+    <option name="totallyTimeSpent" value="143530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -381,111 +463,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/parse_manager.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/add2paper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="42" column="12" lean-forward="true" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/drama.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="45" column="111" lean-forward="false" selection-start-line="45" selection-start-column="111" selection-end-line="45" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/jandi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="49" column="111" lean-forward="false" selection-start-line="49" selection-start-column="111" selection-end-line="49" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/kakao.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="39" column="111" lean-forward="false" selection-start-line="39" selection-start-column="111" selection-end-line="39" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/lezhin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="40" column="111" lean-forward="false" selection-start-line="40" selection-start-column="111" selection-end-line="40" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/linchpin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="48" column="111" lean-forward="false" selection-start-line="48" selection-start-column="111" selection-end-line="48" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/line.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="39" column="111" lean-forward="false" selection-start-line="39" selection-start-column="111" selection-end-line="39" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/outsider.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="39" column="111" lean-forward="false" selection-start-line="39" selection-start-column="111" selection-end-line="39" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/rainist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="38" column="111" lean-forward="false" selection-start-line="38" selection-start-column="111" selection-end-line="38" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/realm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="41" column="111" lean-forward="false" selection-start-line="41" selection-start-column="111" selection-end-line="41" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/sk.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="39" column="111" lean-forward="false" selection-start-line="39" selection-start-column="111" selection-end-line="39" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/spoqa.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="39" column="111" lean-forward="false" selection-start-line="39" selection-start-column="111" selection-end-line="39" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/unity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="48" column="111" lean-forward="false" selection-start-line="48" selection-start-column="111" selection-end-line="48" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/blog/woowabros.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="39" column="111" lean-forward="false" selection-start-line="39" selection-start-column="111" selection-end-line="39" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/js/waterfall/zepto.js" />
     <entry file="file://$PROJECT_DIR$/public/js/waterfall/jquery.waterfall.js" />
     <entry file="file://$PROJECT_DIR$/public/js/angulargrid.min.js" />
@@ -518,13 +495,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-270">
           <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/result_item.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -583,11 +553,139 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="6" column="117" lean-forward="false" selection-start-line="6" selection-start-column="117" selection-end-line="6" selection-end-column="117" />
+        <state relative-caret-position="552">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/parse_manager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="48" lean-forward="true" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/result_item.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/add2paper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/drama.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/jandi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/kakao.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/lezhin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/linchpin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/line.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/outsider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="40" column="33" lean-forward="false" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/rainist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/realm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/spoqa.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/sk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/unity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/parser/blog/woowabros.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="943">
+          <caret line="41" column="12" lean-forward="false" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>

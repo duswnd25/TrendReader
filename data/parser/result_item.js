@@ -7,7 +7,7 @@ exports.getResultItem = function () {
         'article_date': '',
         'article_link': '',
         'article_summary': '',
-        'is_new': true
+        'blog_type': ''
     };
     return (data);
 };

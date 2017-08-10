@@ -38,7 +38,8 @@ exports.getData = function (rootCallback) {
             result.article_date = parseDate;
             result.article_link = rootUrl + parseLink;
             result.article_summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
-
+            result.blog_type = 'C';
+            
             rootCallback(result);
         })
         .catch(function (err) {
