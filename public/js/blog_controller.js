@@ -1,10 +1,5 @@
 // Masonry
 let elem = document.querySelector('.grid');
-let msnry = new Masonry(elem, {
-    // options
-    itemSelector: '.grid-item',
-    columnWidth: 200
-});
 
 // AngularJS
 let app = angular.module("trendReaderApp", []);

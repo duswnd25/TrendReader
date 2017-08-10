@@ -29,8 +29,8 @@
     <![endif]-->
 </head>
 <body>
-<div id="blog_view" ng-app="trendReaderApp" class="grid col-md-12 container-fluid row grid" ng-controller="blog_controller">
-    <div class="col-md-3 tr-container grid-item" ng-repeat="info in list">
+<div id="blog_view" ng-app="trendReaderApp" class="grid col-md-12 container-fluid row" ng-controller="blog_controller">
+    <div class="col-md-3 tr-container" ng-repeat="info in list">
         <a ng-href="{{ info.article_link }}" class="card">
             <div class="tr-blog-info-container">
                 <img class="tr-favicon" ng-src="{{info.blog_favicon_src }}"
