@@ -36,3 +36,7 @@ a:hover {
     width: 100%;
     padding: 10px;
 }
+
+.grid-item {
+    width: 350px;
+}

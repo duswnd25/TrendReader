@@ -9,41 +9,28 @@
     <!-- a 태그의 커스텀 -->
     <link rel="stylesheet" href="./public/css/trend_reader.css">
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
     <!-- Card View -->
     <link rel="stylesheet" href="./public/css/card.css">
 </head>
 <body>
-<div ng-app="trendReaderApp" class="col-md-12 container-fluid row center-block" ng-controller="blog_controller">
-
+<div ng-app="trendReaderApp" class="grid" ng-controller="blog_controller">
     <!-- start -->
     <div class="wrapper" ng-repeat="info in list">
         <div class="card radius shadowDepth1">
+            <!-- 헤더 이미지 -->
             <div class="card__image border-tlr-radius">
                 <img ng-src="{{ info.blog_header_src }}" alt="블로그 헤더 이미지" class="border-tlr-radius"
-                     style="background-color:white; height: 25%">
+                     style="background-color:white; height: 160px">
             </div>
 
             <div class="card__content card__padding">
-                <div class="card__share">
-                    <div class="card__social">
-                        <a class="share-icon facebook" href="#"><span class="fa fa-facebook"></span></a>
-                        <a class="share-icon twitter" href="#"><span class="fa fa-twitter"></span></a>
-                        <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>
-                    </div>
-
-                    <a id="share" class="share-toggle share-icon" href="#"></a>
-                </div>
 
                 <div class="card__meta">
                     <time class="article-date">{{ info.article_date }}</time>
                 </div>
 
                 <article class="card__article">
-                    <h2><a href="{{ info.article_link }}">{{ info.article_title }}</a></h2>
+                    <h2><a href="{{ info.article_link }}"><strong>{{ info.article_title }}</strong></a></h2>
 
                     <p>{{ info.article_summary }}</p>
                 </article>
@@ -96,5 +83,13 @@
 <!-- Font Awesome -->
 <script src="https://use.fontawesome.com/9388fd9475.js"></script>
 
+<!-- Masonry -->
+<script src="./public/js/masonry.pkgd.min.js"></script>
+<script>
+    $('div.grid.container-fluid').masonry({
+        // options
+        itemSelector: 'div.wrapper'
+    });
+</script>
 </body>
 </html>

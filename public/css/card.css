@@ -30,6 +30,8 @@ body {
     font-size: 1.6em;
     line-height: 1.6;
     color: #666;
+    display: flex;
+    justify-content: center;
 }
 
 a {
@@ -48,7 +50,10 @@ h2 {
 
 .wrapper {
     max-width: 350px;
-    margin: 10px 5px;
+    margin: 5px;
+    display: inline-block;
+    vertical-align: top;
+    align-self: center;
 }
 
 /**
@@ -180,7 +185,7 @@ h2 {
 
 .share-toggle:before {
     content: "\f1e0";
-    font-family: 'FontAwesome';
+    font-family: 'FontAwesome', sans-serif;
     color: #3498db;
 }
 
