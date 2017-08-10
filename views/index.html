@@ -14,10 +14,9 @@
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 </head>
 <body>
-<div id="container" ng-app="trendReaderApp"
-     class="grid col-md-12 container-fluid row " ng-controller="blog_controller">
+<div ng-app="trendReaderApp" class="col-md-12 container-fluid row center-block" ng-controller="blog_controller">
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-1 tr-container" ng-repeat="info in list">
-        <a ng-href="{{ info.article_link }}" class="card">
+        <a ng-href="{{ info.article_link }}" class="card center-block">
             <div class="tr-blog-info-container">
                 <img class="tr-favicon" ng-src="{{info.blog_favicon_src }}"
                      alt="블로그 favicon">
@@ -66,9 +65,6 @@
 
 <!-- Controller -->
 <script src="./public/js/blog_controller.js"></script>
-
-<!-- Masonry -->
-<script src="./public/js/masonry/jquery.masonry.min.js"></script>
 
 <!-- Font Awesome -->
 <script src="https://use.fontawesome.com/9388fd9475.js"></script>
