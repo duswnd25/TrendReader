@@ -8,6 +8,15 @@
 
     <!-- Card View -->
     <link rel="stylesheet" href="./public/css/card.css">
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
 <div id="masonry-grid" ng-app="trendReaderApp" class="grid" ng-controller="blog_controller">
@@ -37,7 +46,8 @@
                 <div class="card__author text-center">
                     <img ng-src="{{info.blog_favicon_src }}" alt="블로그 Favicon">
                     <div class="card__author-content">
-                        By {{ info.blog_name }}
+                        By {{ info.blog_name }} <span
+                            ng-class="info.blog_type === 'C' ? 'label label-primary' : 'label label-success'">{{info.blog_type}}</span>
                     </div>
                 </div>
             </div>
