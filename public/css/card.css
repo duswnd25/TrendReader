@@ -1,3 +1,6 @@
+/**
+ Orignal By https://codepen.io/mithicher/pen/azQKNN
+ **/
 @import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
 @import 'https://fonts.googleapis.com/css?family=Roboto:700,400';
 
@@ -27,7 +30,6 @@ body {
     font-size: 1.6em;
     line-height: 1.6;
     color: #666;
-    align-content: center;
 }
 
 a {
