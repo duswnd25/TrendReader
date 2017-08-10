@@ -29,6 +29,7 @@
     "express": "^4.15.3",
     "express-newrelic": "^1.27.4",
     "fs": "0.0.1-security",
+    "masonry-layout": "^4.2.0",
     "newrelic": "^2.1.0",
     "promise": "^8.0.1",
     "request": "^2.81.0",
