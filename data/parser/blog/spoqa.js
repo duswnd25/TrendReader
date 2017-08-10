@@ -15,7 +15,7 @@ exports.getData = function (rootCallback) {
             let $ = cheerio.load(htmlString);
 
             // Title
-            let blogName = $('title').eq(0).text().substring(0, 16);
+            let blogName = $('title').eq(0).text().substring(0, 20);
 
             // Article
             let articleItem = $('li.post-item').eq(0).children('div.post-author-info').eq(0);
