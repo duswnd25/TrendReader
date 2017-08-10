@@ -54,6 +54,7 @@ h2 {
     display: inline-block;
     vertical-align: top;
     align-self: center;
+    float: left
 }
 
 /**

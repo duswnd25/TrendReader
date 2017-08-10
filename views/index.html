@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="./public/css/card.css">
 </head>
 <body>
-<div ng-app="trendReaderApp" class="grid" ng-controller="blog_controller">
+<div id="masonry-grid" ng-app="trendReaderApp" class="grid" ng-controller="blog_controller">
     <!-- start -->
-    <div class="wrapper" ng-repeat="info in list">
+    <div id="masonry-item" class="wrapper" ng-repeat="info in list">
         <div class="card radius shadowDepth1">
             <!-- 헤더 이미지 -->
             <div class="card__image border-tlr-radius">
@@ -82,11 +82,5 @@
 
 <!-- Masonry -->
 <script src="./public/js/masonry.pkgd.min.js"></script>
-<script>
-    $('div.grid.ng-scope').masonry({
-        // options
-        itemSelector: 'div.wrapper.ng-scope'
-    });
-</script>
 </body>
 </html>
