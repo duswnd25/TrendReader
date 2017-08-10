@@ -1,6 +1,3 @@
-// Masonry
-let elem = document.querySelector('.grid');
-
 // AngularJS
 let app = angular.module("trendReaderApp", []);
 

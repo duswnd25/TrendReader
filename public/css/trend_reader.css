@@ -13,14 +13,6 @@ a:hover {
     text-decoration: none;
 }
 
-.grid-item {
-    width: 400px;
-}
-
-.grid-item--width2 {
-    width: 800px;
-}
-
 .tr-blog-info-container {
     padding: 10px;
 }
