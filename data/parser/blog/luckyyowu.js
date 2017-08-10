@@ -1,5 +1,4 @@
 // TODO 변경필요
-const blogName = '요우의 내맘대로 블로그';
 const rootUrl = 'http://luckyyowu.tistory.com/';
 const headerSrc = 'http://cfile4.uf.tistory.com/image/25438D4353F39A252F6A0B'; // 표시 없으
 // Module
@@ -14,6 +13,10 @@ exports.getData = function (rootCallback) {
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
 
+            // Title
+            let blogName = $('title').eq(0).text().substring(0, 16);
+
+            // Article
             let articleItem = $('div.list_content').eq(0);
 
             // Title

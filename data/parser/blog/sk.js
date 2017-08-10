@@ -1,5 +1,4 @@
 // TODO 변경필요
-const blogName = 'SK README';
 const rootUrl = 'http://readme.skplanet.com/';
 const headerSrc = 'http://readme.skplanet.com/wp-content/themes/blaskan/img/bg_13header01.png';
 
@@ -14,6 +13,9 @@ exports.getData = function (rootCallback) {
     requestPromise(rootUrl)
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
+
+            // Title
+            let blogName = $('title').eq(0).text().substring(0, 16);
 
             // Article
             let articleItem = $('section#content').eq(0).children('article').eq(0);

@@ -1,5 +1,4 @@
 // TODO 변경필요
-const blogName = 'Realm';
 const rootUrl = 'https://news.realm.io/kr/news/';
 
 // Module
@@ -14,6 +13,10 @@ exports.getData = function (rootCallback) {
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
 
+            // Title
+            let blogName = $('title').eq(0).text().substring(0, 16);
+
+            // Article
             let articleItem = $('div.post.quick').eq(0).children('div.article-block.flex.center.column').eq(0);
 
             // Title

@@ -1,5 +1,4 @@
 // TODO 변경필요
-const blogName = 'Kakao';
 const rootUrl = 'http://tech.kakao.com/';
 const headerSrc = 'http://tech.kakao.com/assets/images/default_blog_cover.jpg'; // 표시없음
 
@@ -14,6 +13,9 @@ exports.getData = function (rootCallback) {
     requestPromise(rootUrl)
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
+
+            // Title
+            let blogName = $('title').eq(0).text().substring(0, 16);
 
             // Article
             let articleItem = $('li.post-item.post').eq(0);

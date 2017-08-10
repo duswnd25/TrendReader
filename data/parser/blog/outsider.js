@@ -1,5 +1,4 @@
 // TODO 변경필요
-const blogName = 'Outsider\'s Dev Story';
 const rootUrl = 'https://blog.outsider.ne.kr/category';
 const parseHeaderSrc = 'https://blog.outsider.ne.kr/skin/blog/anti_verbose/images/main-bg.jpg.pagespeed.ce.0KiEbhhP7k.jpg'; // 표시 없음
 
@@ -14,6 +13,9 @@ exports.getData = function (rootCallback) {
     requestPromise(rootUrl)
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
+
+            // Title
+            let blogName = $('title').eq(0).text().substring(0, 16);
 
             // Article
             let articleItem = $('dl.post').eq(0);

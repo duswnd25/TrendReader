@@ -1,5 +1,4 @@
 // TODO 변경필요
-const blogName = '우아한형제들';
 const rootUrl = 'http://woowabros.github.io/';
 const headerSrc = 'http://woowabros.github.io/img/slide2.jpg'; // 표시없음
 
@@ -14,6 +13,9 @@ exports.getData = function (rootCallback) {
     requestPromise(rootUrl)
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
+
+            // Title
+            let blogName = $('title').eq(0).text().substring(0, 16);
 
             // Article
             let articleItem = $('div.list-module').eq(0);

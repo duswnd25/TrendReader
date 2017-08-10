@@ -1,5 +1,4 @@
 // TODO 변경필요
-const blogName = 'Drama & Company';
 const rootUrl = 'http://blog.dramancompany.com/category/develop/';
 let headerSrc = 'http://blog.dramancompany.com/wp-content/uploads/2015/11/2000_dark.png'; // 표시 없음
 
@@ -14,6 +13,9 @@ exports.getData = function (rootCallback) {
     requestPromise(rootUrl)
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
+
+            // Title
+            let blogName = $('title').eq(0).text().substring(0, 16);
 
             // Article
             let articleItem = $('article').eq(0);

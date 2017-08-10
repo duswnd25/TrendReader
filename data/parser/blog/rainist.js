@@ -15,6 +15,9 @@ exports.getData = function (rootCallback) {
             let $ = cheerio.load(htmlString);
 
             // Title
+            let blogName = $('title').eq(0).text().substring(0, 16);
+
+            // Title
             let parseTitle = $('div.u-letterSpacingTight.u-lineHeightTighter.u-fontSize24').eq(0).text();
             let parseLink = $('div.u-lineHeightBase.postItem').eq(0).children('a').eq(0).attr('href');
 

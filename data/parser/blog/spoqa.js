@@ -1,5 +1,4 @@
 // TODO 변경필요
-const blogName = 'Spoqa';
 const rootUrl = 'https://spoqa.github.io/';
 const headerSrc = 'https://spoqa.github.io/images/logo.png';
 
@@ -14,6 +13,9 @@ exports.getData = function (rootCallback) {
     requestPromise(rootUrl)
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
+
+            // Title
+            let blogName = $('title').eq(0).text().substring(0, 16);
 
             // Article
             let articleItem = $('li.post-item').eq(0).children('div.post-author-info').eq(0);

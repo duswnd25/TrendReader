@@ -1,5 +1,4 @@
 // TODO 변경필요
-const blogName = 'Line';
 const rootUrl = 'https://engineering.linecorp.com/ko/blog';
 const headerSrc = 'https://d.line-scdn.net/r/web/developers/img/vu_blog.jpg'; // 표시없음
 
@@ -14,6 +13,9 @@ exports.getData = function (rootCallback) {
     requestPromise(rootUrl)
         .then(function (htmlString) {
             let $ = cheerio.load(htmlString);
+
+            // Title
+            let blogName = $('title').eq(0).text().substring(0, 16);
 
             // Article
             let articleItem = $('ul.blog_list').eq(0).children('li').eq(0);
