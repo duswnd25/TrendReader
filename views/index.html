@@ -6,31 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Stagger Grid by Masonry -->
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-
     <!-- a 태그의 커스텀 -->
-    <link rel="stylesheet" href="./public/css/trend_readerV2.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" crossorigin="anonymous"></script>
-
-    <!-- Font Awesome -->
-    <script src="https://use.fontawesome.com/9388fd9475.js"></script>
+    <link rel="stylesheet" href="./public/css/trend_reader.css">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
           integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
-<div id="blog_view" ng-app="trendReaderApp" class="grid col-md-12 container-fluid row" ng-controller="blog_controller">
-    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-1 tr-container" ng-repeat="info in list">
+<div ng-app="trendReaderApp" class="grid col-md-12 container-fluid row" ng-controller="blog_controller">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-1 tr-container waterfall" ng-repeat="info in list">
         <a ng-href="{{ info.article_link }}" class="card">
             <div class="tr-blog-info-container">
                 <img class="tr-favicon" ng-src="{{info.blog_favicon_src }}"
@@ -50,6 +35,20 @@
     </div>
 </div>
 
+<!-- JavaScript -->
+
+<!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" crossorigin="anonymous"></script>
+
+<!-- Font Awesome -->
+<script src="https://use.fontawesome.com/9388fd9475.js"></script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
         integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
