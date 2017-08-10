@@ -5,6 +5,10 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 1234;
+const compression = require('compression');
+
+// gzip
+app.use(compression());
 
 // Router
 const mainRouter = require('./router/main/main.js')(app);
