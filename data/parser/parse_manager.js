@@ -4,16 +4,24 @@ exports.getData = function (type, rootCallback) {
         let path = process.cwd() + '/data/parser/blog';
 
         let blogList = fs.readdirSync(path);
-        let result = JSON.parse('[]');
+        let result = '[';
         let counter = 1;
 
         blogList.forEach(file => {
-            let parser = require('./blog/' + file);
-            parser.getData(function (data) {
-                result.push(data);
-                counter === blogList.length ? rootCallback(data) : counter++;
-            });
-        });
+                let parser = require('./blog/' + file);
+                parser.getData(function (data) {
+                    data = JSON.stringify(data);
+                    result += result === '[' ? data : ',' + data;
+                    if (counter === blogList.length) {
+                        result += ']';
+                        rootCallback(JSON.parse(result))
+                    }
+                    else {
+                        counter++;
+                    }
+                });
+            }
+        );
     } else {
         try {
             let parser = require('./blog/' + type);
@@ -27,4 +35,5 @@ exports.getData = function (type, rootCallback) {
             rootCallback(data);
         }
     }
-};
+}
+;
