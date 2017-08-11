@@ -42,7 +42,8 @@ exports.getRecentData = function (blogName, rootCallback) {
             if (counter === 1) {
                 result += JSON.stringify(tempFile);
             } else if (counter === blogList.length) {
-                rootCallback(result);
+                result += "]";
+                rootCallback(JSON.parse(result));
             } else {
                 result += (',' + JSON.stringify(tempFile));
             }
