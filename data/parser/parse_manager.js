@@ -35,5 +35,4 @@ exports.getData = function (type, rootCallback) {
             rootCallback(data);
         }
     }
-}
-;
+};
