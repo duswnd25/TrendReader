@@ -21,33 +21,33 @@
 <body>
 <div id="masonry-grid" ng-app="trendReaderApp" class="grid" ng-controller="blog_controller">
     <!-- start -->
-    <div id="masonry-item" class="wrapper" ng-repeat="info in list">
+    <div id="masonry-item" class="wrapper" ng-repeat="info in blogList">
         <div class="card radius shadowDepth1">
             <!-- 헤더 이미지 -->
             <div class="card__image border-tlr-radius">
-                <img ng-src="{{ info.blog_header_src }}" alt="블로그 헤더 이미지" class="border-tlr-radius"
+                <img ng-src="{{ ::info.blog_header_src }}" alt="블로그 헤더 이미지" class="border-tlr-radius"
                      style="background-color:white; height: 160px">
             </div>
 
             <div class="card__content card__padding">
 
                 <div class="card__meta">
-                    <time class="article-date">{{ info.article_date }}</time>
+                    <time class="article-date">{{ ::info.article_date }}</time>
                 </div>
 
                 <article class="card__article">
-                    <h2><a href="{{ info.article_link }}"><strong>{{ info.article_title }}</strong></a></h2>
+                    <h2><a href="{{ ::info.article_link }}"><strong>{{ ::info.article_title }}</strong></a></h2>
 
-                    <p>{{ info.article_summary }}</p>
+                    <p>{{ ::info.article_summary }}</p>
                 </article>
             </div>
 
             <div class="card__action">
                 <div class="card__author text-center">
-                    <img ng-src="{{info.blog_favicon_src }}" alt="블로그 Favicon">
+                    <img ng-src="{{::info.blog_favicon_src }}" alt="블로그 Favicon">
                     <div class="card__author-content">
                         By {{ info.blog_name }} <span
-                            ng-class="info.blog_type === 'C' ? 'label label-primary' : 'label label-success'">{{info.blog_type}}</span>
+                            ng-class="info.blog_type === 'C' ? 'label label-primary' : 'label label-success'">{{::info.blog_type}}</span>
                     </div>
                 </div>
             </div>
