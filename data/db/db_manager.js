@@ -22,8 +22,8 @@ exports.isNewData = function (blogName, parseTitle, rootCallback) {
 };
 
 // 새 데이터로 덮어쓰는 함수
-exports.saveNewData = function (name, data) {
-    let file = fs.createWriteStream('./log/' + name + '.json', defaultOptions);
+exports.saveNewData = function (data) {
+    let file = fs.createWriteStream('./log/' + data.blog_name + '.json', defaultOptions);
     file.write(data);
     file.end();
 };
