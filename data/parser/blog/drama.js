@@ -6,8 +6,7 @@ let headerSrc = 'http://blog.dramancompany.com/wp-content/uploads/2015/11/2000_d
 const cheerio = require('cheerio');
 const requestPromise = require('request-promise');
 
-const rootPath = process.cwd();
-const resultItem = require(rootPath + '/data/parser/result_item');
+const resultItem = require('../result_item');
 
 exports.getData = function (rootCallback) {
     requestPromise(rootUrl)

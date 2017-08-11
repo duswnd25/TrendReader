@@ -6,8 +6,7 @@ const headerSrc = 'http://tech.kakao.com/assets/images/default_blog_cover.jpg'; 
 const cheerio = require('cheerio');
 const requestPromise = require('request-promise');
 
-const rootPath = process.cwd();
-const resultItem = require(rootPath + '/data/parser/result_item');
+const resultItem = require('../result_item');
 
 exports.getData = function (rootCallback) {
     requestPromise(rootUrl)

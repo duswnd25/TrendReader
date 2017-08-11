@@ -5,8 +5,7 @@ const headerSrc = 'http://cfile4.uf.tistory.com/image/25438D4353F39A252F6A0B'; /
 const cheerio = require('cheerio');
 const requestPromise = require('request-promise');
 
-const rootPath = process.cwd();
-const resultItem = require(rootPath + '/data/parser/result_item');
+const resultItem = require('../result_item');
 
 exports.getData = function (rootCallback) {
     requestPromise(rootUrl)

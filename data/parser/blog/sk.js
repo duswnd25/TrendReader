@@ -6,8 +6,7 @@ const headerSrc = 'http://readme.skplanet.com/wp-content/themes/blaskan/img/bg_1
 const cheerio = require('cheerio');
 const requestPromise = require('request-promise');
 
-const rootPath = process.cwd();
-const resultItem = require(rootPath + '/data/parser/result_item');
+const resultItem = require('../result_item');
 
 exports.getData = function (rootCallback) {
     requestPromise(rootUrl)
