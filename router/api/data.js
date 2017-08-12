@@ -15,5 +15,6 @@ module.exports = function (app) {
 
     app.get('/api/data/parse/', (req, res) => {
         parseManager.parseData();
+        return res.status(404).json({success: '명령어 전달 완료.'});
     });
 };
