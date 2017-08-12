@@ -13,8 +13,8 @@ module.exports = function (app) {
         });
     });
 
-    app.get('/api/data/parse/', (req, res) => {
-        parseManager.parseData();
+    app.get('/api/data/parse/:type', (req, res) => {
+        parseManager.parseData(req.params.type);
         return res.status(404).json({success: '명령어 전달 완료.'});
     });
 };
