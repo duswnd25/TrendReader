@@ -5,11 +5,11 @@ let path = './blog';
 let blogList = fs.readdirSync(path);
 blogList.forEach(file => {
         let parser = require('./blog/' + file);
+        let tagName = file.replace('.js', '').toLowerCase();
         parser.getData(function (data) {
-            dbManager.isNewData(data.blog_name, data.article_title, function (isNewData) {
+            dbManager.isNewData(tagName, data.article_title, function (isNewData) {
                 if (isNewData) {
-                    dbManager.saveNewData(data);
-                } else {
+                    dbManager.saveNewData(tagName, data);
                 }
             })
         });
