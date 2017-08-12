@@ -10,19 +10,19 @@ exports.isNewData = function (tagName, parseTitle, rootCallback) {
 
 // 새 데이터로 덮어쓰는 함수
 exports.saveNewData = function (tagName, data) {
-    fs.writeFile(path + tagName + '.json', JSON.stringify(data), defaultOptions, function (err) {
+    let tempJson = data;
+    tempJson.article_date = Date.now();
+    fs.writeFile(path + tagName + '.json', JSON.stringify(tempJson), defaultOptions, function (err) {
         if (err) {
             console.log(err);
         }
-        console.log('write success');
     });
 };
 
 // 최근 값 가져오기
-exports.getRecentData = function (blogName, rootCallback) {
+exports.getRecentData = function (type, rootCallback) {
 
-    if (blogName === 'all') {
-
+    if (type === 'all') {
         let blogList = fs.readdirSync(process.cwd() + '/data/db/log');
         let result = '[';
         let counter = 1;
@@ -36,11 +36,11 @@ exports.getRecentData = function (blogName, rootCallback) {
                 rootCallback(JSON.parse(result));
             } else {
                 result += (',' + JSON.stringify(tempFile));
+                counter++;
             }
-            counter++;
         });
     } else {
-        let jsonFile = require(path + blogName + '.json');
+        let jsonFile = require(path + type + '.json');
         rootCallback(jsonFile);
     }
 };
