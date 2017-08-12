@@ -26,9 +26,6 @@ exports.getData = function (rootCallback) {
             let parseTitle = titleItem.text();
             let parseLink = titleItem.attr('href');
 
-            // Date
-            let parseDate = ''; // 표시 없음
-
             /**
              * Summary
              * post-article 클래스를 가진 요소가 2가지 이기 때문에 1로 해줘야함
@@ -42,7 +39,6 @@ exports.getData = function (rootCallback) {
             result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
             result.blog_header_src = headerSrc;
             result.article_title = parseTitle;
-            result.article_date = parseDate;
             result.article_link = parseLink;
             result.article_summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
             result.blog_type = 'C';

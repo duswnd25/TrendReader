@@ -24,9 +24,6 @@ exports.getData = function (rootCallback) {
             let parsingHeaderSrc = $('div.u-lineHeightBase.postItem').eq(0).children('a').eq(0).css('background-image');
             parsingHeaderSrc = parsingHeaderSrc.replace('url(','').replace(')','').replace(/\"/gi, "");
 
-            // Date
-            let parseDate = $('time').eq(0).attr('datetime');
-
             // Summary
             let parseSummary = $('div.u-contentSansThin.u-lineHeightBaseSans.u-fontSize24.u-xs-fontSize18').eq(0).text();
 
@@ -36,7 +33,6 @@ exports.getData = function (rootCallback) {
             result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + 'https://rainist.com/';
             result.blog_header_src = parsingHeaderSrc;
             result.article_title = parseTitle;
-            result.article_date = parseDate;
             result.article_link = parseLink;
             result.article_summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
             result.blog_type = 'C';

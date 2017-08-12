@@ -27,16 +27,12 @@ exports.getData = function (rootCallback) {
             // Summary
             let parseSummary = articleItem.children('div.bl_content.frontstage.markdown-out').eq(0).text();
 
-            // Date
-            let parseDate = articleItem.children('div.bl_desc').eq(0).children('span.date').eq(0).text();
-
             // Result
             let result = resultItem.getResultItem();
             result.blog_name = blogName;
             result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
             result.blog_header_src = headerSrc;
             result.article_title = parseTitle;
-            result.article_date = parseDate;
             result.article_link = rootUrl + parseLink;
             result.article_summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
             result.blog_type = 'C';

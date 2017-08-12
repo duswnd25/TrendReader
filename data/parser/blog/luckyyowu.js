@@ -23,9 +23,6 @@ exports.getData = function (rootCallback) {
             let parseTitle = titleItem.children('strong.tit_post').eq(0).text();
             let parseLink = titleItem.attr('href');
 
-            // Date
-            let parseDate = articleItem.children('div.detail_info').eq(0).text(); // 표시 없음
-
             // Summary
             let parseSummary = titleItem.children('p.txt_post').eq(0).text(); // 표시 없음
 
@@ -35,7 +32,6 @@ exports.getData = function (rootCallback) {
             result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
             result.blog_header_src = headerSrc;
             result.article_title = parseTitle;
-            result.article_date = parseDate;
             result.article_link = rootUrl + parseLink;
             result.article_summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
             result.blog_type = 'P';

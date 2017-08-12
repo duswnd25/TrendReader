@@ -23,11 +23,6 @@ exports.getData = function (rootCallback) {
             let parseTitle = titleItem.text();
             let parseLink = titleItem.attr('href');
 
-            // Date
-            let parseDate = articleItem.children('div.mb10').eq(0)
-                .children('span').eq(0)
-                .children('span.c-mg').eq(0).text();
-
             // Header Image
             let parseHeaderSrc = articleItem.parent().children('div.g5.p0').eq(0)
                 .children('a').eq(0)
@@ -44,7 +39,6 @@ exports.getData = function (rootCallback) {
             result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
             result.blog_header_src = parseHeaderSrc;
             result.article_title = parseTitle;
-            result.article_date = parseDate;
             result.article_link = parseLink;
             result.article_summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
             result.blog_type = 'C';
