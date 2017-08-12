@@ -29,16 +29,19 @@ exports.getRecentData = function (type, rootCallback) {
 
         blogList.forEach(file => {
             let tempFile = require(path + file);
-            if (counter === 1) {
-                result += JSON.stringify(tempFile);
-            } else if (counter === blogList.length) {
-                result += "]";
-                rootCallback(JSON.parse(result));
-            } else {
-                result += (',' + JSON.stringify(tempFile));
-                counter++;
+
+            if (counter !== 1) {
+                result += ',';
             }
-            console.log (result);
+
+            result += JSON.stringify(tempFile);
+
+            if (counter === blogList.length) {
+                result += ']';
+                rootCallback(JSON.parse(result));
+            }
+
+            counter++;
         });
     } else {
         let jsonFile = require(path + type + '.json');
