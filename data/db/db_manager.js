@@ -23,7 +23,7 @@ exports.saveNewData = function (tagName, data) {
 exports.getRecentData = function (type, rootCallback) {
 
     if (type === 'all') {
-        let blogList = fs.readdirSync(process.cwd() + '/data/db/log');
+        let blogList = fs.readdirSync(process.cwd() + '/data/db/log/');
         let result = '[';
         let counter = 1;
 
