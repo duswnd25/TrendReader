@@ -12,7 +12,7 @@ app.use(compression());
 
 // Router
 const mainRouter = require('./router/main/main.js')(app);
-const apiRouter = require('./router/api/blog.js')(app);
+const apiRouter = require('./router/api/data.js')(app);
 
 // Express 설정
 app.set('views', __dirname + '/views');
