@@ -1,10 +1,1 @@
-{
-   "blog_name": "",
-   "blog_favicon_src": "",
-   "blog_header_src": "",
-   "article_title": "",
-   "article_date": "",
-   "article_link": "",
-   "article_summary": "",
-   "blog_type": ""
- }
+{"blog_name":"Spoqa 기술 블로그","blog_favicon_src":"https://www.google.com/s2/favicons?domain=https://spoqa.github.io/","blog_header_src":"https://spoqa.github.io/images/logo.png","article_title":"개발 환경에서 유용한 Docker 명령어 소개","article_date":1502542227979,"article_link":"https://spoqa.github.io/./2017/06/22/docker-tip.html","article_summary":"개발 환경에서 사용할 수 있는 Docker 명령어를 소개합니다.","blog_type":"C"}
