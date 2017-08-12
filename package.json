@@ -34,6 +34,7 @@
     "fs": "0.0.1-security",
     "mongoose": "^4.11.6",
     "newrelic": "^2.1.0",
+    "node-schedule": "^1.2.4",
     "promise": "^8.0.1",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
