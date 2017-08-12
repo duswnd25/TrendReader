@@ -3,29 +3,19 @@ let defaultOptions = {encoding: 'utf-8'};
 let path = './log/';
 
 // 새 데이터인지 확인하는 함수
-exports.isNewData = function (blogName, parseTitle, rootCallback) {
-    let tempPath = path + blogName + '.json';
-
-    fs.exists(tempPath, function (exists) {
-        if (exists) {
-            fs.readFile(tempPath, 'utf8', function (err, data) {
-                if (err) {
-                    return console.log(err);
-                }
-                let dataOrigin = JSON.parse(data);
-                rootCallback(dataOrigin.article_title === parseTitle);
-            });
-        } else {
-            rootCallback(false);
-        }
-    });
+exports.isNewData = function (tagName, parseTitle, rootCallback) {
+    let jsonFile = require(path + tagName + '.json');
+    rootCallback(!(jsonFile.article_title === parseTitle));
 };
 
 // 새 데이터로 덮어쓰는 함수
-exports.saveNewData = function (data) {
-    let file = fs.createWriteStream('./log/' + data.blog_name + '.json', defaultOptions);
-    file.write(data);
-    file.end();
+exports.saveNewData = function (tagName, data) {
+    fs.writeFile(path + tagName + '.json', JSON.stringify(data), defaultOptions, function (err) {
+        if (err) {
+            console.log(err);
+        }
+        console.log('write success');
+    });
 };
 
 // 최근 값 가져오기
