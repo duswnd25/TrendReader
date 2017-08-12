@@ -24,8 +24,7 @@ exports.getData = function (rootCallback) {
             let parseLink = titleItem.attr('href');
 
             // Header
-            let parseHeaderSrc = 'http://' + articleItem.children('a.post.quick.header-image').eq(0)
-                .children('img.col-xs-12.article-img').eq(0).attr('data-cfsrc').replace("//", "");
+            let parseHeaderSrc = 'https://realm.io/assets/svg/products/realm-mobile-platform/rmp-react-to-changes-in-real-time.svg';
 
             // Date
             let parseDate = ''; // 표시 없음
