@@ -32,6 +32,6 @@ const server = app.listen(port, function () {
 
     // 매 30분 반복
     let scheduler = schedule.scheduleJob('* 30 * * * *', function () {
-        parseManager.parseData();
+        parseManager.parseData('all');
     });
 });
