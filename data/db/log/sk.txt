@@ -1,1 +1,10 @@
-{"blog_name":"README | SK플래닛 기술 블로","blog_favicon_src":"https://www.google.com/s2/favicons?domain=http://readme.skplanet.com/","blog_header_src":"http://readme.skplanet.com/wp-content/themes/blaskan/img/bg_13header01.png","article_title":"\n\t\t\t\t\t\t\t11번가 챗봇 바로\n\t\t\t\t\t\t","article_date":1502538335213,"article_link":"http://readme.skplanet.com//?p=13812","article_summary":"\n\t\t\t\t\t\t\t\t안녕하세요, SK플래닛 Bot Platform 개발팀 노세호입니다. 모바일 커머스의 중요한 소비자 트렌드로 대화형 커머스(Conversational Commerce)가 떠오르게 되었고, 이 대화형 커머스의 중심에 있는 Chatbot을 개발하여 11번가의 전자제품을 상담해주는 디지털 컨시어지에 적용시켰던 경험을 공유해보려고 합니다. 그 중에서","blog_type":"C"}
+{
+   "blog_name": "",
+   "blog_favicon_src": "",
+   "blog_header_src": "",
+   "article_title": "",
+   "article_date": "",
+   "article_link": "",
+   "article_summary": "",
+   "blog_type": ""
+ }

@@ -1,1 +1,10 @@
-{"blog_name":"기술 블로그 – DRAMA&COMPA","blog_favicon_src":"https://www.google.com/s2/favicons?domain=http://blog.dramancompany.com/category/develop/","blog_header_src":"http://blog.dramancompany.com/wp-content/uploads/2015/11/2000_dark.png","article_title":" AWS Code Deploy를 통한 배포 자동화","article_date":1502538332238,"article_link":" http://blog.dramancompany.com/2017/04/aws-code-deploy%eb%a5%bc-%ed%86%b5%ed%95%9c-%eb%b0%b0%ed%8f%ac-%ec%9e%90%eb%8f%99%ed%99%94/","article_summary":"서버 배포는 단순하고 반복작업이지만 절차가 적지 않아 실수를 할 가능성이 높습니다. 또 한번의 실수는 커다란 시스템 장애로 이루어질 수 있기 때문에 많은 분들에게 배포란 꽤나 부담스럽고 큰 업무로 느껴집니다. 특히 하루에 여러번의 배포를 진행해야 하는 날이면 시간도 시간이지만 스트레스가 크죠. 드라마앤컴퍼니에서 이전까지는 서버 배포를 진행하는 개발자가 몇 ","blog_type":"C"}
+{
+   "blog_name": "",
+   "blog_favicon_src": "",
+   "blog_header_src": "",
+   "article_title": "",
+   "article_date": "",
+   "article_link": "",
+   "article_summary": "",
+   "blog_type": ""
+ }
