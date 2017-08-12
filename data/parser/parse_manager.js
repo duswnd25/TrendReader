@@ -19,7 +19,6 @@ exports.parseData = function (type) {
         );
     } else {
         let parser = require('./blog/' + type);
-        console.log('s', type);
         parser.getData(function (data) {
             dbManager.isNewData(type, data.article_title, function (isNewData) {
                 if (isNewData) {
