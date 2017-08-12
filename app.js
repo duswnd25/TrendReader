@@ -19,10 +19,10 @@ app.engine('html', require('ejs').renderFile);
 app.use("/public", express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
+/*
 // gzip
 app.use(compression());
-
+*/
 // Router
 const mainRouter = require('./router/main/main.js')(app);
 const apiRouter = require('./router/api/data.js')(app);
