@@ -24,7 +24,6 @@ exports.getRecentData = function (type, rootCallback) {
 
     if (type === 'all') {
         let blogList = fs.readdirSync(process.cwd() + '/data/db/log/');
-        console.log (blogList.length);
         let result = '[';
         let counter = 1;
 
@@ -39,6 +38,7 @@ exports.getRecentData = function (type, rootCallback) {
                 result += (',' + JSON.stringify(tempFile));
                 counter++;
             }
+            console.log (result);
         });
     } else {
         let jsonFile = require(path + type + '.json');
