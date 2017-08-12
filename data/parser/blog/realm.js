@@ -1,5 +1,5 @@
 // TODO 변경필요
-const rootUrl = 'https://news.realm.io/kr/news/';
+const rootUrl = 'https://blog.realm.io/kr/';
 
 // Module
 const cheerio = require('cheerio');
