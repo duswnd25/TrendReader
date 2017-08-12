@@ -12,6 +12,7 @@ exports.isNewData = function (tagName, parseTitle, rootCallback) {
 exports.saveNewData = function (tagName, data) {
     let tempJson = data;
     tempJson.article_date = Date.now();
+    fs.unlinkSync(path + tagName + '.json');
     fs.writeFile(path + tagName + '.json', JSON.stringify(tempJson), defaultOptions, function (err) {
         if (err) {
             console.log(err);

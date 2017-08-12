@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b61e8b34-57ac-43ff-8557-0a1a75a63978" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/db/log/unity.json" afterPath="$PROJECT_DIR$/data/db/log/unity.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/parse_manager.js" afterPath="$PROJECT_DIR$/data/parser/parse_manager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/db/db_manager.js" afterPath="$PROJECT_DIR$/data/db/db_manager.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/db/log/drama.json" afterPath="$PROJECT_DIR$/data/db/log/drama.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="parse_manager.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data/parser/parse_manager.js">
+      <file leaf-file-name="db_manager.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data/db/db_manager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="20" column="47" lean-forward="false" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+            <state relative-caret-position="322">
+              <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -114,15 +114,15 @@
         <option value="$PROJECT_DIR$/data/db/log/outsider.json" />
         <option value="$PROJECT_DIR$/data/db/log/line.json" />
         <option value="$PROJECT_DIR$/data/db/log/add2paper.json" />
-        <option value="$PROJECT_DIR$/data/db/log/drama.json" />
         <option value="$PROJECT_DIR$/data/db/log/jandi.json" />
         <option value="$PROJECT_DIR$/data/db/log/lezhin.json" />
         <option value="$PROJECT_DIR$/data/db/log/kakao.json" />
         <option value="$PROJECT_DIR$/data/db/log/linchpin.json" />
         <option value="$PROJECT_DIR$/data/db/log/luckyyowu.json" />
         <option value="$PROJECT_DIR$/data/db/log/woowabros.json" />
-        <option value="$PROJECT_DIR$/data/db/db_manager.js" />
         <option value="$PROJECT_DIR$/data/parser/parse_manager.js" />
+        <option value="$PROJECT_DIR$/data/db/log/drama.json" />
+        <option value="$PROJECT_DIR$/data/db/db_manager.js" />
       </list>
     </option>
   </component>
@@ -184,7 +184,8 @@
               <item name="TrendReader" type="b2602c69:ProjectViewProjectNode" />
               <item name="TrendReader" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="parser" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TrendReader" type="b2602c69:ProjectViewProjectNode" />
@@ -244,17 +245,17 @@
     <property name="javascript.nodejs.core.library.configured.version" value="8.1.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\duswn\Documents\GitHub\TrendReader\public\js" />
+      <recent name="C:\Users\duswn\Documents\GitHub\TrendReader\data" />
+      <recent name="C:\Users\duswn\Documents\GitHub\TrendReader\parser\blog" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\duswn\Documents\GitHub\TrendReader\data\parser\blog" />
       <recent name="C:\Users\duswn\Documents\GitHub\TrendReader\data\db\log" />
       <recent name="C:\Users\duswn\Documents\GitHub\TrendReader\views" />
       <recent name="C:\Users\duswn\Documents\GitHub\TrendReader\public\js\masonry" />
       <recent name="C:\Users\duswn\Documents\GitHub\TrendReader\public\js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\duswn\Documents\GitHub\TrendReader\public\js" />
-      <recent name="C:\Users\duswn\Documents\GitHub\TrendReader\data" />
-      <recent name="C:\Users\duswn\Documents\GitHub\TrendReader\parser\blog" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -309,12 +310,12 @@
       <workItem from="1502458288887" duration="15593000" />
       <workItem from="1502501386186" duration="4974000" />
       <workItem from="1502513620472" duration="344000" />
-      <workItem from="1502515104989" duration="1092000" />
+      <workItem from="1502515104989" duration="1880000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176029000" />
+    <option name="totallyTimeSpent" value="176817000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -351,7 +352,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/js/masonry.pkgd.min.js" />
     <entry file="file://$USER_HOME$/Downloads/optimized_contents/js/blog_controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -547,13 +547,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/db/log/blank_json_use_it_for_new_blog_item.json" />
-    <entry file="file://$PROJECT_DIR$/data/db/log/drama.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/db/log/jandi.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -646,18 +639,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/db/db_manager.js">
+    <entry file="file://$PROJECT_DIR$/data/parser/parse_manager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="36" column="47" lean-forward="true" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
+        <state relative-caret-position="207">
+          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/parser/parse_manager.js">
+    <entry file="file://$PROJECT_DIR$/data/db/realm.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="20" column="47" lean-forward="false" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/db/log/drama.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="62" lean-forward="true" selection-start-line="0" selection-start-column="62" selection-end-line="0" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/db/db_manager.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
           <folding />
         </state>
       </provider>
