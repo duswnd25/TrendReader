@@ -1,10 +1,1 @@
-{
-  "blog_name": "Rainist Engineering ",
-  "blog_favicon_src": "https://www.google.com/s2/favicons?domain=https://rainist.com/",
-  "blog_header_src": "https://cdn-images-1.medium.com/max/1200/1*w3zjWoOeDNp7fw9vuiqaTw.png",
-  "article_title": "Typescript로 Local Storage 안전하게 사용하기",
-  "article_date": "2017-08-03T09:42:53.520Z",
-  "article_link": "https://medium.com/rainist-engineering/safe-localstorage-using-typescdript-eac147f59ae?source=collection_home---4------0--------------",
-  "article_summary": "최근 1년 간 뱅크샐러드 웹은 많은 변화가 있었습니다. 새로운 금융상품 추천부터 어려운 금융지식을 풀어쓰는 매거진 까지 다양한 기능을 제공하고 많은 사용자들이 방문하기 시작했습니다.",
-  "blog_type": "C"
-}
+{"blog_name":"Rainist Engineering ","blog_favicon_src":"https://www.google.com/s2/favicons?domain=https://rainist.com/","blog_header_src":"https://cdn-images-1.medium.com/max/1200/1*w3zjWoOeDNp7fw9vuiqaTw.png","article_title":"Typescript로 Local Storage 안전하게 사용하기","article_date":"2017-08-03T09:42:53.520Z","article_link":"https://medium.com/rainist-engineering/safe-localstorage-using-typescdript-eac147f59ae?source=collection_home---4------0--------------","article_summary":"최근 1년 간 뱅크샐러드 웹은 많은 변화가 있었습니다. 새로운 금융상품 추천부터 어려운 금융지식을 풀어쓰는 매거진 까지 다양한 기능을 제공하고 많은 사용자들이 방문하기 시작했습니다.","blog_type":"C"}

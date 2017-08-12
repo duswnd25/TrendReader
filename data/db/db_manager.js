@@ -1,6 +1,6 @@
 const fs = require("fs");
-let defaultOptions = {encoding: 'utf-8'};
-let path = './log/';
+const defaultOptions = {encoding: 'utf-8'};
+const path = process.cwd() + '/data/db/log/';
 
 // 새 데이터인지 확인하는 함수
 exports.isNewData = function (tagName, parseTitle, rootCallback) {
