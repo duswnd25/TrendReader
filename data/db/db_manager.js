@@ -45,12 +45,14 @@ exports.getRecentData = function (type, rootCallback) {
                     result += ',';
                 }
 
-                result += dataOrigin;
+                let tempJson = JSON.parse(dataOrigin);
+                tempJson.article_date = new Date(tempJson.article_date).getCustomType();
+                result += JSON.stringify(tempJson);
 
                 if (counter === blogList.length) {
                     result += ']';
-                    let tempJson = JSON.parse (result);
-                    tempJson.sort(function(a, b) {
+                    let tempJson = JSON.parse(result);
+                    tempJson.sort(function (a, b) {
                         return (b.article_date > a.article_date) ? 1 : ((b.article_date < a.article_date) ? -1 : 0);
                     });
                     rootCallback(tempJson);
@@ -63,8 +65,18 @@ exports.getRecentData = function (type, rootCallback) {
             if (err) {
                 console.error(err);
             }
-            console.log(dataOrigin);
-            rootCallback(JSON.parse(dataOrigin));
+
+            let tempJson = JSON.parse(dataOrigin);
+            let tempDate = new Date(Number.parseInt(tempJson.article_date));
+            tempJson.article_date = tempDate.getCustomType();
+            rootCallback(tempJson);
         });
     }
+};
+
+Date.prototype.getCustomType = function () {
+    let yyyy = this.getFullYear().toString();
+    let mm = (this.getMonth() + 1).toString();
+    let dd = this.getDate().toString();
+    return yyyy + '년 ' + mm + '월' + dd + '일';
 };
