@@ -41,6 +41,7 @@ exports.getRecentData = function (type, rootCallback) {
                 if (err) {
                     console.error(err);
                 }
+
                 if (counter !== 1) {
                     result += ',';
                 }
