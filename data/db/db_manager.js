@@ -49,6 +49,10 @@ exports.getRecentData = function (type, rootCallback) {
 
                 if (counter === blogList.length) {
                     result += ']';
+                    let tempJson = JSON.parse (result);
+                    tempJson.sort(function(a, b) {
+                        return (b.article_date > a.article_date) ? 1 : ((b.article_date < a.article_date) ? -1 : 0);
+                    });
                     rootCallback(JSON.parse(result));
                 }
                 counter++;
