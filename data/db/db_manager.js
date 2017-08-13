@@ -53,7 +53,7 @@ exports.getRecentData = function (type, rootCallback) {
                     tempJson.sort(function(a, b) {
                         return (b.article_date > a.article_date) ? 1 : ((b.article_date < a.article_date) ? -1 : 0);
                     });
-                    rootCallback(JSON.parse(result));
+                    rootCallback(tempJson);
                 }
                 counter++;
             });
