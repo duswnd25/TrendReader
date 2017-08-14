@@ -10,6 +10,11 @@ const resultItem = require('../result_item');
 
 exports.getData = function (rootCallback) {
     request(rootUrl, function (error, response, body) {
+
+        if (error) {
+            console.error(error);
+        }
+
         let $ = cheerio.load(body);
 
         // Title

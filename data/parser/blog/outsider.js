@@ -12,6 +12,10 @@ exports.getData = function (rootCallback) {
     request(rootUrl, function (error, response, body) {
         let $ = cheerio.load(body);
 
+        if (error) {
+            console.error(error);
+        }
+
         // Title
         let blogName = $('title').eq(0).text().substring(0, 20);
 
