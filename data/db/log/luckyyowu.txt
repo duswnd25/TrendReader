@@ -1,1 +1,10 @@
-{"blog_name":"요우의 내맘대로 블로그","blog_favicon_src":"https://www.google.com/s2/favicons?domain=http://luckyyowu.tistory.com/","blog_header_src":"http://cfile4.uf.tistory.com/image/25438D4353F39A252F6A0B","article_title":"HTTP 404 Status Code 에 대한 고찰","article_date":1502542227411,"article_link":"http://luckyyowu.tistory.com//377","article_summary":"뭐가 문제였나\n\n필자는 현재 HMR(가정간편식) 커머스를 다루는 모 스타트업에서 백엔드 개발자로 재직 중이다. 말이 백엔드지 최근 변화되고 있는 트렌드에 맞춰 열심히 API 작성 셔틀을 하고 있다.\nAPI 개발에 주로 사용하는 HTTP 상태 코드는 주로 200 (정상), 400 (잘못된 요청), 401 (보안 토큰 에러), 403 (권한 없음), 404 (","blog_type":"P"}
+{
+   "blog_name": "",
+   "blog_favicon_src": "",
+   "blog_header_src": "",
+   "article_title": "",
+   "article_date": "",
+   "article_link": "",
+   "article_summary": "",
+   "blog_type": ""
+ }

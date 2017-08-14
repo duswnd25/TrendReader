@@ -1,1 +1,10 @@
-{"blog_name":"Outsider's Dev Story","blog_favicon_src":"https://www.google.com/s2/favicons?domain=https://blog.outsider.ne.kr/category","blog_header_src":"https://blog.outsider.ne.kr/skin/blog/anti_verbose/images/main-bg.jpg.pagespeed.ce.0KiEbhhP7k.jpg","article_title":"Terraform에서 Map 타입 변수의 사용","article_date":1502542230498,"article_link":"/1304?category=0","article_summary":"","blog_type":"P"}
+{
+   "blog_name": "",
+   "blog_favicon_src": "",
+   "blog_header_src": "",
+   "article_title": "",
+   "article_date": "",
+   "article_link": "",
+   "article_summary": "",
+   "blog_type": ""
+ }

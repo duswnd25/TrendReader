@@ -1,1 +1,10 @@
-{"blog_name":"blog - LinchpinSoft","blog_favicon_src":"https://www.google.com/s2/favicons?domain=http://www.linchpinsoft.com/blog/","blog_header_src":"https://i2.wp.com/www.linchpinsoft.com/wp-content/uploads/2017/03/pexels-photo-212286.jpeg?resize=384%2C253","article_title":"더 큰 것을 위한 지향, 기술과 기업 그리고 데이터에 대한 단상(“미래는 누구의 것인가”를 읽고 -)","article_date":1502542227721,"article_link":"http://www.linchpinsoft.com/%eb%8d%94-%ed%81%b0-%ea%b2%83%ec%9d%84-%ec%9c%84%ed%95%9c-%ec%a7%80%ed%96%a5-%ea%b8%b0%ec%88%a0%ea%b3%bc-%ea%b8%b0%ec%97%85-%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%8d%b0%ec%9d%b4%ed%84%b0%ec%97%90-%eb%8c%80/","article_summary":"\n\t\t\t\t\t\t안녕하세요, 린치핀소프트의 한광희입니다.\n\n이번 포스트에서는 근래 읽었던 <미래는 누구의 것인가?> _  재런_러니어 의 책을 읽고 든 …\t\t\t\t\t","blog_type":"C"}
+{
+   "blog_name": "",
+   "blog_favicon_src": "",
+   "blog_header_src": "",
+   "article_title": "",
+   "article_date": "",
+   "article_link": "",
+   "article_summary": "",
+   "blog_type": ""
+ }

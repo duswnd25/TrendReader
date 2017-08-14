@@ -1,1 +1,10 @@
-{"blog_name":"Unity Blog - A glimp","blog_favicon_src":"https://www.google.com/s2/favicons?domain=https://blogs.unity3d.com/kr/","blog_header_src":"https://blogs.unity3d.com/wp-content/uploads/2017/08/Screen-Shot-2017-08-13-at-10.40.41-AM-640x360.png","article_title":"SXSW: Driving emerging technology and media","article_date":1502670876053,"article_link":"https://blogs.unity3d.com/kr/2017/08/13/sxsw-driving-emerging-technology-and-media/","article_summary":"The South by Southwest 2018 “Panelpicker” has opened for community voting! We have  Unity representatives who are excited to share their stories on topics ranging from emerging VR/AR tools to the futu","blog_type":"C"}
+{
+   "blog_name": "",
+   "blog_favicon_src": "",
+   "blog_header_src": "",
+   "article_title": "",
+   "article_date": "",
+   "article_link": "",
+   "article_summary": "",
+   "blog_type": ""
+ }
