@@ -11,41 +11,41 @@ exports.getData = function (rootCallback) {
     request(rootUrl, function (error, response, body) {
         let $ = cheerio.load(body);
 
-            // Title
-            let blogName = $('title').eq(0).text().substring(0, 20);
+        // Title
+        let blogName = $('title').eq(0).text().substring(0, 20);
 
-            // Article
-            let articleItem = $('article').eq(0)
-                .children('header.article__header').eq(0);
+        // Article
+        let articleItem = $('article').eq(0)
+            .children('header.article__header').eq(0);
 
-            // Title
-            let titleItem = articleItem
-                .children('h3.article__title.entry-title').eq(0)
-                .children('a').eq(0);
-            let parseTitle = titleItem.text();
-            let parseLink = titleItem.attr('href');
+        // Title
+        let titleItem = articleItem
+            .children('h3.article__title.entry-title').eq(0)
+            .children('a').eq(0);
+        let parseTitle = titleItem.text();
+        let parseLink = titleItem.attr('href');
 
-            // Header
-            let parseHeaderSrc = articleItem
-                .children('div.article__featured-image').eq(0)
-                .children('a').eq(0)
-                .children('img').eq(0).attr('src');
+        // Header
+        let parseHeaderSrc = articleItem
+            .children('div.article__featured-image').eq(0)
+            .children('a').eq(0)
+            .children('img').eq(0).attr('src');
 
-            // Summary
-            let parseSummary = articleItem.children('section.article__content.entry-summary').eq(0)
-                .children('a').eq(0)
-                .children('p').eq(0).text();
+        // Summary
+        let parseSummary = articleItem.children('section.article__content.entry-summary').eq(0)
+            .children('a').eq(0)
+            .children('p').eq(0).text();
 
-            // Result
-            let result = resultItem.getResultItem();
-            result.blog_name = blogName;
-            result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-            result.blog_header_src = parseHeaderSrc;
-            result.article_title = parseTitle;
-            result.article_link = rootUrl + parseLink;
-            result.article_summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
-            result.blog_type = 'C';
+        // Result
+        let result = resultItem.getResultItem();
+        result.blog_name = blogName;
+        result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+        result.blog_header_src = parseHeaderSrc;
+        result.article_title = parseTitle;
+        result.article_link = rootUrl + parseLink;
+        result.article_summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
+        result.blog_type = 'C';
 
-            rootCallback(result);
-        });
+        rootCallback(result);
+    });
 };
