@@ -4,14 +4,13 @@ const rootUrl = 'https://medium.com/rainist-engineering';
 
 // Module
 const cheerio = require('cheerio');
-const requestPromise = require('request-promise');
+const request = require('request');
 
 const resultItem = require('../result_item');
 
 exports.getData = function (rootCallback) {
-    requestPromise(rootUrl)
-        .then(function (htmlString) {
-            let $ = cheerio.load(htmlString);
+    request(rootUrl, function (error, response, body) {
+        let $ = cheerio.load(body);
 
             // Title
             let blogName = $('title').eq(0).text().substring(0, 20);
@@ -38,8 +37,5 @@ exports.getData = function (rootCallback) {
             result.blog_type = 'C';
 
             rootCallback(result);
-        })
-        .catch(function (err) {
-            console.log(err);
         });
 };
