@@ -1,10 +1,1 @@
-{
-   "blog_name": "",
-   "blog_favicon_src": "",
-   "blog_header_src": "",
-   "article_title": "",
-   "article_date": "",
-   "article_link": "",
-   "article_summary": "",
-   "blog_type": ""
- }
+{"blog_name":"Amazon Web Services ","blog_favicon_src":"https://www.google.com/s2/favicons?domain=https://aws.amazon.com/ko/blogs/korea/","blog_header_src":"https://d2908q01vomqb2.cloudfront.net/7b52009b64fd0a2a49e6d8a939753077792b0554/2017/03/05/aws-korea-weekly.png","article_title":"AWS 8월 온라인 세미나 – AWS 클라우드 소개, EC2 심층 분석, AWS 기반 데이터레이크 및 모바일앱 개발 등","article_date":1502674775877,"article_link":"https://aws.amazon.com/ko/blogs/korea/aws-online-seminar-on-august-2017/","article_summary":" \n          AWS 클라우드를 아껴주시는 한국 고객 분들을 위해 지속적으로 AWS 월간 온라인 세미나 시리즈를 진행하고 있습니다.이번 8월 온라인 세미나 에서는 AWS 클라우드 소개, AWS  기반 데이터 레이크, Amazon EC2 Deep Dive,  모바일 앱 개발 A to Z 등 다양한  온라인 세미나를 준비하였습니다. \n          ","blog_type":"C"}
