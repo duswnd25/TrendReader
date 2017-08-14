@@ -34,7 +34,7 @@ exports.getData = function (rootCallback) {
         result.blog_favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
         result.blog_header_src = headerSrc;
         result.article_title = parseTitle;
-        result.article_link = parseLink;
+        result.article_link = rootUrl + parseLink;
         result.article_summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
         result.blog_type = 'C';
 
