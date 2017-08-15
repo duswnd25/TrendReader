@@ -17,7 +17,7 @@ exports.parseData = function (type) {
 function parseData(type) {
     let parser = require('./blog/' + type);
     parser.getData(function (data) {
-        dbManager.isNewData(type, data.article_title, function (isNewData) {
+        dbManager.isNewData(type, data.title, function (isNewData) {
             if (isNewData) {
                 dbManager.saveNewData(type, data);
             }
