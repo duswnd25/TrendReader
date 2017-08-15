@@ -1,8 +1,9 @@
 exports.getSchema = function () {
     return {
         name: 'Post',
-        primaryKey: 'name',
+        primaryKey: 'id',
         properties: {
+            id: 'string',
             name: 'string',
             favicon_src: 'string',
             header_src: 'string',

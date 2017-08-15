@@ -1,15 +1,35 @@
-const Fs = require("fs");
 const Realm = require('realm');
 const PostSchema = require('./post_realm');
 
 let blogRealm = new Realm({
-    path: 'blog.realm',
-    schema: [PostSchema.getSchema()]
+    path: process.cwd() + '/data/db/realm/blog.realm',
+    schema: [PostSchema.getSchema()],
+    schemaVersion: 4,
+    migration: function (oldRealm, newRealm) {
+        // schemaVersion을 1로 업데이트하는 경우만 이 변경을 적용합니다
+        if (oldRealm.schemaVersion < 3) {
+            let oldObjects = oldRealm.objects('Post');
+            let newObjects = newRealm.objects('Post');
+
+            // 모든 객체를 순환
+            for (let index = 0; index < oldObjects.length; index++) {
+                newObjects[index].id = oldObjects[index].id;
+                newObjects[index].name = oldObjects[index].name;
+                newObjects[index].favicon_src = oldObjects[index].favicon_src;
+                newObjects[index].header_src = oldObjects[index].header_src;
+                newObjects[index].title = oldObjects[index].title;
+                newObjects[index].link = oldObjects[index].link;
+                newObjects[index].summary = oldObjects[index].summary;
+                newObjects[index].type = oldObjects[index].type;
+                newObjects[index].timestamp = oldObjects[index].timestamp;
+            }
+        }
+    }
 });
 
 // 새 데이터인지 확인하는 함수
 exports.isNewData = function (tagName, parseTitle, rootCallback) {
-    let recentTitle = blogRealm.objects('Post').filtered('name = "' + tagName + '"').filtered('title = "' + parseTitle.trim() + '"');
+    let recentTitle = blogRealm.objects('Post').filtered('id = "' + tagName + '"').filtered('title = "' + parseTitle.trim() + '"');
     rootCallback(recentTitle.length === 0);
 };
 
@@ -19,6 +39,7 @@ exports.saveNewData = function (tagName, data) {
 
     blogRealm.write(() => {
         blogRealm.create('Post', {
+            id: tagName,
             name: data.name,
             favicon_src: data.favicon_src,
             header_src: data.header_src,
@@ -37,7 +58,7 @@ exports.getRecentData = function (type, rootCallback) {
     if (type === 'all') {
         rootCallback(blogRealm.objects('Post').sorted('timestamp', true));
     } else {
-        rootCallback(blogRealm.objects('Post').filtered('name = "' + type + '"'));
+        rootCallback(blogRealm.objects('Post').filtered('id = "' + type + '"'));
     }
 };
 
