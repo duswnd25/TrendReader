@@ -2,49 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b61e8b34-57ac-43ff-8557-0a1a75a63978" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/db/post_realm.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/blank_json_use_it_for_new_blog_item.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/add2paper.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/aws.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/drama.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/jandi.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/kakao.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/lezhin.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/linchpin.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/line.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/luckyyowu.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/outsider.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/rainist.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/realm.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/sk.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/spoqa.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/unity.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/data/db/log/woowabros.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog.realm.lock" afterPath="$PROJECT_DIR$/blog.realm.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/db/db_manager.js" afterPath="$PROJECT_DIR$/data/db/db_manager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/add2paper.js" afterPath="$PROJECT_DIR$/data/parser/blog/add2paper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/aws.js" afterPath="$PROJECT_DIR$/data/parser/blog/aws.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/drama.js" afterPath="$PROJECT_DIR$/data/parser/blog/drama.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/jandi.js" afterPath="$PROJECT_DIR$/data/parser/blog/jandi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/kakao.js" afterPath="$PROJECT_DIR$/data/parser/blog/kakao.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/lezhin.js" afterPath="$PROJECT_DIR$/data/parser/blog/lezhin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/linchpin.js" afterPath="$PROJECT_DIR$/data/parser/blog/linchpin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/line.js" afterPath="$PROJECT_DIR$/data/parser/blog/line.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/luckyyowu.js" afterPath="$PROJECT_DIR$/data/parser/blog/luckyyowu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/outsider.js" afterPath="$PROJECT_DIR$/data/parser/blog/outsider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/rainist.js" afterPath="$PROJECT_DIR$/data/parser/blog/rainist.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/realm.js" afterPath="$PROJECT_DIR$/data/parser/blog/realm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/sk.js" afterPath="$PROJECT_DIR$/data/parser/blog/sk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/spoqa.js" afterPath="$PROJECT_DIR$/data/parser/blog/spoqa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/unity.js" afterPath="$PROJECT_DIR$/data/parser/blog/unity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/woowabros.js" afterPath="$PROJECT_DIR$/data/parser/blog/woowabros.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/parse_manager.js" afterPath="$PROJECT_DIR$/data/parser/parse_manager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/result_item.js" afterPath="$PROJECT_DIR$/data/parser/result_item.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/html/card.html" afterPath="$PROJECT_DIR$/public/html/card.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/api/data.js" afterPath="$PROJECT_DIR$/router/api/data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.html" afterPath="$PROJECT_DIR$/views/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -71,8 +30,8 @@
       <file leaf-file-name="db_manager.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/db/db_manager.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-368">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="-187">
+              <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -388,15 +347,16 @@
       <workItem from="1502675128540" duration="59000" />
       <workItem from="1502735743626" duration="490000" />
       <workItem from="1502776235840" duration="2538000" />
-      <workItem from="1502778854514" duration="2394000" />
+      <workItem from="1502778854514" duration="3129000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200528000" />
+    <option name="totallyTimeSpent" value="201263000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17760417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -405,7 +365,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4790287" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4790287" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -648,14 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/db/post_realm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/parser/result_item.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -664,10 +616,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/db/post_realm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data/db/db_manager.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-368">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="-187">
+          <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
           <folding />
         </state>
       </provider>

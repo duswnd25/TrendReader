@@ -34,10 +34,9 @@ exports.saveNewData = function (tagName, data) {
 // 최근 값 가져오기
 exports.getRecentData = function (type, rootCallback) {
     if (type === 'all') {
-        let posts = blogRealm.objects('Post').sorted('timestamp', true);
-        rootCallback(posts);
+        rootCallback(blogRealm.objects('Post').sorted('timestamp', true));
     } else {
-
+        rootCallback(blogRealm.objects('Post').filtered('name = "' + type + '"'));
     }
 };
 
