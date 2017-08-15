@@ -16,6 +16,7 @@ exports.isNewData = function (tagName, parseTitle, rootCallback) {
 
 // 새 데이터로 덮어쓰는 함수
 exports.saveNewData = function (tagName, data) {
+
     blogRealm.write(() => {
         blogRealm.create('Post', {
             name: data.name,
@@ -26,7 +27,7 @@ exports.saveNewData = function (tagName, data) {
             summary: data.summary,
             type: data.type,
             timestamp: new Date()
-        });
+        }, true);
     });
 };
 
