@@ -25,7 +25,7 @@ app.use(Compression());
 // Router
 const mainRouter = require('./router/main/main.js')(app);
 const apiRouter = require('./router/api/data.js')(app);
-const apiRouter = require('./router/api/data.js')(app);
+const testRouter = require('./router/api/test.js')(app);
 
 const server = app.listen(port, function () {
     console.log("Trend Reader Working on Port " + port);

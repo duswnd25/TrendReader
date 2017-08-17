@@ -1,10 +1,9 @@
 const fs = require('fs');
-const dbManager = require(process.cwd() + '/data/db/db_manager');
-const path = process.cwd() + '/data/parser/blog';
+const dbManager = require('../db/db_manager');
 
 exports.parseData = function (type) {
     if (type === 'all') {
-        let blogList = fs.readdirSync(path);
+        let blogList = fs.readdirSync('./server/data/parser/blog');
         blogList.forEach(file => {
                 parseData(file.replace('.js', '').toLowerCase())
             }

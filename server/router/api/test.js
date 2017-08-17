@@ -1,5 +1,4 @@
-const rootPath = process.cwd();
-const DbManager = require(rootPath + '/data/db/db_manager');
+const DbManager = require('../../data/db/db_manager');
 
 module.exports = function (app) {
     app.get('/api/data/test/:tagName', (req, res) => {

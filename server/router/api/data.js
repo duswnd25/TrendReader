@@ -1,6 +1,5 @@
-const rootPath = process.cwd();
-const DbManager = require(rootPath + '/data/db/db_manager');
-const ParseManager = require(rootPath + '/data/parser/parse_manager');
+const DbManager = require('../../data/db/db_manager');
+const ParseManager = require('../../data/parser/parse_manager');
 
 module.exports = function (app) {
     app.get('/api/data/read/:tagName', (req, res) => {

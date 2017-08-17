@@ -3,7 +3,7 @@ const PostSchema = require('./post_realm');
 const schemaVersion = 4;
 
 let blogRealm = new Realm({
-    path: process.cwd() + '/data/db/realm/blog.realm',
+    path: '/realm/blog.realm',
     schema: [PostSchema.getSchema()],
     schemaVersion: schemaVersion,
     migration: function (oldRealm, newRealm) {
@@ -64,9 +64,9 @@ exports.getRecentData = function (type, rootCallback) {
     }
 };
 
-// 테스트 함수
+// 여기서부터 테스트용
 exports.saveTest = function (type) {
-    console.log('INFO : ', '테스트 : ' + type);
+    console.log('INFO : ', '저장 테스트 : ' + type);
     blogRealm.write(() => {
         blogRealm.create('Post', {
             id: type,
