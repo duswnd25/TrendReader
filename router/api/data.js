@@ -6,7 +6,7 @@ module.exports = function (app) {
     app.get('/api/data/read/:tagName', (req, res) => {
         DbManager.getRecentData(req.params.tagName, function (result) {
             if (result.name === 'NODATA') {
-                return res.status(404).json({error: '종류를 입력해주세요.', value: req.params.type});
+                return res.status(404).json({error: '종류를 입력해주세요.', value: req.params.tagName});
             } else {
                 return res.status(200).json(result);
             }
