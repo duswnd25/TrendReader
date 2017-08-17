@@ -36,6 +36,7 @@
     "newrelic": "^2.1.0",
     "node-schedule": "^1.2.4",
     "promise": "^8.0.1",
+    "realm": "^1.10.3",
     "request": "^2.81.0"
   }
 }
