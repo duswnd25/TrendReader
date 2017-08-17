@@ -1,39 +1,42 @@
 {
-  "name": "trend_reader",
+  "name": "trendreader",
   "version": "0.0.1",
-  "private": true,
-  "author": "YeonJung Kim",
   "description": "기술 블로그 모음",
-  "license": "MIT",
-  "keywords": [
-    "react",
-    "tech",
-    "developer",
-    "tech",
-    "blog"
-  ],
-  "bugs": {
-    "url": "https://github.com/duswnd25/trend_reader/issues"
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
   },
   "engines": {
-    "node": "8.1.2"
+    "node": "8.4.0"
   },
-  "main": "index.js",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
-  "homepage": "https://github.com/duswnd25/trend_reader#readme",
-  "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-scripts": "1.0.11"
-  },
-  "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/duswnd25/trend_reader.git"
+    "url": "git+https://github.com/duswnd25/TrendReader.git"
+  },
+  "keywords": [
+    "Trend",
+    "Tech",
+    "Blog",
+    "Develope",
+    "Programming"
+  ],
+  "author": "YeonJung Kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/duswnd25/TrendReader/issues"
+  },
+  "homepage": "https://github.com/duswnd25/TrendReader#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.2",
+    "compression": "^1.7.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "newrelic": "^2.1.0",
+    "node-schedule": "^1.2.4",
+    "promise": "^8.0.1",
+    "realm": "^1.10.3",
+    "request": "^2.81.0"
   }
 }
