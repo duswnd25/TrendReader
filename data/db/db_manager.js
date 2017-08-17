@@ -1,14 +1,14 @@
 const Realm = require('realm');
 const PostSchema = require('./post_realm');
-const dbSchemaVersion = 4;
+const schemaVersion = 4;
 
 let blogRealm = new Realm({
     path: process.cwd() + '/data/db/realm/blog.realm',
     schema: [PostSchema.getSchema()],
-    schemaVersion: dbSchemaVersion,
+    schemaVersion: schemaVersion,
     migration: function (oldRealm, newRealm) {
         // schemaVersion을 1로 업데이트하는 경우만 이 변경을 적용합니다
-        if (oldRealm.schemaVersion < dbSchemaVersion) {
+        if (oldRealm.schemaVersion < schemaVersion) {
             let oldObjects = oldRealm.objects('Post');
             let newObjects = newRealm.objects('Post');
 
