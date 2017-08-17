@@ -1,5 +1,21 @@
-# TrendReader
+# trend_reader
 
-[![codebeat badge](https://codebeat.co/badges/5f22107e-09b4-4221-8fa3-fb7f3a4b6b71)](https://codebeat.co/projects/github-com-duswnd25-trendreader-master)
+> 기술 블로그 모음
 
-[![Known Vulnerabilities](https://snyk.io/test/github/duswnd25/trendreader/badge.svg)](https://snyk.io/test/github/duswnd25/trendreader)
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+```
+
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
