@@ -2,45 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b61e8b34-57ac-43ff-8557-0a1a75a63978" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/server.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/db/realm/blog.realm" afterPath="$PROJECT_DIR$/data/db/realm/blog.realm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/db/realm/blog.realm.lock" afterPath="$PROJECT_DIR$/data/db/realm/blog.realm.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TrendReader.iml" afterPath="$PROJECT_DIR$/.idea/TrendReader.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LICENSE" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/db/db_manager.js" afterPath="$PROJECT_DIR$/data/db/db_manager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/db/post_realm.js" afterPath="$PROJECT_DIR$/data/db/post_realm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/add2paper.js" afterPath="$PROJECT_DIR$/data/parser/blog/add2paper.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/aws.js" afterPath="$PROJECT_DIR$/data/parser/blog/aws.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/drama.js" afterPath="$PROJECT_DIR$/data/parser/blog/drama.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/jandi.js" afterPath="$PROJECT_DIR$/data/parser/blog/jandi.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/kakao.js" afterPath="$PROJECT_DIR$/data/parser/blog/kakao.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/lezhin.js" afterPath="$PROJECT_DIR$/data/parser/blog/lezhin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/linchpin.js" afterPath="$PROJECT_DIR$/data/parser/blog/linchpin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/line.js" afterPath="$PROJECT_DIR$/data/parser/blog/line.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/luckyyowu.js" afterPath="$PROJECT_DIR$/data/parser/blog/luckyyowu.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/outsider.js" afterPath="$PROJECT_DIR$/data/parser/blog/outsider.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/rainist.js" afterPath="$PROJECT_DIR$/data/parser/blog/rainist.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/realm.js" afterPath="$PROJECT_DIR$/data/parser/blog/realm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/sk.js" afterPath="$PROJECT_DIR$/data/parser/blog/sk.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/spoqa.js" afterPath="$PROJECT_DIR$/data/parser/blog/spoqa.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/unity.js" afterPath="$PROJECT_DIR$/data/parser/blog/unity.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/blog/woowabros.js" afterPath="$PROJECT_DIR$/data/parser/blog/woowabros.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/parse_manager.js" afterPath="$PROJECT_DIR$/data/parser/parse_manager.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/parser/result_item.js" afterPath="$PROJECT_DIR$/data/parser/result_item.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/card.css" afterPath="$PROJECT_DIR$/public/css/card.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/api/data.js" afterPath="$PROJECT_DIR$/router/api/data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/api/test.js" afterPath="$PROJECT_DIR$/router/api/test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/router/main/main.js" afterPath="$PROJECT_DIR$/router/main/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.html" afterPath="$PROJECT_DIR$/views/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -94,7 +57,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="result_item.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="result_item.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/parser/result_item.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="115">
@@ -119,6 +82,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="138">
               <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -219,7 +192,6 @@
         <option value="$PROJECT_DIR$/data/db/log/spoqa.txt" />
         <option value="$PROJECT_DIR$/data/db/log/unity.txt" />
         <option value="$PROJECT_DIR$/data/db/log/woowabros.txt" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/data/db/post_schema.js" />
         <option value="$PROJECT_DIR$/data/parser/result_item.js" />
         <option value="$PROJECT_DIR$/data/db/post_realm.js" />
@@ -229,6 +201,7 @@
         <option value="$PROJECT_DIR$/data/db/db_manager.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/data/parser/parse_manager.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -417,12 +390,12 @@
       <workItem from="1502735743626" duration="490000" />
       <workItem from="1502776235840" duration="2538000" />
       <workItem from="1502778854514" duration="6724000" />
-      <workItem from="1503065406823" duration="1359000" />
+      <workItem from="1503065406823" duration="1782000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206217000" />
+    <option name="totallyTimeSpent" value="206640000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -624,13 +597,6 @@
     <entry file="file://$PROJECT_DIR$/data/db/log/spoqa.txt" />
     <entry file="file://$PROJECT_DIR$/data/db/log/unity.txt" />
     <entry file="file://$PROJECT_DIR$/data/db/log/woowabros.txt" />
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="14" lean-forward="true" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/db/blank_json_use_it_for_new_blog_item.txt" />
     <entry file="file://$PROJECT_DIR$/data/db/post_schema.js" />
     <entry file="file://$PROJECT_DIR$/data/parser/blog/add2paper.js">
@@ -665,14 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/router/main/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -701,6 +659,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="43" lean-forward="true" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
           <folding />
         </state>
       </provider>
