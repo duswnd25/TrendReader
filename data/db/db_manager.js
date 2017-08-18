@@ -3,7 +3,7 @@ const PostSchema = require('./post_realm');
 const schemaVersion = 4;
 
 let blogRealm = new Realm({
-    path: '/realm/blog.realm',
+    path: '/data/db/realm/blog.realm',
     schema: [PostSchema.getSchema()],
     schemaVersion: schemaVersion,
     migration: function (oldRealm, newRealm) {
