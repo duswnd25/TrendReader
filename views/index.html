@@ -19,9 +19,9 @@
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
-<div id="masonry-grid" ng-app="trendReaderApp" class="grid" ng-controller="blog_controller">
+<div ng-app="trendReaderApp" class="grid" ng-controller="blog_controller">
     <!-- start -->
-    <div id="masonry-item" class="wrapper" ng-repeat="info in list">
+    <div class="grid-item wrapper" ng-repeat="info in list">
         <div class="card radius shadowDepth1">
             <!-- 헤더 이미지 -->
             <div class="card__image border-tlr-radius">
@@ -86,5 +86,14 @@
 
 <!-- Controller -->
 <script src="./public/js/blog_controller.js"></script>
+
+<!-- Masonry -->
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+<script>
+    $('.grid.ng-scope').masonry({
+        columnWidth: 350,
+        itemSelector: '.grid-item.wrapper.ng-scope'
+    });</script>
 </body>
 </html>
