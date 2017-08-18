@@ -2,14 +2,14 @@
   "name": "trendreader",
   "version": "0.0.1",
   "description": "기술 블로그 모음",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server",
-    "dev": "nodemon server"
+    "start": "node app",
+    "serve": "nodemon app.js"
   },
   "engines": {
-    "node": "8.4.0"
+    "node": "8.1.2"
   },
   "repository": {
     "type": "git",
@@ -18,9 +18,7 @@
   "keywords": [
     "Trend",
     "Tech",
-    "Blog",
-    "Develope",
-    "Programming"
+    "Blog"
   ],
   "author": "YeonJung Kim",
   "license": "MIT",
@@ -34,10 +32,14 @@
     "compression": "^1.7.0",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
+    "fs": "0.0.1-security",
+    "mongoose": "^4.11.7",
     "newrelic": "^2.1.0",
     "node-schedule": "^1.2.4",
     "promise": "^8.0.1",
-    "realm": "^1.10.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "realm": "^1.10.1",
     "request": "^2.81.0"
   }
 }

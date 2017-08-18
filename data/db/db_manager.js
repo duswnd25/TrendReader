@@ -3,16 +3,14 @@ const PostSchema = require('./post_realm');
 const schemaVersion = 4;
 
 let blogRealm = new Realm({
-    path: '/data/db/realm/blog.realm',
+    path: process.cwd() + '/data/db/realm/blog.realm',
     schema: [PostSchema.getSchema()],
     schemaVersion: schemaVersion,
     migration: function (oldRealm, newRealm) {
-        // schemaVersion을 1로 업데이트하는 경우만 이 변경을 적용합니다
+        // schemaVersion를 업데이트하는 경우만 이 변경을 적용합니다
         if (oldRealm.schemaVersion < schemaVersion) {
             let oldObjects = oldRealm.objects('Post');
             let newObjects = newRealm.objects('Post');
-
-            console.log('INFO : ', 'New Realm Schema');
 
             // 모든 객체를 순환
             for (let index = 0; index < oldObjects.length; index++) {
@@ -31,21 +29,20 @@ let blogRealm = new Realm({
 });
 
 // 새 데이터인지 확인하는 함수
-exports.isNewData = function (tagName, parseTitle, rootCallback) {
-    let recentTitle = blogRealm.objects('Post').filtered('id = "' + tagName + '"').filtered('title = "' + parseTitle.trim() + '"');
-    console.log('INFO : ', '새 데이터 : ' + (recentTitle.length === 0) + ' | ' + tagName);
+exports.isNewData = function (blogId, parseTitle, rootCallback) {
+    let recentTitle = blogRealm.objects('Post').filtered('id = "' + blogId + '"').filtered('title = "' + parseTitle.trim() + '"');
     rootCallback(recentTitle.length === 0);
 };
 
+
 // 새 데이터로 덮어쓰는 함수
-exports.saveNewData = function (tagName, data) {
-    console.log('INFO : ', '저장 : ' + tagName + ' | ' + data.title.trim());
+exports.saveNewData = function (blogId, data) {
     blogRealm.write(() => {
         blogRealm.create('Post', {
-            id: tagName,
+            id: blogId,
             name: data.name.trim(),
-            favicon_src: data.favicon_src.trim(),
-            header_src: data.header_src.trim(),
+            favicon_src: data.favicon_src,
+            header_src: data.header_src,
             title: data.title.trim(),
             link: data.link.trim(),
             summary: data.summary.trim(),
@@ -55,34 +52,32 @@ exports.saveNewData = function (tagName, data) {
     });
 };
 
-// 최근 값 가져오기
-exports.getRecentData = function (type, rootCallback) {
-    if (type === 'all') {
-        rootCallback(blogRealm.objects('Post').sorted('timestamp', true));
-    } else {
-        rootCallback(blogRealm.objects('Post').filtered('id = "' + type + '"'));
-    }
-};
-
-// 여기서부터 테스트용
-exports.saveTest = function (type) {
-    console.log('INFO : ', '저장 테스트 : ' + type);
+// 새 데이터로 덮어쓰는 함수
+exports.saveTest = function (blogId) {
     blogRealm.write(() => {
         blogRealm.create('Post', {
-            id: type,
+            id: blogId,
             name: "test",
-            favicon_src: "",
+            favicon_src: "test",
             header_src: "test",
             title: "test",
             link: "test",
             summary: "test",
-            type: "T",
+            type: "test",
             timestamp: new Date()
         }, true);
     });
 };
 
-// 날짜 포맷
+// 최근 값 가져오기
+exports.getRecentData = function (blogId, rootCallback) {
+    if (blogId === 'all') {
+        rootCallback(blogRealm.objects('Post').sorted('timestamp', true));
+    } else {
+        rootCallback(blogRealm.objects('Post').filtered('id = "' + blogId + '"'));
+    }
+};
+
 Date.prototype.getCustomType = function () {
     let year = this.getFullYear().toString();
     let month = (this.getMonth() + 1).toString();
