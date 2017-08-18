@@ -9,17 +9,6 @@ html {
     font-size: 62.5%;
 }
 
-body {
-    background-color: #eee;
-    font-family: Roboto, sans-serif;
-    font-weight: 400;
-    font-size: 1.6em;
-    line-height: 1.6;
-    color: #666;
-    display: flex;
-    justify-content: center;
-}
-
 a {
     text-decoration: none;
     color: #3498db;
@@ -36,12 +25,11 @@ h2 {
 
 .wrapper {
     max-width: 350px;
-    margin:  0.25rem;
-    padding:  1rem;
+    margin: 5px;
     display: inline-block;
     vertical-align: top;
     align-self: center;
-}
+ }
 
 .border-tlr-radius {
     border-top-left-radius: 2px;
@@ -129,4 +117,91 @@ h2 {
 .card__author img {
     border-radius: 50%;
     margin-right: 0.6em;
+}
+
+.card__share {
+    float: right;
+    position: relative;
+    margin-top: -42px;
+}
+
+.card__social {
+    position: absolute;
+    top: 0;
+    right: 0;
+    visibility: hidden;
+    width: 160px;
+    transform: translateZ(0);
+    transform: translateX(0px);
+    transition: transform 0.35s ease;
+}
+
+.card__social--active {
+    visibility: visible;
+    transform: translateZ(0);
+    transform: translateX(-48px);
+    transition: transform 0.35s ease;
+}
+
+.share-toggle {
+    z-index: 2;
+}
+
+.share-toggle:before {
+    content: "\f1e0";
+    font-family: 'FontAwesome', sans-serif;
+    color: #3498db;
+}
+
+.share-toggle.share-expanded:before {
+    content: "\f00d";
+}
+
+.share-icon {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    outline: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.24);
+}
+
+.share-icon:hover,
+.share-icon:focus {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12),
+    0 3px 6px rgba(0, 0, 0, 0.24);
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.twitter {
+    background-color: #00abe3;
+}
+
+.googleplus {
+    background-color: #d3492c;
+}
+
+.facebook,
+.twitter,
+.googleplus {
+    color: #fff;
+}
+
+.facebook:hover,
+.twitter:hover,
+.googleplus:hover {
+    color: #eee;
 }
