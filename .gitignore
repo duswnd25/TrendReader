@@ -57,8 +57,10 @@ typings/
 # dotenv environment variables file
 .env
 
-
-assets/realm/blog.realm
+# realm DB는 서버에 올라간 뒤 생성
+*.realm
 *.lock
+
+# 이건 어째야 쫌 안생길까
 .idea/
 .idea/workspace.xml
