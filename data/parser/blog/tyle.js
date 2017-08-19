@@ -22,9 +22,7 @@ exports.getData = function (rootCallback) {
 
         // Article
         let articleItem = $('div#posts-list').eq(0).children('a').eq(0);
-
-        console.log(articleItem.html());
-
+        
         // Title
         let parseTitle = articleItem.children('span.post-subject').text();
         let parseLink = articleItem.attr('href');
