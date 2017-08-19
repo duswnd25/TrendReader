@@ -1,6 +1,6 @@
 // TODO 변경필요
 const rootUrl = 'https://developers-kr.googleblog.com/';
-const headerSrc = 'https://developers.google.com/_static/images/redesign-14/lockup-color.png';
+const headerSrc = 'https://developers.google.com/_static/dbcc1a1c53/images/gdg-program-icon.png?hl=ko';
 // Module
 const request = require('request');
 const cheerio = require('cheerio');
