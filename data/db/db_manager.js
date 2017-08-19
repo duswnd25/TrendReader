@@ -53,7 +53,7 @@ exports.saveNewData = function (blogId, data) {
 };
 
 // 새 데이터로 덮어쓰는 함수
-exports.saveTest = function (blogId) {
+exports.removeData = function (blogId) {
     blogRealm.write(() => {
         blogRealm.create('Post', {
             id: blogId,
