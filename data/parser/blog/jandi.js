@@ -1,5 +1,5 @@
 // TODO 변경필요
-const rootUrl = 'http://blog.jandi.com/ko/';
+const rootUrl = 'http://tosslab.github.io/';
 
 // Module
 const cheerio = require('cheerio');
@@ -20,30 +20,19 @@ exports.getData = function (rootCallback) {
         let blogName = $('title').eq(0).text().substring(0, 20);
 
         // Article
-        let articleItem = $('article').eq(0)
-            .children('header.article__header').eq(0);
+        let articleItem = $('li.post.post__list').eq(0);
 
         // Title
-        let titleItem = articleItem
-            .children('h3.article__title.entry-title').eq(0)
+        let titleItem = articleItem.children('h2.post__list-title').eq(0)
             .children('a').eq(0);
         let parseTitle = titleItem.text();
         let parseLink = titleItem.attr('href');
 
         // Header
-        let parseHeaderSrc = articleItem
-            .children('div.article__featured-image').eq(0)
-            .children('a').eq(0)
-            .children('img').eq(0).attr('src');
-
-        if (parseHeaderSrc === undefined) {
-            parseHeaderSrc = 'http://blog.jandi.com/ko/wp-content/uploads/sites/4/2015/11/blog_800x800_v002_150507.jpg';
-        }
+        let parseHeaderSrc = 'http://blog.jandi.com/ko/wp-content/uploads/sites/4/2015/11/blog_800x800_v002_150507.jpg';
 
         // Summary
-        let parseSummary = articleItem.children('section.article__content.entry-summary').eq(0)
-            .children('a').eq(0)
-            .children('p').eq(0).text();
+        let parseSummary = articleItem.children('p.post__list-meta__description').eq(0).text();
 
         // Result
         let result = resultItem.getResultItem();
