@@ -6,6 +6,7 @@ const Schedule = require('node-schedule');
 const Express = require('express');
 const Compression = require('compression');
 const NewRelic = require('newrelic');
+const favicon = require('serve-favicon');
 
 // Parse Manager
 const ParseManager = require('./data/parser/parse_manager');
@@ -18,6 +19,9 @@ app.engine('html', require('ejs').renderFile);
 app.use("/public", Express.static(__dirname + "/public"));
 app.use(BodyParser.urlencoded({extended: true}));
 app.use(BodyParser.json());
+
+// Favicon
+app.use(favicon(__dirname + '/public/favicon.ico'));
 
 // gzip
 app.use(Compression());
