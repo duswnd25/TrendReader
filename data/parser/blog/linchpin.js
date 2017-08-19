@@ -35,6 +35,10 @@ exports.getData = function (rootCallback) {
             .children('a').eq(0)
             .children('img').attr('src');
 
+        if (parseHeaderSrc === undefined) {
+            parseHeaderSrc = 'https://secure.gravatar.com/avatar/a3e1cc7d4fd22fc93cb75bac34b31362?s=420';
+        }
+
         // Summary
         let parseSummary = articleItem.children('p.post-excerpt').eq(0).text();
 

@@ -34,6 +34,10 @@ exports.getData = function (rootCallback) {
             .css('background-image');
         parseHeaderSrc = parseHeaderSrc.replace('url(', '').replace(')', '').replace(/\"/gi, "");
 
+        if (parseHeaderSrc === undefined) {
+            parseHeaderSrc = ' https://blogs.unity3d.com/wp-content/themes/unity/images/large.jpg';
+        }
+
         // Summary
         let parseSummary = articleItem.children('p.mb0.clear.d-excerpt').eq(0).text();
 

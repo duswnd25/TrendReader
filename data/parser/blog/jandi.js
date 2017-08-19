@@ -36,6 +36,10 @@ exports.getData = function (rootCallback) {
             .children('a').eq(0)
             .children('img').eq(0).attr('src');
 
+        if (parseHeaderSrc === undefined) {
+            parseHeaderSrc = 'http://blog.jandi.com/ko/wp-content/uploads/sites/4/2015/11/blog_800x800_v002_150507.jpg';
+        }
+
         // Summary
         let parseSummary = articleItem.children('section.article__content.entry-summary').eq(0)
             .children('a').eq(0)

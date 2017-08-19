@@ -25,8 +25,12 @@ exports.getData = function (rootCallback) {
         let parseLink = $('div.u-lineHeightBase.postItem').eq(0).children('a').eq(0).attr('href');
 
         // Header
-        let parsingHeaderSrc = $('div.u-lineHeightBase.postItem').eq(0).children('a').eq(0).css('background-image');
-        parsingHeaderSrc = parsingHeaderSrc.replace('url(', '').replace(')', '').replace(/\"/gi, "");
+        let parseHeaderSrc = $('div.u-lineHeightBase.postItem').eq(0).children('a').eq(0).css('background-image');
+        parseHeaderSrc = parseHeaderSrc.replace('url(', '').replace(')', '').replace(/\"/gi, "");
+
+        if (parseHeaderSrc === undefined) {
+            parseHeaderSrc = 'https://rainist.com/static/e3d9ee1cbeb0f6c95295abcdbdaf9a33.svg';
+        }
 
         // Summary
         let parseSummary = $('div.u-contentSansThin.u-lineHeightBaseSans.u-fontSize24.u-xs-fontSize18').eq(0).text();
@@ -35,7 +39,7 @@ exports.getData = function (rootCallback) {
         let result = resultItem.getResultItem();
         result.name = blogName;
         result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + 'https://rainist.com/';
-        result.header_src = parsingHeaderSrc;
+        result.header_src = parseHeaderSrc;
         result.title = parseTitle;
         result.link = parseLink;
         result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
