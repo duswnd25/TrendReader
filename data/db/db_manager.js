@@ -4,11 +4,13 @@ const schemaVersion = 4;
 
 let blogRealm = new Realm({
     path: process.cwd() + '/assets/realm/blog.realm',
-    schema: [PostSchema.getSchema( )],
+    schema: [PostSchema.getSchema()],
     schemaVersion: schemaVersion,
     migration: function (oldRealm, newRealm) {
         // schemaVersion를 업데이트하는 경우만 이 변경을 적용합니다
         if (oldRealm.schemaVersion < schemaVersion) {
+            console.log('Realm : MIGRATION');
+
             let oldObjects = oldRealm.objects('Post');
             let newObjects = newRealm.objects('Post');
 
@@ -31,12 +33,14 @@ let blogRealm = new Realm({
 // 새 데이터인지 확인하는 함수
 exports.isNewData = function (blogId, parseTitle, rootCallback) {
     let recentTitle = blogRealm.objects('Post').filtered('id = "' + blogId + '"').filtered('title = "' + parseTitle.trim() + '"');
+    console.log('Realm : 새 데이터 ' + blogId + ' = ' + (recentTitle.length === 0));
     rootCallback(recentTitle.length === 0);
 };
 
 
 // 새 데이터로 덮어쓰는 함수
 exports.saveNewData = function (blogId, data) {
+    console.log('Realm : 저장 ' + blogId);
     blogRealm.write(() => {
         blogRealm.create('Post', {
             id: blogId,
@@ -71,6 +75,7 @@ exports.removeData = function (blogId) {
 
 // 최근 값 가져오기
 exports.getRecentData = function (blogId, rootCallback) {
+    console.log('Realm : 읽기 ' + blogId);
     if (blogId === 'all') {
         rootCallback(blogRealm.objects('Post').sorted('timestamp', true));
     } else {
