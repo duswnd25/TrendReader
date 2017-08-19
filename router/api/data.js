@@ -14,11 +14,11 @@ module.exports = function (app) {
 
     app.get('/api/data/parse/:blogId', (req, res) => {
         parseManager.parseData(req.params.blogId);
-        return res.status(200).json({success: '명령어 전달 완료.'});
+        return res.status(200).json({success: req.params.blogId + ' 파싱'});
     });
 
-    app.get('/api/data/test/:blogId', (req, res) => {
+    app.get('/api/data/remove/:blogId', (req, res) => {
         DbManager.removeData(req.params.blogId);
-        return res.status(200).json({success: '명령어 전달 완료.'});
+        return res.status(200).json({success: req.params.blogId + ' 삭제'});
     });
 };
