@@ -28,17 +28,14 @@
     </style>
 </head>
 <body>
-<div ng-app="trendReaderApp" class="container-fluid col-lg-12 col-md-12 col-sm-12 col-xs-12"
+<div ng-app="trendReaderApp" class="container-fluid"
      ng-controller="blog_controller">
-
     <!-- Thank you for https://www.codeply.com/go/q03ZHDeSGN -->
     <div class="card-columns">
         <!-- start -->
-        <div class=""
-             style="margin-bottom: 4px; margin-top: 4px"
-             ng-repeat="info in list">
+        <div ng-repeat="info in list">
             <div class="card">
-                <img class="card-img-top img-fluid" ng-src="{{ info.header_src }}" alt="블로그 이미지">
+                <img class="card-img-top img-fluid" ng-src="{{ info.header_src }}" alt="블로그 이미지" style="width: 100%">
                 <div class="card-block">
                     <a ng-href="{{ info.link }}"><h4 class="card-title"><strong>{{ info.title }}</strong></h4></a>
                     <p class="card-text">{{ info.summary }}</p>
