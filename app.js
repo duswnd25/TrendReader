@@ -21,7 +21,8 @@ app.use(BodyParser.urlencoded({extended: true}));
 app.use(BodyParser.json());
 
 // Favicon
-app.use(favicon(__dirname + '/public/favicon.ico'));
+// From http://www.favicon-generator.org/
+app.use(favicon(__dirname + '/public/favicon/favicon-32x32.png'));
 
 // gzip
 app.use(Compression());
