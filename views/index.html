@@ -3,7 +3,7 @@
     <title>Trend Reader</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Card View -->
@@ -14,71 +14,41 @@
 
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 </head>
 <body>
-<div ng-app="trendReaderApp" class="stagger-container" ng-controller="blog_controller">
+<ul ng-app="trendReaderApp" class="stagger-container container-fluid" ng-controller="blog_controller">
     <!-- start -->
-    <div class="stagger-item wrapper" ng-repeat="info in list">
-        <div class="card radius shadowDepth1">
-            <!-- 헤더 이미지 -->
-            <div class="card__image border-tlr-radius">
-                <img ng-src="{{ info.header_src }}" alt="블로그 헤더 이미지" class="border-tlr-radius"
-                     style="background-color:white; height: 160px">
+
+    <li class="col-md-4 list-unstyled stagger-item " ng-repeat="info in list">
+        <div class="card">
+            <img class="card-img-top img-fluid" ng-src="{{ info.header_src }}" alt="블로그 이미지">
+            <div class="card-block">
+                <h4 class="card-title"><strong>{{ info.title }}</strong></h4>
+                <p class="card-text">{{ info.summary }}</p>
             </div>
-
-            <div class="card__content card__padding">
-
-                <div class="card__meta">
-                    <time class="article-date">{{ info.timestamp }}</time>
-                </div>
-
-                <article class="card__article">
-                    <h2><a ng-href="{{ info.link }}"><strong>{{ info.title }}</strong></a></h2>
-
-                    <p>{{ info.summary }}</p>
-                </article>
-            </div>
-
-            <div class="card__action">
-                <div class="card__author text-center">
-                    <img ng-src="{{info.favicon_src }}" alt="블로그 Favicon">
-                    <div class="card__author-content">
-                        By {{ info.name }} <span
-                            ng-class="info.type === 'C' ? 'label label-primary' : 'label label-success'">{{info.type}}</span>
-                    </div>
-                </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+            <div class="card-block">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
             </div>
         </div>
-    </div>
+    </li>
     <!-- End -->
-</div>
+</ul>
 
 <!-- JavaScript -->
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
         integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
         crossorigin="anonymous"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-
-<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
         crossorigin="anonymous"></script>
@@ -90,13 +60,5 @@
 <!-- Controller -->
 <script src="./public/js/blog_controller.js"></script>
 
-<!-- Masonry -->
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-
-<script>
-    $('.grid.ng-scope').masonry({
-        columnWidth: 350,
-        itemSelector: '.grid-item.wrapper.ng-scope'
-    });</script>
 </body>
 </html>
