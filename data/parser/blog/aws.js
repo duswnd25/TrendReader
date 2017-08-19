@@ -1,8 +1,6 @@
 // TODO 변경필요
 const rootUrl = 'https://aws.amazon.com/ko/blogs/korea/';
-const headerSrc = '
- const rootUrl = 'https://aws.amazon.com/ko/blogs/korea/';
--const headerSrc = 'https://d2908q01vomqb2.cloudfront.net/7b52009b64fd0a2a49e6d8a939753077792b0554/2017/03/05/aws-korea-weekly.png';
+const headerSrc = 'https://d2908q01vomqb2.cloudfront.net/7b52009b64fd0a2a49e6d8a939753077792b0554/2017/03/05/aws-korea-weekly.png';
 // Module
 const request = require('request');
 const cheerio = require('cheerio');
