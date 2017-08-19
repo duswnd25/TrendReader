@@ -3,8 +3,8 @@ const PostSchema = require('./post_realm');
 const schemaVersion = 4;
 
 let blogRealm = new Realm({
-    path: process.cwd() + '/data/db/realm/blog.realm',
-    schema: [PostSchema.getSchema()],
+    path: process.cwd() + '/assets/realm/blog.realm',
+    schema: [PostSchema.getSchema( )],
     schemaVersion: schemaVersion,
     migration: function (oldRealm, newRealm) {
         // schemaVersion를 업데이트하는 경우만 이 변경을 적용합니다
