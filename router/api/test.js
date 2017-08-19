@@ -6,3 +6,9 @@ module.exports = function (app) {
         return res.status(200).json({success: '명령어 전달 완료.'});
     });
 };
+
+module.exports = function (app) {
+    app.get('/test', function (req, res) {
+        res.render('test.html')
+    });
+};
