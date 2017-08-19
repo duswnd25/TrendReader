@@ -60,4 +60,4 @@ typings/
 
 assets/realm/blog.realm
 *.lock
-.idea/workspace.xml
+.idea/
