@@ -1,0 +1,20 @@
+body {
+    font-family: Roboto, sans-serif;
+    font-weight: 400;
+    width: 100%;
+    font-size: 1.6em;
+    line-height: 1.6;
+    color: #666;
+    display: flex;
+}
+
+.stagger-container {
+    display: inline-flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100vw;
+}
+
+.stagger-item {
+}
