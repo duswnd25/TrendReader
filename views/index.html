@@ -50,11 +50,9 @@
      ng-controller="blog_controller">
     <div id="masonry-container" class="row">
         <!-- start -->
-        <div id="masonry-item" class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3" ng-repeat="info in list"
+        <div id="masonry-item" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" ng-repeat="info in list"
              style="margin-top: 6px; margin-bottom: 6px">
             <div class="card">
-                <img class="card-img-top img-fluid" ng-src="{{ info.header_src }}" alt="블로그 이미지"
-                     style="width: 100%;">
                 <div class="card-block">
                     <a ng-href="{{ info.link }}"><h4 class="card-title"><strong>{{ info.title }}</strong></h4></a>
                     <p class="card-text" style="word-break: break-all">{{ info.summary }}</p>
