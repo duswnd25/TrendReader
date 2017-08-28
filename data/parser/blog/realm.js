@@ -1,6 +1,5 @@
 // TODO 변경필요
 const rootUrl = 'https://blog.realm.io/kr/';
-let headerSrc = 'https://realm.io/assets/svg/products/realm-mobile-platform/rmp-react-to-changes-in-real-time.svg';
 
 // Module
 const cheerio = require('cheerio');
@@ -36,10 +35,9 @@ exports.getData = function (rootCallback) {
         let result = resultItem.getResultItem();
         result.name = blogName;
         result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.header_src = headerSrc;
         result.title = parseTitle;
         result.link = parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
+        result.summary = parseSummary;
         result.type = 'C';
 
         rootCallback(result);

@@ -1,6 +1,5 @@
 // TODO 변경필요
 const rootUrl = 'https://blog.outsider.ne.kr/category';
-const parseHeaderSrc = 'https://blog.outsider.ne.kr/skin/blog/anti_verbose/images/main-bg.jpg.pagespeed.ce.0KiEbhhP7k.jpg'; // 표시 없음
 
 // Module
 const cheerio = require('cheerio');
@@ -34,10 +33,9 @@ exports.getData = function (rootCallback) {
         let result = resultItem.getResultItem();
         result.name = blogName;
         result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.header_src = parseHeaderSrc;
         result.title = parseTitle;
         result.link = rootUrl.replace('/category', '') + parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
+        result.summary = parseSummary;
         result.type = 'P';
 
         rootCallback(result);

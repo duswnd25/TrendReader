@@ -1,6 +1,5 @@
 // TODO 변경필요
 const rootUrl = 'http://tech.lezhin.com/';
-const headerSrc = 'http://tech.lezhin.com/assets/img/lezhin_trans_128x128.png'; // 표시 없음
 
 // Module
 const cheerio = require('cheerio');
@@ -35,10 +34,9 @@ exports.getData = function (rootCallback) {
         let result = resultItem.getResultItem();
         result.name = blogName;
         result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.header_src = headerSrc;
         result.title = parseTitle;
         result.link = parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
+        result.summary = parseSummary;
         result.type = 'C';
 
         rootCallback(result);

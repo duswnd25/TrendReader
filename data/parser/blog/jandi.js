@@ -28,9 +28,6 @@ exports.getData = function (rootCallback) {
         let parseTitle = titleItem.text();
         let parseLink = titleItem.attr('href');
 
-        // Header
-        let parseHeaderSrc = 'http://blog.jandi.com/ko/wp-content/uploads/sites/4/2015/11/blog_800x800_v002_150507.jpg';
-
         // Summary
         let parseSummary = articleItem.children('p.post__list-meta__description').eq(0).text();
 
@@ -38,10 +35,9 @@ exports.getData = function (rootCallback) {
         let result = resultItem.getResultItem();
         result.name = blogName;
         result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.header_src = parseHeaderSrc;
         result.title = parseTitle;
         result.link = rootUrl + parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
+        result.summary = parseSummary;
         result.type = 'C';
 
         rootCallback(result);

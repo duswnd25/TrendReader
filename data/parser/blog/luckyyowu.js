@@ -1,6 +1,6 @@
 // TODO 변경필요
 const rootUrl = 'http://luckyyowu.tistory.com/';
-const headerSrc = 'http://cfile4.uf.tistory.com/image/25438D4353F39A252F6A0B'; // 표시 없으
+
 // Module
 const cheerio = require('cheerio');
 const request = require('request');
@@ -34,10 +34,9 @@ exports.getData = function (rootCallback) {
         let result = resultItem.getResultItem();
         result.name = blogName;
         result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.header_src = headerSrc;
         result.title = parseTitle;
         result.link = rootUrl + parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
+        result.summary = parseSummary;
         result.type = 'P';
 
         rootCallback(result);

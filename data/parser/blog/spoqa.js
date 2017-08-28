@@ -1,6 +1,5 @@
 // TODO 변경필요
 const rootUrl = 'https://spoqa.github.io/';
-const headerSrc = 'https://spoqa.github.io/images/logo.png';
 
 // Module
 const cheerio = require('cheerio');
@@ -35,10 +34,9 @@ exports.getData = function (rootCallback) {
         let result = resultItem.getResultItem();
         result.name = blogName;
         result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.header_src = headerSrc;
         result.title = parseTitle;
         result.link = rootUrl + parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
+        result.summary = parseSummary;
         result.type = 'C';
 
         rootCallback(result);
