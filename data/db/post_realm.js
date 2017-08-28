@@ -6,7 +6,6 @@ exports.getSchema = function () {
             id: 'string',
             name: 'string',
             favicon_src: 'string',
-            header_src: 'string',
             title: 'string',
             link: 'string',
             summary: 'string',

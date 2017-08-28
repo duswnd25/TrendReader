@@ -1,6 +1,6 @@
 const Realm = require('realm');
 const PostSchema = require('./post_realm');
-const schemaVersion = 4;
+const schemaVersion = 5;
 
 let blogRealm = new Realm({
     path: process.cwd() + '/assets/realm/blog.realm',
@@ -19,7 +19,6 @@ let blogRealm = new Realm({
                 newObjects[index].id = oldObjects[index].id;
                 newObjects[index].name = oldObjects[index].name;
                 newObjects[index].favicon_src = oldObjects[index].favicon_src;
-                newObjects[index].header_src = oldObjects[index].header_src;
                 newObjects[index].title = oldObjects[index].title;
                 newObjects[index].link = oldObjects[index].link;
                 newObjects[index].summary = oldObjects[index].summary;
@@ -46,7 +45,6 @@ exports.saveNewData = function (blogId, data) {
             id: blogId,
             name: data.name.trim(),
             favicon_src: data.favicon_src,
-            header_src: data.header_src,
             title: data.title.trim(),
             link: data.link.trim(),
             summary: data.summary.trim(),
@@ -63,7 +61,6 @@ exports.removeData = function (blogId) {
             id: blogId,
             name: "test",
             favicon_src: "test",
-            header_src: "test",
             title: "test",
             link: "test",
             summary: "test",
