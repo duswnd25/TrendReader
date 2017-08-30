@@ -1,72 +1,56 @@
-const Realm = require('realm');
-const PostSchema = require('./post_realm');
-const schemaVersion = 5;
-
-let blogRealm = new Realm({
-    path: process.cwd() + '/assets/realm/blog.realm',
-    schema: [PostSchema.getSchema()],
-    schemaVersion: schemaVersion,
-    migration: function (oldRealm, newRealm) {
-        // schemaVersion를 업데이트하는 경우만 이 변경을 적용합니다
-        if (oldRealm.schemaVersion < schemaVersion) {
-            console.log('Realm : MIGRATION');
-
-            let oldObjects = oldRealm.objects('Post');
-            let newObjects = newRealm.objects('Post');
-
-            // 모든 객체를 순환
-            for (let index = 0; index < oldObjects.length; index++) {
-                newObjects[index].id = oldObjects[index].id;
-                newObjects[index].name = oldObjects[index].name;
-                newObjects[index].favicon_src = oldObjects[index].favicon_src;
-                newObjects[index].title = oldObjects[index].title;
-                newObjects[index].link = oldObjects[index].link;
-                newObjects[index].summary = oldObjects[index].summary;
-                newObjects[index].type = oldObjects[index].type;
-                newObjects[index].timestamp = oldObjects[index].timestamp;
-            }
-        }
-    }
-});
+const Mongoose = require('mongoose');
+let PostSchema = require('./post_schema');
 
 // 새 데이터인지 확인하는 함수
 exports.isNewData = function (blogId, parseTitle, rootCallback) {
-    let recentTitle = blogRealm.objects('Post').filtered('id = "' + blogId + '"').filtered('title = "' + parseTitle.trim() + '"');
-    console.log('Realm : 새 데이터 ' + blogId + ' = ' + (recentTitle.length === 0));
-    rootCallback(recentTitle.length === 0);
+    Mongoose.connect(process.env.MONGODB_URI);
+    let tempPost = new PostSchema();
+
+    let db = Mongoose.connection;
+    db.on('error', console.error.bind(console, 'DB : connection error:'));
+    db.once('open', function callback() {
+        console.log('DB    : Connect');
+        tempPost.findOne({title: parseTitle}, function (err, docs) {
+            if (err) {
+                console.log(err)
+            }
+            Mongoose.disconnect();
+            rootCallback(docs === null)
+        });
+    });
 };
 
 
 // 새 데이터로 덮어쓰는 함수
-exports.saveNewData = function (blogId, data) {
-    console.log('Realm : 저장 ' + blogId);
-    blogRealm.write(() => {
-        blogRealm.create('Post', {
-            id: blogId,
-            name: data.name.trim(),
-            favicon_src: data.favicon_src,
-            title: data.title.trim(),
-            link: data.link.trim(),
-            summary: data.summary.trim(),
-            type: data.type,
-            timestamp: new Date()
-        }, true);
-    });
+exports.updateData = function (blogId, data) {
+    let feed = new PostSchema();
+    feed.id = data.id;
+    feed.favicon_src = data.favicon_src;
+    feed.title = data.title;
+    feed.name = data.name;
+    feed.link = data.link;
+    feed.summary = data.summary;
+    feed.type = data.type;
+
+    feed.update({ id: blogId }, { $set: data }, function(err, output){
+        console.log(output);
+    })
 };
 
 // 새 데이터로 덮어쓰는 함수
 exports.removeData = function (blogId) {
-    blogRealm.write(() => {
-        blogRealm.create('Post', {
-            id: blogId,
-            name: "test",
-            favicon_src: "test",
-            title: "test",
-            link: "test",
-            summary: "test",
-            type: "test",
-            timestamp: new Date()
-        }, true);
+    let feed = new PostSchema();
+    feed.title = "";
+    feed.id = blogId;
+    feed.name = "";
+    feed.favicon_src = "";
+    feed.link = "";
+    feed.summary = "";
+    feed.type = "";
+
+    feed.save(function(err) {
+        if (err) throw err;
+        console.log("DB : 값 삭제");
     });
 };
 
@@ -74,17 +58,12 @@ exports.removeData = function (blogId) {
 exports.getRecentData = function (blogId, rootCallback) {
     console.log('Realm : 읽기 ' + blogId);
     if (blogId === 'all') {
-        rootCallback(blogRealm.objects('Post').sorted('timestamp', true));
+        PostSchema.find(function (err, feed) {
+            if (err) {
+                console.error(err);
+            }
+            rootCallback(feed);
+        })
     } else {
-        rootCallback(blogRealm.objects('Post').filtered('id = "' + blogId + '"'));
     }
-};
-
-Date.prototype.getCustomType = function () {
-    let year = this.getFullYear().toString();
-    let month = (this.getMonth() + 1).toString();
-    let date = this.getDate().toString();
-    let hour = this.getHours().toString();
-    let minute = this.getMinutes().toString();
-    return year + '년 ' + month + '월' + date + '일 ' + hour + '시 ' + minute + '분';
 };

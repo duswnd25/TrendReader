@@ -20,7 +20,7 @@ function parseData(blogId) {
     parser.getData(function (data) {
         dbManager.isNewData(blogId, data.title, function (isNewData) {
             if (isNewData) {
-                dbManager.saveNewData(blogId, data);
+                dbManager.updateData(blogId, data);
             }
         })
     });
