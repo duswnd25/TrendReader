@@ -51,13 +51,13 @@
     <div id="masonry-container" class="row">
         <!-- start -->
         <div id="masonry-item" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" ng-repeat="info in list"
-             style="margin-top: 6px; margin-bottom: 6px" style="margin: auto">
+             style="margin-top: 6px; margin-bottom: 6px">
             <div class="card">
                 <div class="card-block">
                     <a ng-href="{{ info.link }}"><h4 class="card-title"><strong>{{ info.title }}</strong></h4></a>
-                    <h6>{{ info.timestamp }}</h6>
-                </div>
-                <div class="card-block">
+                    <div class="card-block">
+                       <h6>{{ info.timestamp }}</h6>
+                    </div>
                     <p class="card-text" style="word-break: break-all">{{ info.summary }}</p>
                 </div>
                 <div class="card-block text-center">
@@ -98,7 +98,7 @@
         $container.imagesLoaded(function () {
             $container.masonry({
                 itemSelector: '#masonry-item',
-                columnWidth: 350
+                columnWidth : 350
             });
         });
     });
