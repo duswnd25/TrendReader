@@ -2,10 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let FeedSchema = new Schema({
-    id: {
-        type: String,
-        require: true
-    },
+    objectId: ObjectId,
+    id: 'string',
     name: 'string',
     favicon_src: 'string',
     title: 'string',
