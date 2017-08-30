@@ -32,7 +32,7 @@ exports.updateData = function (blogId, data) {
     feed.summary = data.summary;
     feed.type = data.type;
 
-    feed.update({id: blogId}, {$set: data}, function (err, output) {
+    feed.update({ id: blogId }, { $set: data }, function(err, output){
         console.log(output);
     })
 };
@@ -48,7 +48,7 @@ exports.removeData = function (blogId) {
     feed.summary = "";
     feed.type = "";
 
-    feed.save(function (err) {
+    feed.save(function(err) {
         if (err) throw err;
         console.log("DB : 값 삭제");
     });
@@ -56,24 +56,14 @@ exports.removeData = function (blogId) {
 
 // 최근 값 가져오기
 exports.getRecentData = function (blogId, rootCallback) {
-    let tempPost = new PostSchema();
-
-    Mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true});
-    let dbConnection = mongoose.connection;
-
-    dbConnection.on('error', console.error('DB : connection error'));
-
-    db.once('open', function callback() {
-        if (blogId === 'all') {
-        } else {
-            PostSchema.findOne({id: blogId}, function (err, docs) {
-                if (err) {
-                    console.log(err);
-                }
-                rootCallback(docs);
-                Mongoose.disconnect();
-                console.log('DB : Disconnect');
-            });
-        }
-    });
+    console.log('Realm : 읽기 ' + blogId);
+    if (blogId === 'all') {
+        PostSchema.find(function (err, feed) {
+            if (err) {
+                console.error(err);
+            }
+            rootCallback(feed);
+        })
+    } else {
+    }
 };
