@@ -43,7 +43,6 @@ exports.getData = function (rootCallback) {
         result.title = parseTitle;
         result.link = parseLink;
         result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
-        result.type = 'C';
 
         rootCallback(result);
     });

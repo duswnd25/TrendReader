@@ -36,7 +36,6 @@ exports.getData = function (rootCallback) {
         result.title = parseTitle;
         result.link = rootUrl.replace('/category', '') + parseLink;
         result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
-        result.type = 'P';
 
         rootCallback(result);
     });
