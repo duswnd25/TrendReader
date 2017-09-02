@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "db_test": "nodemon ./data/db/db_test.js"
   },
   "engines": {
     "node": "8.4.0",
@@ -39,7 +40,7 @@
     "node-schedule": "^1.2.4",
     "nodemon": "^1.11.0",
     "promise": "^8.0.1",
-    "realm": "^1.10.3",
+    "realm": "^1.11.1",
     "request": "^2.81.0",
     "serve-favicon": "^2.4.3"
   }

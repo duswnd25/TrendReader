@@ -1,83 +1,104 @@
-const Realm = require('realm');
-const PostSchema = require('./post_realm');
-const schemaVersion = 5;
+const Mongoose = require('mongoose');
+const DB_URL = process.env.MONGODB_URI;
+Mongoose.connect(DB_URL);
+Mongoose.Promise = global.Promise;
 
-let blogRealm = new Realm({
-    path: process.cwd() + '/assets/realm/blog.realm',
-    schema: [PostSchema.getSchema()],
-    schemaVersion: schemaVersion,
-    migration: function (oldRealm, newRealm) {
-        // schemaVersion를 업데이트하는 경우만 이 변경을 적용합니다
-        if (oldRealm.schemaVersion < schemaVersion) {
-            console.log('Realm : MIGRATION');
+// DB 스키마 시작
+const Schema = Mongoose.Schema;
 
-            let oldObjects = oldRealm.objects('Post');
-            let newObjects = newRealm.objects('Post');
-
-            // 모든 객체를 순환
-            for (let index = 0; index < oldObjects.length; index++) {
-                newObjects[index].id = oldObjects[index].id;
-                newObjects[index].name = oldObjects[index].name;
-                newObjects[index].favicon_src = oldObjects[index].favicon_src;
-                newObjects[index].title = oldObjects[index].title;
-                newObjects[index].link = oldObjects[index].link;
-                newObjects[index].summary = oldObjects[index].summary;
-                newObjects[index].type = oldObjects[index].type;
-                newObjects[index].timestamp = oldObjects[index].timestamp;
-            }
-        }
-    }
+let PostSchema = new Schema({
+    blogId: {type: String, required: true, unique: true, index: true},
+    name: {type: String, required: true},
+    favicon_src: {type: String, required: true},
+    title: {type: String, required: true},
+    link: {type: String, required: true},
+    summary: {type: String, required: true},
+    timestamp: {type: Date, default: Date.now(), required: true}
 });
 
-// 새 데이터인지 확인하는 함수
+let PostModel = Mongoose.model('Post', PostSchema);
+// DB 스키마 끝
+
+// 새 데이터 여부
 exports.isNewData = function (blogId, parseTitle, rootCallback) {
-    let recentTitle = blogRealm.objects('Post').filtered('id = "' + blogId + '"').filtered('title = "' + parseTitle.trim() + '"');
-    console.log('Realm : 새 데이터 ' + blogId + ' = ' + (recentTitle.length === 0));
-    rootCallback(recentTitle.length === 0);
+    PostModel.findOne({blogId: blogId}, function (err, post) {
+        if (err) {
+            console.error('DB : NEW DATA CHECK ERROR = ' + blogId);
+            console.error(err);
+        }
+        if (post === null) {
+            createEmptyData(blogId, function () {
+                rootCallback(true);
+            });
+        } else {
+            console.info('DB : NEW DATA = ' + blogId + " = " + (post.title !== parseTitle));
+            rootCallback(post.title !== parseTitle);
+        }
+    })
 };
 
+// 빈 데이터 생성
+function createEmptyData(blogId, callback) {
+    let tempPost = new PostModel();
+    tempPost.blogId = blogId;
+    tempPost.name = "NO";
+    tempPost.favicon_src = "NO";
+    tempPost.title = "NO";
+    tempPost.link = "NO";
+    tempPost.summary = "NO";
+    tempPost.timestamp = Date.now();
 
-// 새 데이터로 덮어쓰는 함수
-exports.saveNewData = function (blogId, data) {
-    console.log('Realm : 저장 ' + blogId);
-    blogRealm.write(() => {
-        blogRealm.create('Post', {
-            id: blogId,
-            name: data.name.trim(),
-            favicon_src: data.favicon_src,
-            title: data.title.trim(),
-            link: data.link.trim(),
-            summary: data.summary.trim(),
-            type: data.type,
-            timestamp: new Date()
-        }, true);
+    tempPost.save(function (err) {
+        if (err) {
+            console.error('DB : CREATE NEW DATA ERROR = ' + blogId);
+            console.error(err);
+        }
+        console.info('DB : CREATE NEW DATA = ' + blogId);
+        callback();
+    });
+}
+
+// 업데이트
+exports.updateData = function (blogId, data) {
+    PostModel.update({'blogId': {$in: blogId}}, {
+        $set: {
+            'name': data.name,
+            'favicon_src': data.favicon_src,
+            'title': data.title,
+            'link': data.link,
+            'summary': data.summary,
+            'timestamp': Date.now()
+        }
+    }, {multi: true}, function (err) {
+        if (err) {
+            console.error('DB : UPDATE ERROR = ' + blogId);
+            console.error(err);
+        }
+        console.info('DB : UPDATE FINISH = ' + blogId);
     });
 };
 
-// 새 데이터로 덮어쓰는 함수
+// 삭제
 exports.removeData = function (blogId) {
-    blogRealm.write(() => {
-        blogRealm.create('Post', {
-            id: blogId,
-            name: "test",
-            favicon_src: "test",
-            title: "test",
-            link: "test",
-            summary: "test",
-            type: "test",
-            timestamp: new Date()
-        }, true);
+    PostModel.remove({blogId: blogId}, function (err) {
+        if (err) {
+            console.error('DB : REMOVE ERROR = ' + blogId);
+            console.error(err);
+        } else {
+            console.info('DB : REMOVE SUCCESS = ' + blogId);
+        }
     });
 };
 
-// 최근 값 가져오기
-exports.getRecentData = function (blogId, rootCallback) {
-    console.log('Realm : 읽기 ' + blogId);
-    if (blogId === 'all') {
-        rootCallback(blogRealm.objects('Post').sorted('timestamp', true));
-    } else {
-        rootCallback(blogRealm.objects('Post').filtered('id = "' + blogId + '"'));
-    }
+// 가져오기
+exports.getData = function (blogId, rootCallback) {
+    PostModel.find({}).sort({timestamp: 'desc'}).exec(function (err, posts) {
+        if (err) {
+            console.error('DB : GET DATA ERROR = ' + blogId);
+            console.error(err)
+        }
+        rootCallback(posts === null ? "" : posts);
+    });
 };
 
 Date.prototype.getCustomType = function () {

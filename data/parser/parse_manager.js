@@ -19,8 +19,8 @@ function parseData(blogId) {
     let parser = require('./blog/' + blogId);
     parser.getData(function (data) {
         dbManager.isNewData(blogId, data.title, function (isNewData) {
-            if (isNewData) {
-                dbManager.saveNewData(blogId, data);
+            if (isNewData === true) {
+                dbManager.updateData(blogId, data);
             }
         })
     });
