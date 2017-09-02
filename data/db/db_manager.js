@@ -13,7 +13,7 @@ let PostSchema = new Schema({
     title: {type: String, required: true},
     link: {type: String, required: true},
     summary: {type: String, required: true},
-    timestamp: {type: Date, default: Date.now(), required: true}
+    timestamp: {type: Date, default: Date.now().getCustomType(), required: true}
 });
 
 let PostModel = Mongoose.model('Post', PostSchema);
@@ -34,7 +34,7 @@ exports.isNewData = function (blogId, parseTitle, rootCallback) {
             console.info('DB : NEW DATA = ' + blogId + " = " + (post.title !== parseTitle));
             rootCallback(post.title !== parseTitle);
         }
-    })
+    });
 };
 
 // 빈 데이터 생성
@@ -92,13 +92,23 @@ exports.removeData = function (blogId) {
 
 // 가져오기
 exports.getData = function (blogId, rootCallback) {
-    PostModel.find({}).sort({timestamp: 'desc'}).exec(function (err, posts) {
-        if (err) {
-            console.error('DB : GET DATA ERROR = ' + blogId);
-            console.error(err)
-        }
-        rootCallback(posts === null ? "" : posts);
-    });
+    if (blogId === 'all') {
+        PostModel.find({}).sort({timestamp: 'desc'}).exec(function (err, posts) {
+            if (err) {
+                console.error('DB : GET DATA ERROR = ' + blogId);
+                console.error(err)
+            }
+            rootCallback(posts === null ? "" : posts);
+        });
+    } else {
+        PostModel.findOne({blogId: blogId}, function (err, post) {
+            if (err) {
+                console.error('DB : GET DATA ERROR = ' + blogId);
+                console.error(err)
+            }
+            rootCallback(post);
+        });
+    }
 };
 
 Date.prototype.getCustomType = function () {
