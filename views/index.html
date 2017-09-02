@@ -56,10 +56,11 @@
                 <div class="card-block">
                     <a ng-href="{{ info.link }}"><h4 class="card-title"><strong>{{ info.title }}</strong></h4></a>
                     <h6>{{ info.timestamp }}</h6>
+                    <br>
                     <p class="card-text" style="word-break: break-all">{{ info.summary }}</p>
                 </div>
                 <div class="card-block text-center">
-                    <img ng-src="{{ info.favicon_src }}"> By {{ info.name }}
+                    <img ng-src="{{ info.favicon_src }}" style="word-break: break-all"> By {{ info.name }}
                 </div>
                 <div class="card-block text-right">
                     <a ng-href="{{ info.link }}" ng-class="card-link">Read More</a>
