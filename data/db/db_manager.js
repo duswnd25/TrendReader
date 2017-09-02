@@ -13,7 +13,7 @@ let PostSchema = new Schema({
     title: {type: String, required: true},
     link: {type: String, required: true},
     summary: {type: String, required: true},
-    timestamp: {type: String, default: Date.now().getCustomType(), required: true}
+    timestamp: {type: Date, default: Date.now(), required: true}
 });
 
 let PostModel = Mongoose.model('Post', PostSchema);
@@ -67,7 +67,7 @@ exports.updateData = function (blogId, data) {
             'title': data.title,
             'link': data.link,
             'summary': data.summary,
-            'timestamp': Date.now().getCustomType()
+            'timestamp': Date.now()
         }
     }, {multi: true}, function (err) {
         if (err) {
