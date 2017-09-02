@@ -106,6 +106,7 @@ exports.getData = function (blogId, rootCallback) {
                 console.error('DB : GET DATA ERROR = ' + blogId);
                 console.error(err)
             }
+            post.timestamp = new Date(post.timestamp).getCustomType();
             rootCallback(post);
         });
     }
