@@ -98,6 +98,11 @@ exports.getData = function (blogId, rootCallback) {
                 console.error('DB : GET DATA ERROR = ' + blogId);
                 console.error(err)
             }
+            for (let index = 0; index < posts.length; index++) {
+                let temp = JSON.parse(JSON.stringify(posts[index]));
+                temp.timestamp = new Date(temp.timestamp).getCustomType();
+                posts[index] = temp;
+            }
             rootCallback(posts === null ? "" : posts);
         });
     } else {
@@ -106,8 +111,11 @@ exports.getData = function (blogId, rootCallback) {
                 console.error('DB : GET DATA ERROR = ' + blogId);
                 console.error(err)
             }
-            post.timestamp = new Date(post.timestamp).getCustomType();
-            rootCallback(post);
+
+            // 왜 post 를 직접 변경하면 반영이 안되는지 모르겠다.
+            let temp = JSON.parse(JSON.stringify(post));
+            temp.timestamp = new Date(temp.timestamp).getCustomType();
+            rootCallback(temp);
         });
     }
 };
