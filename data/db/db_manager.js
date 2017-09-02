@@ -126,5 +126,5 @@ Date.prototype.getCustomType = function () {
     let date = this.getDate().toString();
     let hour = this.getHours().toString();
     let minute = this.getMinutes().toString();
-    return year + '년 ' + month + '월' + date + '일 ' + hour + '시 ' + minute + '분';
+    return year + '년 ' + month + '월 ' + date + '일 ' + hour + '시 ' + minute + '분';
 };
