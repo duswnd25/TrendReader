@@ -16,7 +16,7 @@ exports.getData = function (rootCallback) {
         }
 
         // Title
-        let blogName = $('title').eq(0).text().substring(0, 20);
+        let blogName = $('title').eq(0).text();
 
         // Article
         let articleItem = $('dl.post').eq(0);
