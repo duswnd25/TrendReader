@@ -7,28 +7,30 @@ const cheerio = require('cheerio');
 const request = require('request');
 
 const resultItem = require('../result_item');
+exports.getData = function (rootCallback) {
+    request(rootUrl, function (error, response, body) {
 
-request(rootUrl, function (error, response, body) {
+        if (error) {
+            console.error(error);
+        }
 
-    if (error) {
-        console.error(error);
-    }
+        let $ = cheerio.load(body);
 
-    let $ = cheerio.load(body);
+        // Title
+        let blogName = $('title').eq(0).text();
 
-    // Title
-    let blogName = $('title').eq(0).text();
+        let articleItem = $('entry').eq(0);
+        let parseTitle = articleItem.children('title').eq(0).text();
+        let parseLink = articleItem.children('link').eq(0).attr('href');
+        let parseSummary = '';
 
-    let articleItem = $('entry').eq(0);
-    let parseTitle = articleItem.children('title').eq(0).text();
-    let parseLink = articleItem.children('link').eq(0).attr('href');
-    let parseSummary = '';
-
-    // Result
-    let result = resultItem.getResultItem();
-    result.name = blogName;
-    result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-    result.title = parseTitle;
-    result.link = parseLink;
-    result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
-});
+        // Result
+        let result = resultItem.getResultItem();
+        result.name = blogName;
+        result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+        result.title = parseTitle;
+        result.link = parseLink;
+        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
+        rootCallback(result);
+    });
+};
