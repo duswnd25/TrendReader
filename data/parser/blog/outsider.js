@@ -15,7 +15,7 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
-        // Title
+        // Name
         let blogName = $('title').eq(0).text();
 
         // Article
