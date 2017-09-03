@@ -21,4 +21,8 @@ module.exports = function (app) {
         DbManager.removeData(req.params.blogId);
         return res.status(200).json({success: req.params.blogId + ' 삭제'});
     });
+
+    app.get('/api/data/server_time', (req, res) => {
+        return res.status(200).json({success: Date.now()});
+    });
 };
