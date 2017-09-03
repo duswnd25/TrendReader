@@ -40,7 +40,6 @@
     "node-schedule": "^1.2.4",
     "nodemon": "^1.11.0",
     "promise": "^8.0.1",
-    "realm": "^1.11.1",
     "request": "^2.81.0",
     "serve-favicon": "^2.4.3"
   }
