@@ -28,14 +28,14 @@ app.use(favicon(__dirname + '/public/favicon/favicon-32x32.png'));
 app.use(Compression());
 
 // Router
-const mainRouter = require('./router/main/main.js')(app);
-const apiRouter = require('./router/api/data.js')(app);
+app.use('/', require('./router/main/main.js'));
+app.use('/api/data', require('./router/api/data'));
 
-const server = app.listen(port, function () {
+app.listen(port, function () {
     console.log("Trend Reader Working on Port " + port);
 
     // 매 10분 반복
-    let scheduler = Schedule.scheduleJob('* */10 * * * *', function () {
+    Schedule.scheduleJob('* */10 * * * *', function () {
         ParseManager.parseData('all');
     });
 });
