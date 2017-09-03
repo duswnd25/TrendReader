@@ -36,7 +36,7 @@ exports.getData = function (rootCallback) {
         result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
         result.title = parseTitle;
         result.link = parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 200) : parseSummary;
+        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
 
         rootCallback(result);
     });
