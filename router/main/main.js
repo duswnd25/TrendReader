@@ -6,7 +6,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/server_time', (req, res) => {
-    return res.status(200).json({success: Date.now()});
+    return res.status(200).json({success: (Date.now()).getCustomType()});
 });
 
 module.exports = router;
