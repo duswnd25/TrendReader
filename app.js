@@ -34,8 +34,8 @@ app.use('/api/data', require('./router/api/data'));
 app.listen(port, function () {
     console.log("Trend Reader Working on Port " + port);
 
-    // 매 10분 반복
-    Schedule.scheduleJob('* */10 * * * *', function () {
+    // 매 30분 반복
+    Schedule.scheduleJob('* */30 * * * *', function () {
         ParseManager.parseData('all');
     });
 });
