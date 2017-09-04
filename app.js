@@ -35,7 +35,7 @@ app.listen(port, function () {
     console.log("Trend Reader Working on Port " + port);
 
     // 매 30분 반복
-    Schedule.scheduleJob('* */30 * * * *', function () {
+    let schedule = Schedule.scheduleJob('* */10 * * * *', function () {
         ParseManager.parseData('all');
     });
 });
