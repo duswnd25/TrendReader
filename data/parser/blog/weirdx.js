@@ -24,7 +24,7 @@ exports.getData = function (rootCallback) {
 
         let articleItem = $('item').eq(0);
         let parseTitle = articleItem.children('title').eq(0).text();
-        let parseLink = articleItem.children('link').eq(0).attr('href');
+        let parseLink = articleItem.children('link').eq(0).text();
         let parseSummary = articleItem.children('description').eq(0).text();
 
         // Result
