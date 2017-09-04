@@ -23,8 +23,4 @@ router.get('/remove/:blogId', (req, res) => {
     return res.status(200).json({success: req.params.blogId + ' 삭제'});
 });
 
-router.get('/server_time', (req, res) => {
-    return res.status(200).json({success: Date.now()});
-});
-
 module.exports = router;
