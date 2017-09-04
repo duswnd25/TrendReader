@@ -14,7 +14,7 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
-        let $ = cheerio.load(body.replace("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", ""), {
+        let $ = cheerio.load(body, {
             normalizeWhitespace: true,
             xmlMode: true
         });
