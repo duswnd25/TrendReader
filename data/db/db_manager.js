@@ -1,5 +1,5 @@
 const Mongoose = require('mongoose');
-const DB_URL = process.env.MONGODB_URI;
+const DB_URL = process.env.MONGODB_URI || 'mongodb://heroku_m5w3c3x6:9fidp1ll6gr7hcvmsqe7pdhlfe@ds161483.mlab.com:61483/heroku_m5w3c3x6';
 Mongoose.connect(DB_URL);
 Mongoose.Promise = global.Promise;
 
@@ -13,6 +13,7 @@ let PostSchema = new Schema({
     title: {type: String, required: true},
     link: {type: String, required: true},
     summary: {type: String, required: true},
+    category: {type: [], required: true},
     timestamp: {type: Date, default: Date.now(), required: true}
 });
 
@@ -47,6 +48,7 @@ function createEmptyData(blogId, callback) {
     tempPost.link = "NO";
     tempPost.summary = "NO";
     tempPost.timestamp = Date.now();
+    tempPost.category = ['NO'];
 
     tempPost.save(function (err) {
         if (err) {
@@ -67,7 +69,8 @@ exports.updateData = function (blogId, data) {
             'title': data.title,
             'link': data.link,
             'summary': data.summary,
-            'timestamp': Date.now()
+            'timestamp': Date.now(),
+            'category': data.category
         }
     }, {multi: true}, function (err) {
         if (err) {
@@ -91,7 +94,7 @@ exports.removeData = function (blogId) {
 };
 
 // 가져오기
-exports.getData = function (blogId, rootCallback) {
+exports.getDataByBlog = function (blogId, rootCallback) {
     if (blogId === 'all') {
         PostModel.find({}).sort({timestamp: 'desc'}).exec(function (err, posts) {
             if (err) {
@@ -118,6 +121,21 @@ exports.getData = function (blogId, rootCallback) {
             rootCallback(temp);
         });
     }
+};
+
+exports.getDataByCategory = function (category, rootCallback) {
+    PostModel.find({category: category}).sort({timestamp: 'desc'}).exec(function (err, posts) {
+        if (err) {
+            console.error('DB : GET DATA ERROR = ' + blogId);
+            console.error(err)
+        }
+        for (let index = 0; index < posts.length; index++) {
+            let temp = JSON.parse(JSON.stringify(posts[index]));
+            temp.timestamp = new Date(temp.timestamp).getCustomType();
+            posts[index] = temp;
+        }
+        rootCallback(posts === null ? "" : posts);
+    });
 };
 
 Date.prototype.getCustomType = function () {

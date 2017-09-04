@@ -37,7 +37,7 @@ exports.getData = function (rootCallback) {
         result.title = parseTitle;
         result.link = rootUrl + parseLink;
         result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
-        result.category = 'individual';
+        result.category = ['individual', 'tech'];
 
         rootCallback(result);
     });

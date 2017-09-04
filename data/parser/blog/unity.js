@@ -26,7 +26,7 @@ exports.getData = function (rootCallback) {
         let titleItem = articleItem.children('h4.mb10.post-heading').eq(0).children('a');
         let parseTitle = titleItem.text();
         let parseLink = titleItem.attr('href');
-        
+
         // Summary
         let parseSummary = articleItem.children('p.mb0.clear.d-excerpt').eq(0).text();
 
@@ -37,7 +37,7 @@ exports.getData = function (rootCallback) {
         result.title = parseTitle;
         result.link = parseLink;
         result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
-        result.category = 'company, game';
+        result.category = ['company', 'game', 'tech'];
 
         rootCallback(result);
     });
