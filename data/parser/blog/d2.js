@@ -14,7 +14,10 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
-        let $ = cheerio.load(body);
+        let $ = cheerio.load(body.replace("<(/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(/)?>", ""), {
+            normalizeWhitespace: true,
+            xmlMode: true
+        });
 
         // Title
         let blogName = $('title').eq(0).text();
@@ -22,7 +25,7 @@ exports.getData = function (rootCallback) {
         let articleItem = $('entry').eq(0);
         let parseTitle = articleItem.children('title').eq(0).text();
         let parseLink = articleItem.children('link').eq(0).attr('href');
-        let parseSummary = '';
+        let parseSummary = articleItem.children('content').eq(0).text();
 
         // Result
         let result = resultItem.getResultItem();
@@ -34,3 +37,4 @@ exports.getData = function (rootCallback) {
         rootCallback(result);
     });
 };
+
