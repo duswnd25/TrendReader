@@ -5,7 +5,7 @@ exports.getResultItem = function () {
         "title": '',
         "link": '',
         "summary": '',
-        "type": '',
+        "category": '',
         "timestamp": ''
     };
     return (data);

@@ -37,6 +37,7 @@ exports.getData = function (rootCallback) {
         result.title = parseTitle;
         result.link = parseLink;
         result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
+        result.category = 'podcast';
 
         rootCallback(result);
     });
