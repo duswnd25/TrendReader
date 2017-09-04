@@ -36,6 +36,6 @@ app.listen(port, function () {
 
     // 매 30분 반복
     let schedule = Schedule.scheduleJob('* */10 * * * *', function () {
-        ParseManager.parseData('all');
+        ParseManager.start('all');
     });
 });

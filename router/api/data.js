@@ -26,7 +26,7 @@ router.get('/read/type/:category', (req, res) => {
 
 // 파싱
 router.get('/parse/:blogId', (req, res) => {
-    parseManager.parseData(req.params.blogId);
+    parseManager.start(req.params.blogId);
     return res.status(200).json({success: req.params.blogId + ' 파싱'});
 });
 

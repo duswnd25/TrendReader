@@ -2,7 +2,7 @@ const fs = require('fs');
 const dbManager = require('../db/db_manager');
 const path = process.cwd() + '/data/parser/blog';
 
-exports.parseData = function (blogId) {
+exports.start = function (blogId) {
     if (blogId === 'all') {
         let blogList = fs.readdirSync(path);
         blogList.forEach(file => {

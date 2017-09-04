@@ -1,5 +1,5 @@
 const Mongoose = require('mongoose');
-const DB_URL = process.env.MONGODB_URI;
+const DB_URL = process.env.MONGODB_URI || 'mongodb://heroku_m5w3c3x6:9fidp1ll6gr7hcvmsqe7pdhlfe@ds161483.mlab.com:61483/heroku_m5w3c3x6';
 Mongoose.connect(DB_URL);
 Mongoose.Promise = global.Promise;
 
