@@ -14,7 +14,7 @@ router.get('/read/blog/:blogId', (req, res) => {
     });
 });
 
-router.get('/read/type/:category', (req, res) => {
+router.get('/read/category/:category', (req, res) => {
     DbManager.getDataByCategory(req.params.category, function (result) {
         if (result.name === '' || result.name === null) {
             return res.status(404).json({error: '종류를 입력해주세요.', value: req.params.blogId});
