@@ -14,14 +14,22 @@ exports.parseData = function (blogId) {
     }
 };
 
+exports.forceUpdate = function (blogId) {
+    console.log('파서 : 강제 업데이트 = ' + blogId);
+    let parser = require('./blog/' + blogId);
+    parser.getData(function (data) {
+        dbManager.updateData(blogId, data);
+    });
+};
+
 function parseData(blogId) {
-    console.log('파서 : 시작 ' + blogId);
+    console.log('파서 : 시작 = ' + blogId);
     let parser = require('./blog/' + blogId);
     parser.getData(function (data) {
         dbManager.isNewData(blogId, data.link, function (isNewData) {
             if (isNewData === true) {
                 dbManager.updateData(blogId, data);
             }
-        })
+        });
     });
 }
