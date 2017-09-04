@@ -24,7 +24,7 @@ router.get('/remove/:blogId', (req, res) => {
 });
 
 router.get('/parse/force_update/:blogId', (req, res) => {
-    DbManager.removeData(req.params.blogId);
+    parseManager.forceUpdate(req.params.blogId);
     return res.status(200).json({success: req.params.blogId + ' 강제 업데이트'});
 });
 
