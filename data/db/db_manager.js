@@ -20,7 +20,7 @@ let PostModel = Mongoose.model('Post', PostSchema);
 // DB 스키마 끝
 
 // 새 데이터 여부
-exports.isNewData = function (blogId, parseTitle, rootCallback) {
+exports.isNewData = function (blogId, parseLink, rootCallback) {
     PostModel.findOne({blogId: blogId}, function (err, post) {
         if (err) {
             console.error('DB : NEW DATA CHECK ERROR = ' + blogId);
@@ -31,8 +31,8 @@ exports.isNewData = function (blogId, parseTitle, rootCallback) {
                 rootCallback(true);
             });
         } else {
-            console.info('DB : NEW DATA = ' + blogId + " = " + (post.title !== parseTitle));
-            rootCallback(post.title !== parseTitle);
+            console.info('DB : NEW DATA = ' + blogId + " = " + (post.link !== parseLink));
+            rootCallback(post.link !== parseLink);
         }
     });
 };
