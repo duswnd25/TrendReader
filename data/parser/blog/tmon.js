@@ -29,7 +29,7 @@ exports.getData = function (rootCallback) {
         // Result
         let result = resultItem.getResultItem();
         result.name = blogName;
-        result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+        result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl.replace('/rss/atom', '');
         result.title = parseTitle;
         result.link = parseLink;
         result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
