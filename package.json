@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app",
-    "dev": "nodemon app.js",
-    "db_test": "nodemon ./data/db/db_test.js"
+    "dev": "nodemon app.js"
   },
   "engines": {
     "node": "8.4.0",
@@ -15,17 +14,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/duswnd25/TrendReader.git"
+    "url": "git+https://github.com/duswnd25/trend_reader.git"
   },
   "keywords": [
-    "Trend",
-    "Tech",
-    "Blog"
+    "트렌드",
+    "기술",
+    "블로그",
+    "프로그래밍",
+    "개발",
+    "trend",
+    "tech",
+    "blog",
+    "programming",
+    "develop"
   ],
   "author": "YeonJung Kim",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/duswnd25/TrendReader/issues"
+    "url": "https://github.com/duswnd25/trend_reader/issues"
   },
   "homepage": "https://github.com/duswnd25/TrendReader#readme",
   "dependencies": {
