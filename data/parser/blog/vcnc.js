@@ -14,30 +14,34 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
-        let $ = cheerio.load(body);
+        if (body) {
+            let $ = cheerio.load(body);
 
-        // Name
-        let blogName = $('title').eq(0).text();
+            // Name
+            let blogName = $('title').eq(0).text();
 
-        // Article
-        let articleItem = $('ul.archive').eq(0).children('li').eq(0).children('a').eq(0);
+            // Article
+            let articleItem = $('ul.archive').eq(0).children('li').eq(0).children('a').eq(0);
 
-        let parseTitle = articleItem.text();
-        let parseLink = articleItem.attr('href');
-        parseLink = rootUrl + parseLink;
+            let parseTitle = articleItem.text();
+            let parseLink = articleItem.attr('href');
+            parseLink = rootUrl + parseLink;
 
-        // Summary
-        let parseSummary = '';
+            // Summary
+            let parseSummary = '';
 
-        // Result
-        let result = resultItem.getResultItem();
-        result.name = blogName;
-        result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.title = parseTitle;
-        result.link = rootUrl + parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
-        result.category = ['company', 'tech'];
+            // Result
+            let result = resultItem.getResultItem();
+            result.name = blogName;
+            result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.title = parseTitle;
+            result.link = rootUrl + parseLink;
+            result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
+            result.category = ['company', 'tech'];
 
-        rootCallback(result);
+            rootCallback(result);
+        } else {
+            rootCallback("");
+        }
     });
 };

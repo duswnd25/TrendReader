@@ -14,33 +14,37 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
-        let $ = cheerio.load(body);
+        if (body) {
+            let $ = cheerio.load(body);
 
-        // Name
-        let blogName = $('title').eq(0).text();
+            // Name
+            let blogName = $('title').eq(0).text();
 
-        // Article
-        let articleItem = $('div.articleListWrap.paddingT15.paddingB15').eq(0);
+            // Article
+            let articleItem = $('div.articleListWrap.paddingT15.paddingB15').eq(0);
 
-        // Title
-        let titleItem = articleItem.children('div.listRight').eq(0)
-            .children('div.articleListTitle.marginB8').eq(0)
-            .children('a').eq(0);
-        let parseTitle = titleItem.text();
-        let parseLink = titleItem.attr('href');
-        parseLink = 'http://theblockchain.kr' + parseLink;
+            // Title
+            let titleItem = articleItem.children('div.listRight').eq(0)
+                .children('div.articleListTitle.marginB8').eq(0)
+                .children('a').eq(0);
+            let parseTitle = titleItem.text();
+            let parseLink = titleItem.attr('href');
+            parseLink = 'http://theblockchain.kr' + parseLink;
 
-        // Summary
-        let parseSummary = articleItem.children('div.listRight').eq(0).children('p.articleListCont').text();
+            // Summary
+            let parseSummary = articleItem.children('div.listRight').eq(0).children('p.articleListCont').text();
 
-        // Result
-        let result = resultItem.getResultItem();
-        result.name = blogName;
-        result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.title = parseTitle;
-        result.link = parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
-        result.category = ['news', 'tech'];
-        rootCallback(result);
+            // Result
+            let result = resultItem.getResultItem();
+            result.name = blogName;
+            result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.title = parseTitle;
+            result.link = parseLink;
+            result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
+            result.category = ['news', 'tech'];
+            rootCallback(result);
+        } else {
+            rootCallback("");
+        }
     });
 };

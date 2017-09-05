@@ -14,31 +14,35 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
-        let $ = cheerio.load(body);
+        if (body) {
+            let $ = cheerio.load(body);
 
-        // Name
-        let blogName = $('title').eq(0).text();
+            // Name
+            let blogName = $('title').eq(0).text();
 
-        // Article
-        let articleItem = $('div.lg-post-group').eq(0).children('div.g7.pb30').eq(0);
+            // Article
+            let articleItem = $('div.lg-post-group').eq(0).children('div.g7.pb30').eq(0);
 
-        // Title
-        let titleItem = articleItem.children('h4.mb10.post-heading').eq(0).children('a');
-        let parseTitle = titleItem.text();
-        let parseLink = titleItem.attr('href');
+            // Title
+            let titleItem = articleItem.children('h4.mb10.post-heading').eq(0).children('a');
+            let parseTitle = titleItem.text();
+            let parseLink = titleItem.attr('href');
 
-        // Summary
-        let parseSummary = articleItem.children('p.mb0.clear.d-excerpt').eq(0).text();
+            // Summary
+            let parseSummary = articleItem.children('p.mb0.clear.d-excerpt').eq(0).text();
 
-        // Result
-        let result = resultItem.getResultItem();
-        result.name = blogName;
-        result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.title = parseTitle;
-        result.link = parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
-        result.category = ['company', 'game', 'tech'];
+            // Result
+            let result = resultItem.getResultItem();
+            result.name = blogName;
+            result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.title = parseTitle;
+            result.link = parseLink;
+            result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
+            result.category = ['company', 'game', 'tech'];
 
-        rootCallback(result);
+            rootCallback(result);
+        } else {
+            rootCallback("");
+        }
     });
 };

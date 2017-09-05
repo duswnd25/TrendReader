@@ -14,32 +14,36 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
-        let $ = cheerio.load(body);
+        if (body) {
+            let $ = cheerio.load(body);
 
-        // Name
-        let blogName = $('title').eq(0).text();
+            // Name
+            let blogName = $('title').eq(0).text();
 
-        // Article
-        let articleItem = $('div.post.quick').eq(0).children('div.article-block.flex.center.column').eq(0);
+            // Article
+            let articleItem = $('div.post.quick').eq(0).children('div.article-block.flex.center.column').eq(0);
 
-        // Title
-        let titleItem = articleItem.children('a').eq(0);
-        let parseTitle = titleItem.children('h3').eq(0).text();
-        let parseLink = 'https://blog.realm.io' + titleItem.attr('href');
+            // Title
+            let titleItem = articleItem.children('a').eq(0);
+            let parseTitle = titleItem.children('h3').eq(0).text();
+            let parseLink = 'https://blog.realm.io' + titleItem.attr('href');
 
-        // Summary
-        let parseSummary = articleItem.children('div.excerpt.col-xs-12.text-left').eq(0)
-            .children('div.summary').eq(0).text(); // 표시 없음
+            // Summary
+            let parseSummary = articleItem.children('div.excerpt.col-xs-12.text-left').eq(0)
+                .children('div.summary').eq(0).text(); // 표시 없음
 
-        // Result
-        let result = resultItem.getResultItem();
-        result.name = blogName;
-        result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.title = parseTitle;
-        result.link = parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
-        result.category = ['company', 'tech', 'db'];
+            // Result
+            let result = resultItem.getResultItem();
+            result.name = blogName;
+            result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.title = parseTitle;
+            result.link = parseLink;
+            result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
+            result.category = ['company', 'tech', 'db'];
 
-        rootCallback(result);
+            rootCallback(result);
+        } else {
+            rootCallback("");
+        }
     });
 };

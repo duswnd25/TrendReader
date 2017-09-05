@@ -14,27 +14,31 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
-        let $ = cheerio.load(body);
+        if (body) {
+            let $ = cheerio.load(body);
 
-        // Name
-        let blogName = $('title').eq(0).text();
+            // Name
+            let blogName = $('title').eq(0).text();
 
-        // Title
-        let parseTitle = $('div.u-letterSpacingTight.u-lineHeightTighter.u-fontSize24').eq(0).text();
-        let parseLink = $('div.u-lineHeightBase.postItem').eq(0).children('a').eq(0).attr('href');
+            // Title
+            let parseTitle = $('div.u-letterSpacingTight.u-lineHeightTighter.u-fontSize24').eq(0).text();
+            let parseLink = $('div.u-lineHeightBase.postItem').eq(0).children('a').eq(0).attr('href');
 
-        // Summary
-        let parseSummary = $('div.u-contentSansThin.u-lineHeightBaseSans.u-fontSize24.u-xs-fontSize18').eq(0).text();
+            // Summary
+            let parseSummary = $('div.u-contentSansThin.u-lineHeightBaseSans.u-fontSize24.u-xs-fontSize18').eq(0).text();
 
-        // Result
-        let result = resultItem.getResultItem();
-        result.name = blogName;
-        result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + 'https://rainist.com/';
-        result.title = parseTitle;
-        result.link = parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
-        result.category = ['company', 'tech'];
+            // Result
+            let result = resultItem.getResultItem();
+            result.name = blogName;
+            result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + 'https://rainist.com/';
+            result.title = parseTitle;
+            result.link = parseLink;
+            result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
+            result.category = ['company', 'tech'];
 
-        rootCallback(result);
+            rootCallback(result);
+        } else {
+            rootCallback("");
+        }
     });
 };

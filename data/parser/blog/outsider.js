@@ -15,29 +15,33 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
-        // Name
-        let blogName = $('title').eq(0).text();
+        if (body) {
+            // Name
+            let blogName = $('title').eq(0).text();
 
-        // Article
-        let articleItem = $('dl.post').eq(0);
+            // Article
+            let articleItem = $('dl.post').eq(0);
 
-        // Title
-        let titleItem = articleItem.children('dt').eq(0).children('a');
-        let parseTitle = titleItem.text();
-        let parseLink = titleItem.attr('href');
+            // Title
+            let titleItem = articleItem.children('dt').eq(0).children('a');
+            let parseTitle = titleItem.text();
+            let parseLink = titleItem.attr('href');
 
-        // Summary
-        let parseSummary = ''; // 표시 없음
+            // Summary
+            let parseSummary = ''; // 표시 없음
 
-        // Result
-        let result = resultItem.getResultItem();
-        result.name = blogName;
-        result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.title = parseTitle;
-        result.link = rootUrl.replace('/category', '') + parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
-        result.category = ['individual', 'tech'];
+            // Result
+            let result = resultItem.getResultItem();
+            result.name = blogName;
+            result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.title = parseTitle;
+            result.link = rootUrl.replace('/category', '') + parseLink;
+            result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
+            result.category = ['individual', 'tech'];
 
-        rootCallback(result);
+            rootCallback(result);
+        } else {
+            rootCallback("");
+        }
     });
 };

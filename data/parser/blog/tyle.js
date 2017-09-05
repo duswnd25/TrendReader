@@ -14,31 +14,35 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
-        let $ = cheerio.load(body);
+        if (body) {
+            let $ = cheerio.load(body);
 
-        // Name
-        let blogName = $('title').eq(0).text();
+            // Name
+            let blogName = $('title').eq(0).text();
 
-        // Article
-        let articleItem = $('div#posts-list').eq(0).children('a').eq(0);
+            // Article
+            let articleItem = $('div#posts-list').eq(0).children('a').eq(0);
 
-        // Title
-        let parseTitle = articleItem.children('span.post-subject').text();
-        let parseLink = articleItem.attr('href');
-        parseLink = rootUrl + parseLink;
+            // Title
+            let parseTitle = articleItem.children('span.post-subject').text();
+            let parseLink = articleItem.attr('href');
+            parseLink = rootUrl + parseLink;
 
-        // Summary
-        let parseSummary = articleItem.children('span.post-content').eq(0).text();
+            // Summary
+            let parseSummary = articleItem.children('span.post-content').eq(0).text();
 
-        // Result
-        let result = resultItem.getResultItem();
-        result.name = blogName;
-        result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.title = parseTitle;
-        result.link = parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
-        result.category = ['company', 'tech'];
+            // Result
+            let result = resultItem.getResultItem();
+            result.name = blogName;
+            result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.title = parseTitle;
+            result.link = parseLink;
+            result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
+            result.category = ['company', 'tech'];
 
-        rootCallback(result);
+            rootCallback(result);
+        } else {
+            rootCallback("");
+        }
     });
 };

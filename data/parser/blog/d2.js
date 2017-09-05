@@ -14,29 +14,33 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
-        let $ = cheerio.load(body, {
-            normalizeWhitespace: true,
-            xmlMode: true
-        });
+        if (body) {
+            let $ = cheerio.load(body, {
+                normalizeWhitespace: true,
+                xmlMode: true
+            });
 
-        // Title
-        let blogName = $('title').eq(0).text();
+            // Title
+            let blogName = $('title').eq(0).text();
 
-        let articleItem = $('entry').eq(0);
-        let parseTitle = articleItem.children('title').eq(0).text();
-        let parseLink = articleItem.children('link').eq(0).attr('href');
-        let parseSummary = articleItem.children('content').eq(0).text();
+            let articleItem = $('entry').eq(0);
+            let parseTitle = articleItem.children('title').eq(0).text();
+            let parseLink = articleItem.children('link').eq(0).attr('href');
+            let parseSummary = articleItem.children('content').eq(0).text();
 
-        // Result
-        let result = resultItem.getResultItem();
-        result.name = blogName;
-        result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.title = parseTitle;
-        result.link = parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
-        result.category = ['company', 'tech'];
+            // Result
+            let result = resultItem.getResultItem();
+            result.name = blogName;
+            result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.title = parseTitle;
+            result.link = parseLink;
+            result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
+            result.category = ['company', 'tech'];
 
-        rootCallback(result);
+            rootCallback(result);
+        } else {
+            rootCallback("");
+        }
     });
 };
 

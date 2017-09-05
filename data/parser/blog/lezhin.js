@@ -14,31 +14,35 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
-        let $ = cheerio.load(body);
+        if (body) {
+            let $ = cheerio.load(body);
 
-        // Name
-        let blogName = $('title').eq(0).text();
+            // Name
+            let blogName = $('title').eq(0).text();
 
-        // Article
-        let articleItem = $('li.post-item').eq(0);
+            // Article
+            let articleItem = $('li.post-item').eq(0);
 
-        // Title
-        let titleItem = articleItem.children('h2.post-title').eq(0);
-        let parseTitle = titleItem.children('a').text();
-        let parseLink = rootUrl + titleItem.children('a').attr('href');
+            // Title
+            let titleItem = articleItem.children('h2.post-title').eq(0);
+            let parseTitle = titleItem.children('a').text();
+            let parseLink = rootUrl + titleItem.children('a').attr('href');
 
-        // Summary
-        let parseSummary = articleItem.children('div.post-summary').eq(0).text();
+            // Summary
+            let parseSummary = articleItem.children('div.post-summary').eq(0).text();
 
-        // Result
-        let result = resultItem.getResultItem();
-        result.name = blogName;
-        result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
-        result.title = parseTitle;
-        result.link = parseLink;
-        result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
-        result.category = ['company', 'tech', 'cloud', 'aws'];
+            // Result
+            let result = resultItem.getResultItem();
+            result.name = blogName;
+            result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
+            result.title = parseTitle;
+            result.link = parseLink;
+            result.summary = parseSummary.length > 200 ? parseSummary.substring(0, 300) : parseSummary;
+            result.category = ['company', 'tech', 'cloud', 'aws'];
 
-        rootCallback(result);
+            rootCallback(result);
+        } else {
+            rootCallback("");
+        }
     });
 };
