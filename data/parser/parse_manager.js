@@ -26,7 +26,7 @@ function parseData(blogId) {
     console.log('파서 : 시작 = ' + blogId);
     let parser = require('./blog/' + blogId);
     parser.getData(function (data) {
-        if (data !== null || data !== "") {
+        if (data !== null && data.name !== "") {
             dbManager.isNewData(blogId, data.link, function (isNewData) {
                 if (isNewData === true) {
                     dbManager.updateData(blogId, data);
