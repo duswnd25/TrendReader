@@ -13,6 +13,8 @@ exports.getData = function (rootCallback) {
         if (error) {
             console.error(error);
         }
+
+        let result = resultItem.getResultItem();
         if (body) {
             let $ = cheerio.load(body);
 
@@ -37,7 +39,6 @@ exports.getData = function (rootCallback) {
                 .children('p').eq(0).text();
 
             // Result
-            let result = resultItem.getResultItem();
             result.name = blogName;
             result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + rootUrl;
             result.title = parseTitle;
@@ -47,7 +48,8 @@ exports.getData = function (rootCallback) {
 
             rootCallback(result);
         } else {
-            rootCallback("");
+            result.name = "";
+            rootCallback(result);
         }
     });
 };

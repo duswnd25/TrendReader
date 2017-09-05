@@ -14,6 +14,7 @@ exports.getData = function (rootCallback) {
             console.error(error);
         }
 
+        let result = resultItem.getResultItem();
         if (body) {
             let $ = cheerio.load(body);
 
@@ -28,7 +29,6 @@ exports.getData = function (rootCallback) {
             let parseSummary = $('div.u-contentSansThin.u-lineHeightBaseSans.u-fontSize24.u-xs-fontSize18').eq(0).text();
 
             // Result
-            let result = resultItem.getResultItem();
             result.name = blogName;
             result.favicon_src = 'https://www.google.com/s2/favicons?domain=' + 'https://rainist.com/';
             result.title = parseTitle;
@@ -38,7 +38,8 @@ exports.getData = function (rootCallback) {
 
             rootCallback(result);
         } else {
-            rootCallback("");
+            result.name = "";
+            rootCallback(result);
         }
     });
 };
