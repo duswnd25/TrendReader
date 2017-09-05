@@ -1,4 +1,4 @@
-const DbManager = require('../../data/db/db_manager');
+const DbManager = require('../../data/db/database_manager');
 const parseManager = require('../../data/parser/parse_manager');
 const express = require('express');
 const router = express.Router();

@@ -1,5 +1,5 @@
 const fs = require('fs');
-const dbManager = require('../db/db_manager');
+const dbManager = require('../db/database_manager');
 const path = process.cwd() + '/data/parser/blog';
 
 exports.start = function (blogId) {
