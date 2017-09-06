@@ -3,7 +3,7 @@
 
 const fs = require('fs');
 const dbManager = require('../db/database_manager');
-const path = './blog';
+const path = './data/parser/blog';
 
 let blogList = fs.readdirSync(path);
 blogList.forEach(file => {
