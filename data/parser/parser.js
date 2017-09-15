@@ -26,6 +26,8 @@ function parseFeed(item) {
         if (error) {
             console.error('PARSER : REQUEST ERROR = ' + error.code);
             console.error(error.message);
+        } else {
+            console.log('PARSER : REQUEST SUCCESS');
         }
 
         let $ = Cheerio.load(body);
@@ -36,6 +38,10 @@ function parseFeed(item) {
         let title = titleItem.text();
         let link = titleItem.attr('href');
         let content = articleItem.children('div.itemcontent').eq(0).text();
+
+        console.log('PARSER : TITLE = ' + title);
+        console.log('PARSER : LINK = ' + link);
+        console.log('PARSER : CONTENT = ' + content);
 
         let data = {
             'post_title': title,
