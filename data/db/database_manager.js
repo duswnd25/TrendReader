@@ -62,7 +62,7 @@ exports.getData = function (target_column, user_query, callback) {
 
                 let tempJson = PostItem.getResultItem();
                 tempJson.blog_tag = item.get('blog_tag');
-                tempJson.favicon_url = item.get('favicon_url');
+                tempJson.favicon_url = 'https://www.google.com/s2/favicons?domain=' + item.get('favicon_url');
                 tempJson.blog_name = item.get('blog_name');
                 tempJson.blog_url = item.get('blog_url');
                 tempJson.post_title = item.get('post_title');
