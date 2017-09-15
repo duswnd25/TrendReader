@@ -41,12 +41,11 @@ function parseFeed(item) {
 
         let $ = Cheerio.load(body);
 
-        let articleItem = $('li.regularitem').eq(0);
-        let titleItem = articleItem.children('h4.itemtitle').eq(0).children('a').eq(0);
+        let titleItem = $('h4.itemtitle').eq(0).children('a').eq(0);
 
         let title = titleItem.text();
         let link = titleItem.attr('href');
-        let content = articleItem.children('div.itemcontent').eq(0).text();
+        let content = $('div.itemcontent').eq(0).text();
 
         console.log('PARSER : TITLE = ' + title);
         console.log('PARSER : LINK = ' + link);
