@@ -23,6 +23,11 @@ function parseFeed(item) {
     console.log('PARSER : BLOG URL = ' + item.feed_url);
 
     Request(item.url, function (error, response, body) {
+        if (error) {
+            console.error('PARSER : REQUEST ERROR = ' + error.code);
+            console.error(error.message);
+        }
+
         let $ = Cheerio.load(body);
 
         let articleItem = $('li.regularitem').eq(0);
