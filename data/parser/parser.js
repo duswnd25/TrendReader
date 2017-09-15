@@ -22,7 +22,16 @@ function parseFeed(item) {
     console.log('PARSER : BLOG TAG = ' + item.blog_tag);
     console.log('PARSER : BLOG URL = ' + item.feed_url);
 
-    Request(item.url, function (error, response, body) {
+    let requestOptions = {
+        method: 'GET',
+        uri: item.feed_url,
+        headers: {
+            'User-Agent': 'Mozilla/5.0'
+        },
+        encoding: 'UTF-8'
+    };
+
+    Request(requestOptions, function (error, response, body) {
         if (error) {
             console.error('PARSER : REQUEST ERROR = ' + error.code);
             console.error(error.message);
@@ -51,6 +60,44 @@ function parseFeed(item) {
 
         DBManager.isNewData(link, function (isNewData) {
             if (isNewData) DBManager.updateData(item.blog_tag, data);
+        });
+    });
+}
+
+
+
+for (let index = 0; index < rootUrls.length; index++) {
+    startParse(rootUrls[index][0], rootUrls[index][1]);
+    console.log('PARSER : START = ' + rootUrls[index][0]);
+}
+
+function startParse(type, rootUrl) {
+    requestOptions.uri = rootUrl;
+    request(requestOptions, function (error, response, body) {
+        if (error) {
+            console.error(type + ' ERROR  : ' + error);
+        }
+
+        let $ = cheerio.load(body);
+
+        let item = $('a').eq(0);
+        let parseTitle = item.text().trim();
+        let parseLink = 'http://www.catholic.ac.kr' + item.attr('href').trim();
+
+        console.log(type + ' TITLE = ' + parseTitle);
+        console.log(type + ' LINK  = ' + parseLink);
+
+        DBManager.isNewData(type, parseTitle, function (error, isNew) {
+            if (isNew) {
+                let data = NoticeItem.getNoticeItem();
+                data.type = type;
+                data.title = parseTitle;
+                data.link = parseLink;
+
+                getScreenShot(type, parseLink, function () {
+                    DBManager.updateData(data);
+                });
+            }
         });
     });
 }
