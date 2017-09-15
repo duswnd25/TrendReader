@@ -1,140 +1,107 @@
-const Mongoose = require('mongoose');
-const DB_URL = process.env.MONGODB_URI;
-Mongoose.connect(DB_URL);
-Mongoose.Promise = global.Promise;
+const Parse = require('parse/node');
+const PostItem = require('./../post_item');
 
-// DB 스키마 시작
-const Schema = Mongoose.Schema;
-
-let PostSchema = new Schema({
-    blogId: {type: String, required: true, unique: true, index: true},
-    name: {type: String, required: true},
-    favicon_src: {type: String, required: true},
-    title: {type: String, required: true},
-    link: {type: String, required: true},
-    summary: {type: String, required: true},
-    category: {type: [], required: true},
-    timestamp: {type: Date, default: Date.now(), required: true}
-});
-
-let PostModel = Mongoose.model('Post', PostSchema);
-// DB 스키마 끝
+// Server init
+Parse.initialize(process.env.APP_ID);
+Parse.serverURL = process.env.SERVER_URL;
 
 // 새 데이터 여부
-exports.isNewData = function (blogId, parseLink, rootCallback) {
-    PostModel.findOne({blogId: blogId}, function (err, post) {
-        if (err) {
-            console.error('DB : NEW DATA CHECK ERROR = ' + blogId);
-            console.error(err);
-        }
-        if (post === null) {
-            createEmptyData(blogId, function () {
-                rootCallback(true);
-            });
-        } else {
-            console.info('DB : NEW DATA = ' + blogId + " = " + (post.link !== parseLink));
-            rootCallback(post.link !== parseLink);
+exports.isNewData = function (blog_url, callback) {
+    let Post = Parse.Object.extend("Post");
+    let query = new Parse.Query(Post);
+    query.equalTo('post_url', blog_url);
+    query.count({
+        success: function (count) {
+            console.error("DB : POST COUNT SUCCESS = " + count);
+
+            callback(null, count === 0);
+        },
+        error: function (error) {
+            console.error("DB : POST COUNT ERROR = " + error.code);
+            console.error(error.message);
+
+            callback(error, null);
         }
     });
 };
-
-// 빈 데이터 생성
-function createEmptyData(blogId, callback) {
-    let tempPost = new PostModel();
-    tempPost.blogId = blogId;
-    tempPost.name = "NO";
-    tempPost.favicon_src = "NO";
-    tempPost.title = "NO";
-    tempPost.link = "NO";
-    tempPost.summary = "NO";
-    tempPost.timestamp = Date.now();
-    tempPost.category = ['NO'];
-
-    tempPost.save(function (err) {
-        if (err) {
-            console.error('DB : CREATE NEW DATA ERROR = ' + blogId);
-            console.error(err);
-        }
-        console.info('DB : CREATE NEW DATA = ' + blogId);
-        callback();
-    });
-}
 
 // 업데이트
-exports.updateData = function (blogId, data) {
-    PostModel.update({'blogId': {$in: blogId}}, {
-        $set: {
-            'name': data.name,
-            'favicon_src': data.favicon_src,
-            'title': data.title,
-            'link': data.link,
-            'summary': data.summary,
-            'timestamp': Date.now(),
-            'category': data.category
-        }
-    }, {multi: true}, function (err) {
-        if (err) {
-            console.error('DB : UPDATE ERROR = ' + blogId);
-            console.error(err);
-        }
-        console.info('DB : UPDATE FINISH = ' + blogId);
-    });
-};
+exports.updateData = function (blog_tag, data) {
+    let Post = Parse.Object.extend("Post");
+    let query = new Parse.Query(Post);
+    query.equalTo("blog_tag", blog_tag);
+    query.first({
+        success: function (result) {
+            console.error("DB : UPDATE SUCCESS");
 
-// 삭제
-exports.removeData = function (blogId) {
-    PostModel.remove({blogId: blogId}, function (err) {
-        if (err) {
-            console.error('DB : REMOVE ERROR = ' + blogId);
-            console.error(err);
-        } else {
-            console.info('DB : REMOVE SUCCESS = ' + blogId);
+            result.post_title = data.post_title;
+            result.post_url = data.post_url;
+            result.post_content = data.post_content;
+            result.save();
+        },
+        error: function (error) {
+            console.error("DB : UPDATE ERROR = " + error.code);
+            console.error(error.message);
         }
     });
 };
 
-// 가져오기
-exports.getDataByBlog = function (blogId, rootCallback) {
-    if (blogId === 'all') {
-        PostModel.find({}).sort({timestamp: 'desc'}).exec(function (err, posts) {
-            if (err) {
-                console.error('DB : GET DATA ERROR = ' + blogId);
-                console.error(err)
-            }
-            for (let index = 0; index < posts.length; index++) {
-                let temp = JSON.parse(JSON.stringify(posts[index]));
-                temp.timestamp = new Date(temp.timestamp).getCustomType();
-                posts[index] = temp;
-            }
-            rootCallback(posts === null ? "" : posts);
-        });
-    } else {
-        PostModel.findOne({blogId: blogId}, function (err, post) {
-            if (err) {
-                console.error('DB : GET DATA ERROR = ' + blogId);
-                console.error(err)
-            }
+exports.getData = function (target_column, user_query, callback) {
+    let Post = Parse.Object.extend("Post");
+    let query = new Parse.Query(Post);
 
-            // 왜 post 를 직접 변경하면 반영이 안되는지 모르겠다.
-            let temp = JSON.parse(JSON.stringify(post));
-            temp.timestamp = new Date(temp.timestamp).getCustomType();
-            rootCallback(temp);
-        });
+    if (user_query !== 'all') {
+        query.equalTo(target_column, user_query);
     }
+
+    query.find({
+        success: function (results) {
+            let temp = [];
+            results.forEach(function (item) {
+                console.log("DB : FETCH DATA SUCCESS = " + item.get('blog_name'));
+
+                let tempJson = PostItem.getResultItem();
+                tempJson.blog_tag = item.get('blog_tag');
+                tempJson.favicon_url = item.get('favicon_url');
+                tempJson.blog_name = item.get('blog_name');
+                tempJson.blog_url = item.get('blog_url');
+                tempJson.post_title = item.get('post_title');
+                tempJson.post_url = item.get('post_url');
+                tempJson.post_content = item.get('post_content');
+                tempJson.update_at = new Date(item.updatedAt).getCustomType();
+                temp.push(tempJson);
+            });
+            callback(temp, null);
+        },
+        error: function (error) {
+            console.error("DB : FETCH DATA ERROR = " + error.code);
+            console.error(error.message);
+            callback(null, error);
+        }
+    });
 };
 
-exports.getDataByCategory = function (category, rootCallback) {
-    PostModel.find({category: category}).sort({timestamp: 'desc'}).exec(function (err, posts) {
-        if (err) {
-            console.error('DB : GET DATA ERROR = ' + blogId);
-            console.error(err)
+exports.getBlogList = function (callback) {
+    let Post = Parse.Object.extend("Post");
+    let query = new Parse.Query(Post);
+
+    query.find({
+        success: function (results) {
+            let temp = [];
+            results.forEach(function (item) {
+                console.log("DB : FETCH FEED LIST SUCCESS = " + item.get('blog_name'));
+                temp.push({
+                    'blog_tag': item.get('blog_tag'),
+                    'feed_url': item.get('feed_url')
+                });
+            });
+            callback(temp, null);
+        },
+        error: function (error) {
+            console.error("DB : FETCH FEED LIST ERROR = " + error.code);
+            console.error(error.message);
+            callback(null, error);
         }
-        for (let index = 0; index < posts.length; index++) {
-            let temp = JSON.parse(JSON.stringify(posts[index]));
-            temp.timestamp = new Date(temp.timestamp).getCustomType();
-            posts[index] = temp;
-        }
-        rootCallback(posts === null ? "" : posts);
     });
 };
 
