@@ -27,11 +27,11 @@
     "compression": "^1.7.0",
     "ejs": "^2.5.7",
     "express": "^4.15.4",
-    "parse": "latest",
+    "newrelic": "^2.2.1",
+    "parse": "^1.10.0",
     "parse-dashboard": "^1.1.0",
     "parse-server": "^2.6.1",
-    "serve-favicon": "^2.4.4",
-    "request": "latest",
-    "newrelic": "latest"
+    "request": "^2.81.0",
+    "serve-favicon": "^2.4.4"
   }
 }
