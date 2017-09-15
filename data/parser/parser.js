@@ -13,11 +13,15 @@ DBManager.getBlogList(function (results, error) {
         console.log('PARSER : GET BLOG LIST SUCCESS');
         results.forEach(function (item) {
             parseFeed(item)
-        })
+        });
     }
 });
 
 function parseFeed(item) {
+
+    console.log('PARSER : BLOG TAG = ' + item.blog_tag);
+    console.log('PARSER : BLOG TAG = ' + item.url);
+
     Request(item.url, function (error, response, body) {
         let $ = Cheerio.load(body);
 
