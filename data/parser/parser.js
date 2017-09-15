@@ -20,7 +20,7 @@ DBManager.getBlogList(function (results, error) {
 function parseFeed(item) {
 
     console.log('PARSER : BLOG TAG = ' + item.blog_tag);
-    console.log('PARSER : BLOG TAG = ' + item.url);
+    console.log('PARSER : BLOG URL = ' + item.feed_url);
 
     Request(item.url, function (error, response, body) {
         let $ = Cheerio.load(body);
