@@ -30,9 +30,9 @@ exports.isNewData = function (blog_url, callback) {
 // 업데이트
 exports.updateData = function (blog_tag, data) {
 
-    console.log('DB : UPDATE DATE = ' + data.post_title);
-    console.log('DB : UPDATE DATE = ' + data.post_url);
-    console.log('DB : UPDATE DATE = ' + data.post_content);
+    console.log('DB : UPDATE DATA = ' + data.post_title);
+    console.log('DB : UPDATE DATA = ' + data.post_url);
+    console.log('DB : UPDATE DATA = ' + data.post_content);
 
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
