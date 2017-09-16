@@ -54,6 +54,10 @@ function parseFeed(item) {
         let postLink = post.children('link').eq(0).text();
         let postContent = post.children('description').eq(0).text();
 
+        if (postContent.length < 250) {
+            postContent = postContent.substring(0, 250);
+        }
+
         console.log('PARSER : POST TITLE = ' + postTitle);
         console.log('PARSER : POST LINK = ' + postLink);
         console.log('PARSER : POST CONTENT = ' + postContent);
