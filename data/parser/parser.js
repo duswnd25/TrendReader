@@ -46,7 +46,7 @@ function parseFeed(item) {
         // Blog Data
         let info = $('channel').eq(0);
         let blogTitle = info.children('title').eq(0).text();
-        let blogLink = info.children('description').eq(0).children('link').text(0);
+        let blogLink = info.children('description').eq(0).children('link').eq(0).text(0);
 
         // Post Data
         let post = $('item').eq(0);
