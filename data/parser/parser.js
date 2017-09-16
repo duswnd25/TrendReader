@@ -46,7 +46,6 @@ function parseFeed(item) {
         // Blog Data
         let info = $('channel').eq(0);
         let blogTitle = info.children('title').eq(0).text();
-        let blogLink = info.children('link').eq(0).text(0);
 
         // Post Data
         let post = $('item').eq(0);
@@ -59,7 +58,6 @@ function parseFeed(item) {
         }
 
         console.log('PARSER : BLOG TITLE = ' + blogTitle);
-        console.log('PARSER : BLOG LINK = ' + blogLink);
         console.log('PARSER : POST TITLE = ' + postTitle);
         console.log('PARSER : POST LINK = ' + postLink);
         console.log('PARSER : POST CONTENT = ' + postContent);
@@ -67,7 +65,6 @@ function parseFeed(item) {
         let data = {
             'blog_tag': item.blog_tag,
             'blog_name': blogTitle,
-            'blog_url': blogLink,
             'post_title': postTitle,
             'post_url': postLink,
             'post_content': postContent
