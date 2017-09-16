@@ -30,6 +30,7 @@ exports.isNewData = function (blog_url, callback) {
 // 업데이트
 exports.updateData = function (blog_tag, data) {
 
+    console.log('DB : UPDATE DATA = ' + blog_tag);
     console.log('DB : UPDATE DATA = ' + data.post_title);
     console.log('DB : UPDATE DATA = ' + data.post_url);
     console.log('DB : UPDATE DATA = ' + data.post_content);
@@ -39,12 +40,16 @@ exports.updateData = function (blog_tag, data) {
     query.equalTo("blog_tag", blog_tag);
     query.first({
         success: function (result) {
-            console.log("DB : UPDATE SUCCESS");
+
+            console.log('DB : UPDATE RECENT = ' + result.get('post_title'));
+            console.log('DB : UPDATE RECENT = ' + result.get('post_url'));
+            console.log('DB : UPDATE RECENT = ' + result.get('post_content'));
 
             result.post_title = data.post_title;
             result.post_url = data.post_url;
             result.post_content = data.post_content;
             result.save();
+            console.log("DB : UPDATE SUCCESS");
         },
         error: function (error) {
             console.error("DB : UPDATE ERROR = " + error.code);
