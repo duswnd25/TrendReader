@@ -29,12 +29,17 @@ exports.isNewData = function (blog_url, callback) {
 
 // 업데이트
 exports.updateData = function (blog_tag, data) {
+
+    console.log('DB : UPDATE DATE = ' + data.post_title);
+    console.log('DB : UPDATE DATE = ' + data.post_url);
+    console.log('DB : UPDATE DATE = ' + data.post_content);
+
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
     query.equalTo("blog_tag", blog_tag);
     query.first({
         success: function (result) {
-            console.error("DB : UPDATE SUCCESS");
+            console.log("DB : UPDATE SUCCESS");
 
             result.post_title = data.post_title;
             result.post_url = data.post_url;
