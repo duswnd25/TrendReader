@@ -34,7 +34,7 @@ exports.updateData = function (data) {
     query.equalTo("blog_tag", data.blog_tag);
     query.first({
         success: function (result) {
-            result.set('blog_name', data.blog_name;
+            result.set('blog_name', data.blog_name);
             result.set('blog_url', data.blog_url);
             result.set('post_title', data.post_title);
             result.set('post_url', data.post_url);
