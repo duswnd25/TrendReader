@@ -45,9 +45,9 @@ exports.updateData = function (blog_tag, data) {
             console.log('DB : UPDATE RECENT = ' + result.get('post_url'));
             console.log('DB : UPDATE RECENT = ' + result.get('post_content'));
 
-            result.post_title = data.post_title;
-            result.post_url = data.post_url;
-            result.post_content = data.post_content;
+            result.set('post_title', data.post_title);
+            result.set('post_url', data.post_url);
+            result.set('post_content', data.post_content);
             result.save();
             console.log("DB : UPDATE SUCCESS");
         },
