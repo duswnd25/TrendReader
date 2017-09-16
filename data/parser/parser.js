@@ -61,8 +61,8 @@ function parseFeed(item) {
             'post_content': content
         };
 
-        DBManager.isNewData(link, function (isNewData) {
-            if (isNewData) DBManager.updateData(item.blog_tag, data);
+        DBManager.isNewData(link, function (error, isNewData) {
+            if (isNewData && !error) DBManager.updateData(item.blog_tag, data);
         });
     });
 }
