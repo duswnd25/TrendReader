@@ -12,10 +12,11 @@ exports.isNewData = function (blog_url, callback) {
     query.equalTo('post_url', blog_url);
     query.count({
         success: function (count) {
+            count = String(count);
             console.error("DB : POST COUNT SUCCESS = " + count);
-            console.error("DB : NEW POST= " + parseInt(count) === 0);
+            console.error("DB : NEW POST= " + String(count === '0'));
 
-            callback(null, parseInt(count) === 0);
+            callback(null, count === '0');
         },
         error: function (error) {
             console.error("DB : POST COUNT ERROR = " + error.code);
