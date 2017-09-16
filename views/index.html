@@ -54,7 +54,8 @@
              style="margin-top: 6px; margin-bottom: 6px">
             <div class="card">
                 <div class="card-block">
-                    <a ng-href="{{ info.blog_url }}"><h4 class="card-title"><strong>{{ info.post_title }}</strong></h4>
+                    <a ng-href="{{ info.post_url }}">
+                        <h4 class="card-title"><strong>{{ info.post_title }}</strong></h4>
                     </a>
                     <h6>{{ info.update_at }}</h6>
                     <br>
@@ -89,21 +90,6 @@
 
 <!-- Controller -->
 <script src="./public/js/blog_controller.js"></script>
-
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-
-<script>
-    $(document).ready(function () {
-        let $container = $('#masonry-container');
-        $container.imagesLoaded(function () {
-            $container.masonry({
-                itemSelector: '#masonry-item',
-                columnWidth: 350
-            });
-        });
-    });
-</script>
 
 </body>
 </html>
