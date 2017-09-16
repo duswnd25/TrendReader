@@ -39,13 +39,17 @@ function parseFeed(item) {
             console.log('PARSER : REQUEST SUCCESS');
         }
 
-        let $ = Cheerio.load(body);
+        // XML 모드로 해줘야 제대로 파싱이 된다.
+        // LINK태그가 닫혀있지 않기 때문에 일반 모드에서는 link를 가져올 수 없다.
+        let $ = Cheerio.load(body, {
+            xmlMode: true
+        });
 
-        let titleItem = $('h4.itemtitle').eq(0).children('a').eq(0);
+        let item = $('item').eq(0);
 
-        let title = titleItem.text();
-        let link = titleItem.attr('href');
-        let content = $('div.itemcontent').eq(0).text();
+        let title = item.children('title').eq(0).text();
+        let link = item.children('link').eq(0).text();
+        let content = item.children('description').eq(0).text();
 
         console.log('PARSER : TITLE = ' + title);
         console.log('PARSER : LINK = ' + link);
