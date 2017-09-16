@@ -45,11 +45,11 @@ function parseFeed(item) {
             xmlMode: true
         });
 
-        let item = $('item').eq(0);
+        let post = $('item').eq(0);
 
-        let title = item.children('title').eq(0).text();
-        let link = item.children('link').eq(0).text();
-        let content = item.children('description').eq(0).text();
+        let title = post.children('title').eq(0).text();
+        let link = post.children('link').eq(0).text();
+        let content = post.children('description').eq(0).text();
 
         console.log('PARSER : TITLE = ' + title);
         console.log('PARSER : LINK = ' + link);
