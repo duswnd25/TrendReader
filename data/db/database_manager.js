@@ -13,9 +13,9 @@ exports.isNewData = function (blog_url, callback) {
     query.count({
         success: function (count) {
             console.error("DB : POST COUNT SUCCESS = " + count);
-            console.error("DB : NEW POST= " + count === 0);
+            console.error("DB : NEW POST= " + parseInt(count) === 0);
 
-            callback(null, count === 0);
+            callback(null, parseInt(count) === 0);
         },
         error: function (error) {
             console.error("DB : POST COUNT ERROR = " + error.code);
