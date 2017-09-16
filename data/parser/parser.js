@@ -58,6 +58,8 @@ function parseFeed(item) {
             postContent = postContent.substring(0, 250);
         }
 
+        console.log('PARSER : BLOG TITLE = ' + blogTitle);
+        console.log('PARSER : BLOG LINK = ' + blogLink);
         console.log('PARSER : POST TITLE = ' + postTitle);
         console.log('PARSER : POST LINK = ' + postLink);
         console.log('PARSER : POST CONTENT = ' + postContent);
