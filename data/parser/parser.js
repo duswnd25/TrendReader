@@ -39,30 +39,36 @@ function parseFeed(item) {
             console.log('PARSER : REQUEST SUCCESS');
         }
 
-        // XML 모드로 해줘야 제대로 파싱이 된다.
-        // LINK태그가 닫혀있지 않기 때문에 일반 모드에서는 link를 가져올 수 없다.
         let $ = Cheerio.load(body, {
             xmlMode: true
         });
 
+        // Blog Data
+        let info = $('channel').eq(0);
+        let blogTitle = info.children('title').eq(0).text();
+        let blogLink = info.children('description').eq(0).children('link').text(0);
+
+        // Post Data
         let post = $('item').eq(0);
+        let postTitle = post.children('title').eq(0).text();
+        let postLink = post.children('link').eq(0).text();
+        let postContent = post.children('description').eq(0).text();
 
-        let title = post.children('title').eq(0).text();
-        let link = post.children('link').eq(0).text();
-        let content = post.children('description').eq(0).text();
-
-        console.log('PARSER : TITLE = ' + title);
-        console.log('PARSER : LINK = ' + link);
-        console.log('PARSER : CONTENT = ' + content);
+        console.log('PARSER : POST TITLE = ' + postTitle);
+        console.log('PARSER : POST LINK = ' + postLink);
+        console.log('PARSER : POST CONTENT = ' + postContent);
 
         let data = {
-            'post_title': title,
-            'post_url': link,
-            'post_content': content
+            'blog_tag': item.blog_tag,
+            'blog_name': blogTitle,
+            'blog_url': blogLink,
+            'post_title': postTitle,
+            'post_url': postLink,
+            'post_content': postContent
         };
 
-        DBManager.isNewData(link, function (error, isNewData) {
-            if (isNewData && !error) DBManager.updateData(item.blog_tag, data);
+        DBManager.isNewData(postLink, function (error, isNewData) {
+            if (isNewData && !error) DBManager.updateData(data);
         });
     });
 }

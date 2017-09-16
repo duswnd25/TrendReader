@@ -28,27 +28,34 @@ exports.isNewData = function (blog_url, callback) {
 };
 
 // 업데이트
-exports.updateData = function (blog_tag, data) {
-
-    console.log('DB : UPDATE DATA = ' + blog_tag);
-    console.log('DB : UPDATE DATA = ' + data.post_title);
-    console.log('DB : UPDATE DATA = ' + data.post_url);
-    console.log('DB : UPDATE DATA = ' + data.post_content);
-
+exports.updateData = function (data) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
-    query.equalTo("blog_tag", blog_tag);
+    query.equalTo("blog_tag", data.blog_tag);
     query.first({
         success: function (result) {
-
-            console.log('DB : UPDATE RECENT = ' + result.get('post_title'));
-            console.log('DB : UPDATE RECENT = ' + result.get('post_url'));
-            console.log('DB : UPDATE RECENT = ' + result.get('post_content'));
-
+            result.set('blog_name', data.blog_name;
+            result.set('blog_url', data.blog_url);
             result.set('post_title', data.post_title);
             result.set('post_url', data.post_url);
             result.set('post_content', data.post_content);
             result.save();
+
+            console.log('DB : UPDATE RECENT = ' + result.get('blog_tag'));
+            console.log('DB : UPDATE RECENT = ' + result.get('blog_name'));
+            console.log('DB : UPDATE RECENT = ' + result.get('blog_url'));
+            console.log('DB : UPDATE RECENT = ' + result.get('post_title'));
+            console.log('DB : UPDATE RECENT = ' + result.get('post_url'));
+            console.log('DB : UPDATE RECENT = ' + result.get('post_content'));
+
+
+            console.log('DB : UPDATE DATA = ' + data.blog_tag);
+            console.log('DB : UPDATE DATA = ' + data.blog_name);
+            console.log('DB : UPDATE DATA = ' + data.blog_url);
+            console.log('DB : UPDATE DATA = ' + data.post_title);
+            console.log('DB : UPDATE DATA = ' + data.post_url);
+            console.log('DB : UPDATE DATA = ' + data.post_content);
+
             console.log("DB : UPDATE SUCCESS");
         },
         error: function (error) {
@@ -74,7 +81,7 @@ exports.getData = function (target_column, user_query, callback) {
 
                 let tempJson = PostItem.getResultItem();
                 tempJson.blog_tag = item.get('blog_tag');
-                tempJson.favicon_url = 'https://www.google.com/s2/favicons?domain=' + item.get('favicon_url');
+                tempJson.favicon_url = 'https://www.google.com/s2/favicons?domain=' + item.get('blog_url');
                 tempJson.blog_name = item.get('blog_name');
                 tempJson.blog_url = item.get('blog_url');
                 tempJson.post_title = item.get('post_title');
