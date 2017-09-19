@@ -54,14 +54,10 @@ function parseFeed(item) {
             postContent = postContent.substring(0, 250);
         }
 
-        let postLink = feed.link;
+        let postLink = feed.link || feed.origlink;
 
         if (postLink === '' || postLink === null || postLink === undefined) {
             postLink = feed.origlink;
-        }
-
-        if (postLink === '' || postLink === null || postLink === undefined) {
-            postLink = item.feed_url;
         }
 
         let data = {
