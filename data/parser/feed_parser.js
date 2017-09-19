@@ -47,7 +47,11 @@ function parseFeed(item) {
 
         let postContent = feed.description;
         postContent.replace(/<br\/>/ig, "\n");
-        postContent = postContent.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");
+        postContent = postContent.replace(/(<([^>]+)>)/ig, "");
+
+        if (postContent.length > 250) {
+            postContent = postContent.substring(0, 250);
+        }
 
         let data = {
             'blog_tag': item.blog_tag,
