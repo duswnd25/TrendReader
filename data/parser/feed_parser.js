@@ -45,7 +45,8 @@ function parseFeed(item) {
         let meta = this.meta;
         let feed = stream.read();
 
-        let postContent = feed.description;
+        let postContent = feed.summary;
+
         postContent.replace(/<br\/>/ig, "\n");
         postContent = postContent.replace(/(<([^>]+)>)/ig, "");
 
@@ -53,15 +54,25 @@ function parseFeed(item) {
             postContent = postContent.substring(0, 250);
         }
 
+        let postLink = feed.link;
+
+        if (postLink === '' || postLink === null || postLink === undefined) {
+            postLink = feed.origlink;
+        }
+
+        if (postLink === '' || postLink === null || postLink === undefined) {
+            postLink = item.feed_url;
+        }
+
         let data = {
             'blog_tag': item.blog_tag,
             'blog_name': meta.title,
             'post_title': feed.title,
-            'post_url': feed.link,
+            'post_url': postLink,
             'post_content': postContent
         };
 
-        DBManager.isNewData(feed.link, function (error, isNewData) {
+        DBManager.isNewData(postLink, function (error, isNewData) {
             if (isNewData && !error) DBManager.updateData(data);
         });
     });
