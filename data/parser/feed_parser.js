@@ -45,7 +45,7 @@ function parseFeed(item) {
         let meta = this.meta;
         let feed = stream.read();
 
-        let postContent = feed.summary;
+        let postContent = feed.summary || feed.description;
 
         postContent.replace(/<br\/>/ig, "\n");
         postContent = postContent.replace(/(<([^>]+)>)/ig, "");
