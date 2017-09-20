@@ -22,6 +22,10 @@ message.typeText = (postText, postSubMenu) => {
                 result.keyboard.buttons = message.rootMenu;
                 break;
             case '블로그목록':
+                let DBManager = require('/data/db/database_manager');
+                DBManager.getAvailableList(function (result) {
+                    result.keyboard.buttons = result;
+                });
                 break;
         }
     }
