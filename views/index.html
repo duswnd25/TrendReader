@@ -62,7 +62,8 @@
                     <p class="card-text" style="word-break: break-all">{{ info.post_content }}</p>
                 </div>
                 <div class="card-block text-center">
-                    <img ng-src="{{ info.favicon_url }}" style="word-break: break-all"> By {{ info.blog_name }}
+                    <img ng-src="{{ info.favicon_url }}" style="word-break: break-all" src="{{ info.favicon_url }}">
+                    By {{ info.blog_name }}
                 </div>
                 <div class="card-block text-right">
                     <a ng-href="{{ info.post_url }}" ng-class="card-link">Read More</a>

@@ -4,7 +4,7 @@ const DBManager = require('./../db/database_manager');
 const FeedParser = require('feedparser');
 const Request = require('request');
 
-DBManager.getBlogList(function (results, error) {
+DBManager.getParsingList(function (results, error) {
     if (error) {
         console.error('PARSER : GET BLOG LIST ERROR = ' + error.code);
         console.error(error.message);
@@ -57,7 +57,7 @@ function parseFeed(item) {
         let postLink = feed.link || feed.origlink;
 
         if (postLink === '' || postLink === null || postLink === undefined) {
-            postLink = feed.origlink;
+            postLink = feed.post_url;
         }
 
         let data = {
