@@ -73,7 +73,6 @@ app.use(Compression());
 // Router
 app.use('/', require('./router/main/main.js'));
 app.use('/api/data/read', require('./router/api/read'));
-app.use('/api/chat/kakao', require('./router/api/kakao'));
 
 app.listen(PORT, function () {
     console.log("Trend Reader Working on Port " + PORT);
