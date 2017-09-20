@@ -144,8 +144,8 @@ Date.prototype.getCustomType = function () {
     let year = this.getFullYear().toString();
     let month = (this.getMonth() + 1).toString();
     let date = this.getDate().toString();
-    let hour = this.getHours().toString();
+    let hour = (this.getHours() + 9).toString();
     let minute = this.getMinutes().toString();
     // 서버에는 UTC +0 으로 저장되어 있다. 한국은 UTC +9 이다
-    return year + '년 ' + month + '월 ' + date + '일 ' + (hour + 9) + '시 ' + minute + '분';
+    return year + '년 ' + month + '월 ' + date + '일 ' + hour + '시 ' + minute + '분';
 };
