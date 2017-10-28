@@ -33,20 +33,19 @@
      ng-controller="blog_controller">
 
     <div class="card col-sm-6 col-md-6 col-lg-6 col-xl-6 bg-dark text-white border border-white"
-         style="margin-top: 6px; margin-bottom: 6px; display: inline-block"
+         style="margin: 6px; display: inline-block"
          ng-repeat="info in list">
-        <div class="card-body" style="width: 50%">
-            <div class="card-block text-center">
-                <img ng-src="{{ info.favicon_url }}" class="rounded-circle">
+        <div class="card-body text-center" style="width: 48%; float: left;">
+            <div class="card-block text-center" style="margin: 12px;">
+                <img ng-src="{{ info.favicon_url }}" class="rounded-circle" width="120" height="120">
             </div>
             By {{ info.blog_name }}
-            <h6 class="card-subtitle mb-2 text-muted">{{ info.update_at }}</h6>
         </div>
 
-        <div class="card-body" style="width: 50%">
+        <div class="card-body" style="width: 48%; float: right;">
             <h4 class="card-title font-weight-bold">{{ info.post_title }}</h4>
             <p class="card-text" style="word-break: break-all">{{ info.post_content }}</p>
-            <a ng-href="{{ info.post_url }}" class="card-link text-right">Read More</a>
+            <a ng-href="{{ info.post_url }}" class="card-link text-right text-white">Read More</a>
         </div>
     </div>
     <!-- End -->
