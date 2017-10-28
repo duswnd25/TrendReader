@@ -28,20 +28,24 @@
     </style>
     <title>Trend Reader</title>
 </head>
-<body>
+<body class="bg-dark text-white">
 <div ng-app="trendReaderApp" class="container-fluid col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
      ng-controller="blog_controller">
 
-    <div class="card col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="margin-top: 6px; margin-bottom: 6px"
+    <div class="card col-sm-6 col-md-6 col-lg-6 col-xl-6 bg-dark text-white border border-white"
+         style="margin-top: 6px; margin-bottom: 6px; display: inline-block"
          ng-repeat="info in list">
-        <div class="card-body">
-            <h4 class="card-title font-weight-bold">{{ info.post_title }}</h4>
-            <h6 class="card-subtitle mb-2 text-muted">{{ info.update_at }}</h6>
-            <p class="card-text">{{ info.post_content }}</p>
+        <div class="card-body" style="width: 50%">
             <div class="card-block text-center">
                 <img ng-src="{{ info.favicon_url }}" style="word-break: break-all">
-                By {{ info.blog_name }}
             </div>
+            By {{ info.blog_name }}
+            <h6 class="card-subtitle mb-2 text-muted">{{ info.update_at }}</h6>
+        </div>
+
+        <div class="card-body" style="width: 50%">
+            <h4 class="card-title font-weight-bold">{{ info.post_title }}</h4>
+            <p class="card-text">{{ info.post_content }}</p>
             <a ng-href="{{ info.post_url }}" class="card-link text-right">Read More</a>
         </div>
     </div>
