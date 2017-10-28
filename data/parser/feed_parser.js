@@ -57,7 +57,7 @@ function parseFeed(item) {
         let postLink = feed.link || feed.origlink || meta.link;
 
         if (postLink === '' || postLink === null || postLink === undefined || !postLink.includes("http")) {
-            postLink = meta.link;
+            postLink = item.blog_url;
         }
 
         let data = {
