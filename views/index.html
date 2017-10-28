@@ -32,9 +32,8 @@
 <div ng-app="trendReaderApp" class="container-fluid col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
      ng-controller="blog_controller">
 
-    <div class="card col-sm-6 col-md-6 col-lg-6 col-xl-6 bg-dark text-white border border-white"
-         style="margin: 6px; display: inline-block"
-         ng-repeat="info in list">
+    <div class="card col-sm-12 col-md-12 col-lg-12 col-xl-12 bg-dark text-white border border-white"
+         style="margin: 6px; display: inline-block" ng-repeat="info in list">
         <div class="card-body text-center" style="width: 48%; float: left;">
             <div class="card-block text-center" style="margin: 12px;">
                 <img ng-src="{{ info.favicon_url }}" class="rounded-circle" width="120" height="120">
