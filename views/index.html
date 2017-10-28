@@ -37,7 +37,7 @@
          ng-repeat="info in list">
         <div class="card-body" style="width: 50%">
             <div class="card-block text-center">
-                <img ng-src="{{ info.favicon_url }}" style="word-break: break-all">
+                <img ng-src="{{ info.favicon_url }}" class="rounded-circle">
             </div>
             By {{ info.blog_name }}
             <h6 class="card-subtitle mb-2 text-muted">{{ info.update_at }}</h6>
@@ -45,7 +45,7 @@
 
         <div class="card-body" style="width: 50%">
             <h4 class="card-title font-weight-bold">{{ info.post_title }}</h4>
-            <p class="card-text">{{ info.post_content }}</p>
+            <p class="card-text" style="word-break: break-all">{{ info.post_content }}</p>
             <a ng-href="{{ info.post_url }}" class="card-link text-right">Read More</a>
         </div>
     </div>
