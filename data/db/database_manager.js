@@ -39,19 +39,6 @@ exports.updateData = function (data) {
             result.set('post_url', data.post_url);
             result.set('post_content', data.post_content);
             result.save();
-
-            console.log('DB : UPDATE RECENT = ' + result.get('blog_tag'));
-            console.log('DB : UPDATE RECENT = ' + result.get('blog_name'));
-            console.log('DB : UPDATE RECENT = ' + result.get('post_title'));
-            console.log('DB : UPDATE RECENT = ' + result.get('post_url'));
-            console.log('DB : UPDATE RECENT = ' + result.get('post_content'));
-
-            console.log('DB : UPDATE DATA = ' + data.blog_tag);
-            console.log('DB : UPDATE DATA = ' + data.blog_name);
-            console.log('DB : UPDATE DATA = ' + data.post_title);
-            console.log('DB : UPDATE DATA = ' + data.post_url);
-            console.log('DB : UPDATE DATA = ' + data.post_content);
-
             console.log("DB : UPDATE SUCCESS");
         },
         error: function (error) {
