@@ -6,10 +6,10 @@ Parse.initialize(process.env.APP_ID);
 Parse.serverURL = process.env.SERVER_URL;
 
 // 새 데이터 여부
-exports.isNewData = function (postUrl, callback) {
+exports.isNewData = function (post_title, callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
-    query.equalTo("post_url", postUrl);
+    query.equalTo("post_title", post_title);
     query.count({
         success: function (count) {
             count = String(count);

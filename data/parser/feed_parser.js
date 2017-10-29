@@ -70,7 +70,7 @@ function parseFeed(item) {
             "post_content": postContent
         };
 
-        DBManager.isNewData(postLink, function (error, isNewData) {
+        DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
                 DBManager.updateData(data);
             }
