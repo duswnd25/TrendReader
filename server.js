@@ -74,6 +74,13 @@ app.use(Compression());
 app.use('/', require('./router/main/main.js'));
 app.use('/api/data/read', require('./router/api/read'));
 
+// Handle 404 - Keep this as a last route
+app.use(function (req, res, next) {
+    res.status(404);
+    res.send('404: File Not Found');
+    res.render('index.html')
+});
+
 app.listen(PORT, function () {
     console.log("Trend Reader Working on Port " + PORT);
 });
