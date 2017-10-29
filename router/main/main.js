@@ -1,11 +1,11 @@
 const express = require("express");
 const Router = express.Router();
 
-Router.get('/', function (req, res) {
+Router.get("/", function (req, res) {
     res.render("index.html");
 });
 
-Router.get('/server_time', (req, res) => {
+Router.get("/server_time", (req, res) => {
     return res.status(200).json({success: (Date.now()).getCustomType()});
 });
 

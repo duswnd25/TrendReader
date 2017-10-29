@@ -85,7 +85,7 @@ app.use('/api/data/read', require('./router/api/read'));
 app.use(function (req, res, next) {
     res.status(404);
     res.send('404: File Not Found');
-    res.render('index.html')
+    res.render("index.html");
 });
 
 app.listen(PORT, function () {
