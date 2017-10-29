@@ -1,8 +1,8 @@
-const Express = require("express");
-const Router = Express.Router();
+const express = require("express");
+const Router = express.Router();
 
 Router.get('/', function (req, res) {
-    res.render('index.html')
+    res.render("index.html");
 });
 
 Router.get('/server_time', (req, res) => {
