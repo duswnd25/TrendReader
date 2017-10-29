@@ -6,10 +6,10 @@ const Request = require("request");
 
 DBManager.getParsingList(function (results, error) {
     if (error) {
-        Console.error('PARSER : GET BLOG LIST ERROR = ' + error.code);
-        Console.error(error.message);
+        console.error('PARSER : GET BLOG LIST ERROR = ' + error.code);
+        console.error(error.message);
     } else {
-        Console.log('PARSER : GET BLOG LIST SUCCESS');
+        console.log('PARSER : GET BLOG LIST SUCCESS');
         results.forEach(function (item) {
             parseFeed(item)
         });
@@ -21,8 +21,8 @@ function parseFeed(item) {
     let feedParser = new FeedParser({});
 
     req.on('error', function (error) {
-        Console.error('PARSER : REQUEST ERROR = ' + error.code);
-        Console.error(error.message);
+        console.error('PARSER : REQUEST ERROR = ' + error.code);
+        console.error(error.message);
     });
 
     req.on('response', function (res) {
@@ -36,8 +36,8 @@ function parseFeed(item) {
     });
 
     feedParser.on('error', function (error) {
-        Console.error('PARSER : FEED PARSER ERROR = ' + error.code);
-        Console.error(error.message);
+        console.error('PARSER : FEED PARSER ERROR = ' + error.code);
+        console.error(error.message);
     });
 
     feedParser.once('readable', function () {

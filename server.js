@@ -89,5 +89,5 @@ app.use(function (req, res, next) {
 });
 
 app.listen(PORT, function () {
-    Console.log("Trend Reader Working on Port " + PORT);
+    console.log("Trend Reader Working on Port " + PORT);
 });

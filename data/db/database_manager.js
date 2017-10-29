@@ -13,14 +13,14 @@ exports.isNewData = function (postUrl, callback) {
     query.count({
         success: function (count) {
             count = String(count);
-            Console.log("DB : POST COUNT SUCCESS = " + count);
-            Console.log("DB : NEW POST = " + String(count === '0'));
+            console.log("DB : POST COUNT SUCCESS = " + count);
+            console.log("DB : NEW POST = " + String(count === '0'));
 
             callback(null, count === '0');
         },
         error: function (error) {
-            Console.error("DB : POST COUNT ERROR = " + error.code);
-            Console.error(error.message);
+            console.error("DB : POST COUNT ERROR = " + error.code);
+            console.error(error.message);
 
             callback(error, null);
         }
@@ -39,11 +39,11 @@ exports.updateData = function (data) {
             result.set('post_url', data.post_url);
             result.set('post_content', data.post_content);
             result.save();
-            Console.log("DB : UPDATE SUCCESS");
+            console.log("DB : UPDATE SUCCESS");
         },
         error: function (error) {
-            Console.error("DB : UPDATE ERROR = " + error.code);
-            Console.error(error.message);
+            console.error("DB : UPDATE ERROR = " + error.code);
+            console.error(error.message);
         }
     });
 };
@@ -60,7 +60,7 @@ exports.getData = function (target_column, user_query, callback) {
         success: function (results) {
             let temp = [];
             results.forEach(function (item) {
-                Console.log("DB : FETCH DATA SUCCESS = " + item.get('blog_name'));
+                console.log("DB : FETCH DATA SUCCESS = " + item.get('blog_name'));
 
                 let tempJson = PostItem.getResultItem();
                 tempJson.blog_tag = item.get('blog_tag');
@@ -75,8 +75,8 @@ exports.getData = function (target_column, user_query, callback) {
             callback(temp, null);
         },
         error: function (error) {
-            Console.error("DB : FETCH DATA ERROR = " + error.code);
-            Console.error(error.message);
+            console.error("DB : FETCH DATA ERROR = " + error.code);
+            console.error(error.message);
             callback(null, error);
         }
     });
@@ -90,7 +90,7 @@ exports.getParsingList = function (callback) {
         success: function (results) {
             let temp = [];
             results.forEach(function (item) {
-                Console.log("DB : FETCH FEED LIST SUCCESS = " + item.get('blog_name'));
+                console.log("DB : FETCH FEED LIST SUCCESS = " + item.get('blog_name'));
                 temp.push({
                     'blog_tag': item.get('blog_tag'),
                     'feed_url': item.get('feed_url')
@@ -99,8 +99,8 @@ exports.getParsingList = function (callback) {
             callback(temp, null);
         },
         error: function (error) {
-            Console.error("DB : FETCH FEED LIST ERROR = " + error.code);
-            Console.error(error.message);
+            console.error("DB : FETCH FEED LIST ERROR = " + error.code);
+            console.error(error.message);
             callback(null, error);
         }
     });
@@ -114,14 +114,14 @@ exports.getAvailableList = function (callback) {
         success: function (results) {
             let temp = [];
             results.forEach(function (item) {
-                Console.log("DB : FETCH AVAILABLE SUCCESS = " + item.get('blog_name'));
+                console.log("DB : FETCH AVAILABLE SUCCESS = " + item.get('blog_name'));
                 temp.push(item.get('blog_name'));
             });
             callback(temp, null);
         },
         error: function (error) {
-            Console.error("DB : FETCH AVAILABLE ERROR = " + error.code);
-            Console.error(error.message);
+            console.error("DB : FETCH AVAILABLE ERROR = " + error.code);
+            console.error(error.message);
             callback(null, error);
         }
     });
