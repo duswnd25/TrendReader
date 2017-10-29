@@ -55,6 +55,15 @@ const dashboard = new ParseDashboard({
 
 // Express 설정
 const app = Express();
+// user helmet for safety
+app.use(helmet());
+
+// disable for safety
+app.disable("x-powered-by");
+
+// gzip
+app.use(Compression());
+
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
@@ -67,14 +76,8 @@ app.locals.newrelic = NewRelic;
 // From http://www.favicon-generator.org/
 app.use(Favicon(__dirname + "/public/favicon/favicon-32x32.png"));
 
-// gzip
-app.use(Compression());
 
-// user helmet for safety
-app.use(helmet());
 
-// disable for safety
-app.disable("x-powered-by");
 
 // Router
 app.use("/parse", api);
