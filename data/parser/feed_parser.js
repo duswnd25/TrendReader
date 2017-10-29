@@ -54,7 +54,7 @@ function parseFeed(item) {
             postContent = postContent.substring(0, 250);
         }
 
-        let postLink = feed.link.toString();
+        let postLink = (feed.link === null ? feed.origlink : item.blog_url).toString();
 
         if (!postLink.includes("http")) {
             postLink = item.blog_url + postLink;
