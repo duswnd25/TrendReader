@@ -69,7 +69,9 @@ function parseFeed(item) {
         };
 
         DBManager.isNewData(postLink, function (error, isNewData) {
-            if (isNewData && !error) DBManager.updateData(data);
+            if (isNewData && !error) {
+                DBManager.updateData(data);
+            }
         });
     });
 }
