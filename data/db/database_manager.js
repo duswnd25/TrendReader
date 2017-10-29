@@ -9,14 +9,14 @@ Parse.serverURL = process.env.SERVER_URL;
 exports.isNewData = function (postUrl, callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
-    query.equalTo('post_url', postUrl);
+    query.equalTo("post_url", postUrl);
     query.count({
         success: function (count) {
             count = String(count);
             console.log("DB : POST COUNT SUCCESS = " + count);
-            console.log("DB : NEW POST = " + String(count === '0'));
+            console.log("DB : NEW POST = " + String(count === "0"));
 
-            callback(null, count === '0');
+            callback(null, count === "0");
         },
         error: function (error) {
             console.error("DB : POST COUNT ERROR = " + error.code);
