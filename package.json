@@ -1,7 +1,7 @@
 {
-  "name": "DevLoger",
+  "name": "trend_reader",
   "version": "1.0.0",
-  "description": "트랜드 읽어주는 서비스 국내 IT 기술 블로그를 모아서 보여줍니다.",
+  "description": "> 트랜드 읽어주는 서비스 국내 IT 기술 블로그를 모아서 보여줍니다.",
   "main": "newrelic.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/duswnd25/devloger.git"
+    "url": "git+https://github.com/duswnd25/trend_reader.git"
   },
   "author": "YeonJung Kim",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/duswnd25/devloger/issues"
+    "url": "https://github.com/duswnd25/trend_reader/issues"
   },
-  "homepage": "https://github.com/duswnd25/devloger#readme",
+  "homepage": "https://github.com/duswnd25/trend_reader#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "cheerio": "^1.0.0-rc.2",
