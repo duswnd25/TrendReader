@@ -1,15 +1,15 @@
 // 파서는 구글 Feed Burner에 등록한 주소를 서버에 저장 후
 // 별도의 스케줄러로 가져온다.
-const DBManager = require('./../db/database_manager');
-const FeedParser = require('feedparser');
-const Request = require('request');
+const DBManager = require("./../db/database_manager");
+const FeedParser = require("feedparser");
+const Request = require("request");
 
 DBManager.getParsingList(function (results, error) {
     if (error) {
-        console.error('PARSER : GET BLOG LIST ERROR = ' + error.code);
-        console.error(error.message);
+        Console.error('PARSER : GET BLOG LIST ERROR = ' + error.code);
+        Console.error(error.message);
     } else {
-        console.log('PARSER : GET BLOG LIST SUCCESS');
+        Console.log('PARSER : GET BLOG LIST SUCCESS');
         results.forEach(function (item) {
             parseFeed(item)
         });
@@ -21,8 +21,8 @@ function parseFeed(item) {
     let feedParser = new FeedParser({});
 
     req.on('error', function (error) {
-        console.error('PARSER : REQUEST ERROR = ' + error.code);
-        console.error(error.message);
+        Console.error('PARSER : REQUEST ERROR = ' + error.code);
+        Console.error(error.message);
     });
 
     req.on('response', function (res) {
@@ -36,8 +36,8 @@ function parseFeed(item) {
     });
 
     feedParser.on('error', function (error) {
-        console.error('PARSER : FEED PARSER ERROR = ' + error.code);
-        console.error(error.message);
+        Console.error('PARSER : FEED PARSER ERROR = ' + error.code);
+        Console.error(error.message);
     });
 
     feedParser.once('readable', function () {

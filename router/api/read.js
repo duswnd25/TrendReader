@@ -1,5 +1,5 @@
-const DbManager = require('../../data/db/database_manager');
-const Express = require('express');
+const DbManager = require("../../data/db/database_manager");
+const Express = require("express");
 const Router = Express.Router();
 
 // 읽기

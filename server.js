@@ -1,11 +1,11 @@
-const NewRelic = require('newrelic');
-const ParseServer = require('parse-server').ParseServer;
-const ParseDashboard = require('parse-dashboard');
-const BodyParser = require('body-parser');
-const Express = require('express');
-const Compression = require('compression');
-const Favicon = require('serve-favicon');
-const helmet = require('helmet');
+const NewRelic = require("newrelic");
+const ParseServer = require("parse-server").ParseServer;
+const ParseDashboard = require("parse-dashboard");
+const BodyParser = require("body-parser");
+const Express = require("express");
+const Compression = require("compression");
+const Favicon = require("serve-favicon");
+const helmet = require("helmet");
 
 // Server Config
 const DB_URL = process.env.MONGODB_URI;
@@ -89,5 +89,5 @@ app.use(function (req, res, next) {
 });
 
 app.listen(PORT, function () {
-    console.log("Trend Reader Working on Port " + PORT);
+    Console.log("Trend Reader Working on Port " + PORT);
 });
