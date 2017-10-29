@@ -50,7 +50,8 @@ const dashboard = new ParseDashboard({
             "pass": process.env.DASHBOARD_PW
         }
     ],
-    "trustProxy": 1
+    "trustProxy": 1,
+    "useEncryptedPasswords": true
 }, ALLOW_INSECURE_HTTP);
 
 // Express 설정
