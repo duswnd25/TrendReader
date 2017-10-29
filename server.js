@@ -56,7 +56,7 @@ const dashboard = new ParseDashboard({
 const app = Express();
 app.use('/parse', api);
 app.use('/dashboard', dashboard);
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + "/views");
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 app.use("/public", Express.static(__dirname + "/public"));
@@ -89,5 +89,5 @@ app.use(function (req, res, next) {
 });
 
 app.listen(PORT, function () {
-    console.log("Trend Reader Working on Port " + PORT);
+    console.log("Trend Reader Working");
 });
