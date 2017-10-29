@@ -71,7 +71,7 @@ exports.getData = function (target_column, user_query, callback) {
                 tempJson.post_content = item.get("post_content");
                 tempJson.update_at = new Date(item.updatedAt).getCustomType();
 
-                if (item.get("profile_url") === undefined) {
+                if (item.get("profile_url") === undefined || item.get("profile_url") === "") {
                     tempJson.favicon_url = "https://www.google.com/s2/favicons?domain=" + item.get("blog_url");
                 } else {
                     tempJson.favicon_url = item.get("profile_url");
