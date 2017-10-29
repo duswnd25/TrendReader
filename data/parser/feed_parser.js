@@ -56,8 +56,8 @@ function parseFeed(item) {
 
         let postLink = feed.origlink;
 
-        if (!postLink.includes("http") || postLink === "") {
-            postLink = item.blog_url;
+        if (!postLink.includes("http")) {
+            postLink = item.blog_url + postLink;
         }
 
         let data = {
