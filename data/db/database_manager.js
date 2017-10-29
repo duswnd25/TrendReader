@@ -34,10 +34,10 @@ exports.updateData = function (data) {
     query.equalTo("blog_tag", data.blog_tag);
     query.first({
         success: function (result) {
-            result.set('blog_name', data.blog_name);
-            result.set('post_title', data.post_title);
-            result.set('post_url', data.post_url);
-            result.set('post_content', data.post_content);
+            result.set("blog_name", data.blog_name);
+            result.set("post_title", data.post_title);
+            result.set("post_url", data.post_url);
+            result.set("post_content", data.post_content);
             result.save();
             console.log("DB : UPDATE SUCCESS");
         },
@@ -52,7 +52,7 @@ exports.getData = function (target_column, user_query, callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
     query.descending("updatedAt");
-    if (user_query !== 'all') {
+    if (user_query !== "all") {
         query.equalTo(target_column, user_query);
     }
 
@@ -60,15 +60,15 @@ exports.getData = function (target_column, user_query, callback) {
         success: function (results) {
             let temp = [];
             results.forEach(function (item) {
-                console.log("DB : FETCH DATA SUCCESS = " + item.get('blog_name'));
+                console.log("DB : FETCH DATA SUCCESS = " + item.get("blog_name"));
 
                 let tempJson = PostItem.getResultItem();
-                tempJson.blog_tag = item.get('blog_tag');
-                tempJson.favicon_url = 'https://www.google.com/s2/favicons?domain=' + item.get('post_url');
-                tempJson.blog_name = item.get('blog_name');
-                tempJson.post_title = item.get('post_title');
-                tempJson.post_url = item.get('post_url');
-                tempJson.post_content = item.get('post_content');
+                tempJson.blog_tag = item.get("blog_tag");
+                tempJson.favicon_url = "https://www.google.com/s2/favicons?domain=" + item.get("post_url");
+                tempJson.blog_name = item.get("blog_name");
+                tempJson.post_title = item.get("post_title");
+                tempJson.post_url = item.get("post_url");
+                tempJson.post_content = item.get("post_content");
                 tempJson.update_at = new Date(item.updatedAt).getCustomType();
                 temp.push(tempJson);
             });
@@ -90,10 +90,10 @@ exports.getParsingList = function (callback) {
         success: function (results) {
             let temp = [];
             results.forEach(function (item) {
-                console.log("DB : FETCH FEED LIST SUCCESS = " + item.get('blog_name'));
+                console.log("DB : FETCH FEED LIST SUCCESS = " + item.get("blog_name"));
                 temp.push({
-                    'blog_tag': item.get('blog_tag'),
-                    'feed_url': item.get('feed_url')
+                    "blog_tag": item.get("blog_tag"),
+                    "feed_url": item.get("feed_url")
                 });
             });
             callback(temp, null);
@@ -114,8 +114,8 @@ exports.getAvailableList = function (callback) {
         success: function (results) {
             let temp = [];
             results.forEach(function (item) {
-                console.log("DB : FETCH AVAILABLE SUCCESS = " + item.get('blog_name'));
-                temp.push(item.get('blog_name'));
+                console.log("DB : FETCH AVAILABLE SUCCESS = " + item.get("blog_name"));
+                temp.push(item.get("blog_name"));
             });
             callback(temp, null);
         },
@@ -134,5 +134,5 @@ Date.prototype.getCustomType = function () {
     let hour = (this.getHours() + 9).toString();
     let minute = this.getMinutes().toString();
     // 서버에는 UTC +0 으로 저장되어 있다. 한국은 UTC +9 이다
-    return year + '년 ' + month + '월 ' + date + '일 ' + hour + '시 ' + minute + '분';
+    return year + "년 " + month + "월 " + date + "일 " + hour + "시 " + minute + "분";
 };
