@@ -31,7 +31,7 @@
     "helmet": "^3.9.0",
     "newrelic": "^2.3.1",
     "parse": "^1.10.1",
-    "parse-dashboard": "^1.1.2",
+    "parse-dashboard": "^1.1.0",
     "parse-server": "^2.6.5",
     "request": "^2.83.0",
     "serve-favicon": "^2.4.5"
