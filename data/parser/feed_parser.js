@@ -45,6 +45,7 @@ function parseFeed(item) {
         let meta = this.meta;
         let feed = stream.read();
 
+        // 내용
         let postContent = feed.summary || feed.description;
 
         postContent.replace(/<br\/>/ig, "\n");
@@ -54,7 +55,8 @@ function parseFeed(item) {
             postContent = postContent.substring(0, 250);
         }
 
-        let postLink = (feed.link !== undefined ? feed.link : item.blog_url).toString();
+        // 글 링크
+        let postLink = (feed.link === undefined ? item.blog_url : feed.link).toString();
 
         if (!postLink.includes("http")) {
             postLink = item.blog_url + postLink;
