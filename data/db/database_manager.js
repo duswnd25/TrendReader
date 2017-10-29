@@ -93,7 +93,8 @@ exports.getParsingList = function (callback) {
                 console.log("DB : FETCH FEED LIST SUCCESS = " + item.get("blog_name"));
                 temp.push({
                     "blog_tag": item.get("blog_tag"),
-                    "feed_url": item.get("feed_url")
+                    "feed_url": item.get("feed_url"),
+                    "blog_url": item.get("blog_url")
                 });
             });
             callback(temp, null);
