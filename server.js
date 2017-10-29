@@ -54,8 +54,6 @@ const dashboard = new ParseDashboard({
 
 // Express 설정
 const app = Express();
-app.use("/parse", api);
-app.use("/dashboard", dashboard);
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 app.engine("html", require("ejs").renderFile);
@@ -78,6 +76,8 @@ app.use(helmet());
 app.disable("x-powered-by");
 
 // Router
+app.use("/parse", api);
+app.use("/dashboard", dashboard);
 app.use("/", require("./router/main/main.js"));
 app.use("/api/data/read", require("./router/api/read"));
 
