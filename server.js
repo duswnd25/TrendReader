@@ -5,6 +5,7 @@ const BodyParser = require('body-parser');
 const Express = require('express');
 const Compression = require('compression');
 const Favicon = require('serve-favicon');
+const helmet = require('helmet');
 
 // Server Config
 const DB_URL = process.env.MONGODB_URI;
@@ -69,6 +70,12 @@ app.use(Favicon(__dirname + '/public/favicon/favicon-32x32.png'));
 
 // gzip
 app.use(Compression());
+
+// user helmet for safety
+app.use(helmet());
+
+// disable for safety
+app.disable('x-powered-by');
 
 // Router
 app.use('/', require('./router/main/main.js'));
