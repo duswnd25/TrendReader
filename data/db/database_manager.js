@@ -67,10 +67,11 @@ exports.getData = function (target_column, user_query, callback) {
                 tempJson.blog_name = item.get("blog_name");
                 tempJson.post_title = item.get("post_title");
                 tempJson.post_url = item.get("post_url");
+                tempJson.blog_url = item.get("blog_url");
                 tempJson.post_content = item.get("post_content");
                 tempJson.update_at = new Date(item.updatedAt).getCustomType();
 
-                if (item.get("profile_url") === null) {
+                if (item.get("profile_url") === undefined) {
                     tempJson.favicon_url = "https://www.google.com/s2/favicons?domain=" + item.get("blog_url");
                 } else {
                     tempJson.favicon_url = item.get("profile_url");
