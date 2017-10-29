@@ -61,11 +61,11 @@ function parseFeed(item) {
         }
 
         let data = {
-            'blog_tag': item.blog_tag,
-            'blog_name': meta.title,
-            'post_title': feed.title,
-            'post_url': postLink,
-            'post_content': postContent
+            "blog_tag": item.blog_tag,
+            "blog_name": meta.title,
+            "post_title": feed.title,
+            "post_url": postLink,
+            "post_content": postContent
         };
 
         DBManager.isNewData(postLink, function (error, isNewData) {
