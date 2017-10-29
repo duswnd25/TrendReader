@@ -21,7 +21,7 @@ function parseFeed(item) {
     let feedParser = new FeedParser({});
 
     req.on('error', function (error) {
-        console.error('PARSER : REQUEST ERROR = ' + error.code);
+        console.error('PARSER : REQUEST ERROR ');
         console.error(error.message);
     });
 
@@ -56,7 +56,7 @@ function parseFeed(item) {
 
         let postLink = feed.link || feed.origlink || meta.link;
 
-        if (postLink === '' || postLink === null || postLink === undefined || !postLink.includes("http")) {
+        if (postLink === "" || postLink === null || postLink === undefined || !postLink.includes("http")) {
             postLink = item.blog_url;
         }
 
