@@ -54,9 +54,9 @@ function parseFeed(item) {
             postContent = postContent.substring(0, 250);
         }
 
-        let postLink = feed.link || feed.origlink || meta.link;
+        let postLink = feed.origlink;
 
-        if (postLink === "" || postLink === null || !postLink.includes("http")) {
+        if (!postLink.includes("http") || postLink === "") {
             postLink = item.blog_url;
         }
 
