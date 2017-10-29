@@ -6,10 +6,10 @@ const Request = require("request");
 
 DBManager.getParsingList(function (results, error) {
     if (error) {
-        console.error('PARSER : GET BLOG LIST ERROR = ' + error.code);
+        console.error("PARSER : GET BLOG LIST ERROR = " + error.code);
         console.error(error.message);
     } else {
-        console.log('PARSER : GET BLOG LIST SUCCESS');
+        console.log("PARSER : GET BLOG LIST SUCCESS");
         results.forEach(function (item) {
             parseFeed(item)
         });
@@ -20,27 +20,27 @@ function parseFeed(item) {
     let req = Request(item.feed_url);
     let feedParser = new FeedParser({});
 
-    req.on('error', function (error) {
-        console.error('PARSER : REQUEST ERROR ');
+    req.on("error", function (error) {
+        console.error("PARSER : REQUEST ERROR ");
         console.error(error.message);
     });
 
-    req.on('response', function (res) {
+    req.on("response", function (res) {
         let stream = this;
         if (res.statusCode !== 200) {
-            this.emit('error', new Error('Bad status code'));
+            this.emit("error", new Error("Bad status code"));
         }
         else {
             stream.pipe(feedParser);
         }
     });
 
-    feedParser.on('error', function (error) {
-        console.error('PARSER : FEED PARSER ERROR = ' + error.code);
+    feedParser.on("error", function (error) {
+        console.error("PARSER : FEED PARSER ERROR = " + error.code);
         console.error(error.message);
     });
 
-    feedParser.once('readable', function () {
+    feedParser.once("readable", function () {
         let stream = this;
         let meta = this.meta;
         let feed = stream.read();

@@ -20,7 +20,7 @@ const ALLOW_INSECURE_HTTP = true;
 // Parse Platform Server
 const api = new ParseServer({
     databaseURI: DB_URL,
-    cloud: process.cwd() + '/cloud/main.js',
+    cloud: process.cwd() + "/cloud/main.js",
     appId: APP_ID,
     masterKey: MASTER_KEY,
     fileKey: FILE_KEY,
@@ -54,11 +54,11 @@ const dashboard = new ParseDashboard({
 
 // Express 설정
 const app = Express();
-app.use('/parse', api);
-app.use('/dashboard', dashboard);
-app.set('views', __dirname + "/views");
-app.set('view engine', 'ejs');
-app.engine('html', require('ejs').renderFile);
+app.use("/parse", api);
+app.use("/dashboard", dashboard);
+app.set("views", __dirname + "/views");
+app.set("view engine", "ejs");
+app.engine("html", require("ejs").renderFile);
 app.use("/public", Express.static(__dirname + "/public"));
 app.use(BodyParser.urlencoded({extended: true}));
 app.use(BodyParser.json());
@@ -66,7 +66,7 @@ app.locals.newrelic = NewRelic;
 
 // Favicon
 // From http://www.favicon-generator.org/
-app.use(Favicon(__dirname + '/public/favicon/favicon-32x32.png'));
+app.use(Favicon(__dirname + "/public/favicon/favicon-32x32.png"));
 
 // gzip
 app.use(Compression());
@@ -75,16 +75,16 @@ app.use(Compression());
 app.use(helmet());
 
 // disable for safety
-app.disable('x-powered-by');
+app.disable("x-powered-by");
 
 // Router
-app.use('/', require('./router/main/main.js'));
-app.use('/api/data/read', require('./router/api/read'));
+app.use("/", require("./router/main/main.js"));
+app.use("/api/data/read", require("./router/api/read"));
 
 // Handle 404 - Keep this as a last route
 app.use(function (req, res, next) {
     res.status(404);
-    res.send('404: File Not Found');
+    res.send("404: File Not Found");
     res.render("index.html");
 });
 

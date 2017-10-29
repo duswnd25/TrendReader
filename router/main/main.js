@@ -16,7 +16,7 @@ Date.prototype.getCustomType = function () {
     let hour = this.getHours().toString();
     let minute = this.getMinutes().toString();
     let second = this.getSeconds().toString();
-    return year + '년 ' + month + '월 ' + date + '일 ' + hour + '시 ' + minute + '분 ' + second + '초';
+    return year + "년 " + month + "월 " + date + "일 " + hour + "시 " + minute + "분 " + second + "초";
 };
 
 module.exports = Router;
