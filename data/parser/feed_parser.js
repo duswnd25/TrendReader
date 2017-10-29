@@ -54,7 +54,7 @@ function parseFeed(item) {
             postContent = postContent.substring(0, 250);
         }
 
-        let postLink = (feed.link === null ? feed.link : item.blog_url).toString();
+        let postLink = (feed.link === undefined ? feed.link : "http://feeds.feedburner.com/trend_reader_d2").toString();
 
         if (!postLink.includes("http")) {
             postLink = item.blog_url + postLink;
