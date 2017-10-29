@@ -15,7 +15,7 @@ const APP_NAME = process.env.APP_NAME;
 const APP_ID = process.env.APP_ID;
 const FILE_KEY = process.env.FILE_KEY;
 const MASTER_KEY = process.env.MASTER_KEY;
-const ALLOW_INSECURE_HTTP = process.env.PARSE_DASHBOARD_ALLOW_INSECURE_HTTP;
+const ALLOW_INSECURE_HTTP = true;
 
 // Parse Platform Server
 const api = new ParseServer({
