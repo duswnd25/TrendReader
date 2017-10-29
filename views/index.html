@@ -1,6 +1,10 @@
 <html lang="kr">
 <head>
     <meta charset="utf-8">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -42,10 +46,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon/favicon-16x16.png">
     <link rel="manifest" href="/public/favicon/manifest.webmanifest" type="application/manifest+json">
 
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    
     <title>Trend Reader</title>
 </head>
 <body class="bg-dark text-white">
@@ -56,7 +56,8 @@
          style="margin: 6px; display: inline-block" ng-repeat="info in list">
         <div class="card-body text-center col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="float: left;">
             <div class="card-block text-center" style="margin: 12px;">
-                <img ng-src="{{ info.favicon_url }}" class="rounded-circle" width="120" height="120" alt="{{ info.blog_name }} favicon">
+                <img ng-src="{{ info.favicon_url }}" class="rounded-circle" width="120" height="120"
+                     alt="{{ info.blog_name }} favicon">
             </div>
             <span style="word-break: break-all;"> By {{ info.blog_name }}</span>
         </div>
@@ -64,7 +65,8 @@
         <div class="card-body col-xs-12 col-sm-9 col-md-9 col-lg-9 col-xl-9" style="float: right;">
             <h4 class="card-title font-weight-bold">{{ info.post_title }}</h4>
             <p class="card-text" style="word-break: break-all;">{{ info.post_content }}</p>
-            <a ng-href="{{ info.post_url }}" style="float: right;" class="card-link text-right text-white">Read More</a>
+            <a ng-href="{{ info.post_url }}" target="_self" style="float: right;"
+               class="card-link text-right text-white">Read More</a>
         </div>
     </div>
     <!-- End -->
