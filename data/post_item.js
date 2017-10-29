@@ -3,7 +3,6 @@ exports.getResultItem = function () {
         {
             "blog_tag": "",
             "favicon_url": "",
-            "feed_url": "",
             "blog_name": "",
             "blog_url": "",
             "post_title": "",
