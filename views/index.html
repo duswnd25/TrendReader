@@ -8,34 +8,36 @@
 
     <meta http-equiv="x-ua-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Bootstrap -->
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
+    <!-- shortcut icon -->
     <link rel="apple-touch-icon" type="image/png" href="/public/favicon/apple-icon-180x180.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/public/favicon/android-icon-192x192.png">
     <link rel="manifest" href="/public/favicon/manifest.webmanifest" type="application/manifest+json">
 
-    <title>Trend Reader</title>
+    <!-- custom css -->
+    <link rel="stylesheet" href="/public/css/style.css">
+
+    <title>Trend Reader : 전문가들의 관심사 엿보기</title>
 </head>
-<body class="bg-dark text-white">
+<body>
 <div ng-app="trendReaderApp" class="container-fluid col-12"
      ng-controller="blog_controller">
 
     <div class="card col-12 bg-dark text-white border border-white"
          style="margin: 6px; display: inline-block" ng-repeat="info in list">
-        <div class="card-body text-center col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3" style="float: left;">
+        <div class="card-body text-center col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 align-left">
             <div class="card-block text-center" style="margin: 12px;">
-                <img ng-src="{{ info.favicon_url }}" class="border rounded-circle border-info" width="120" height="120"
-                     alt="{{ info.blog_name }} favicon" style="background-color: white">
+                <img ng-src="{{ info.favicon_url }}" class="border rounded-circle border-info profile-image"
+                     alt="{{ info.blog_name }} 프로필 이미지">
             </div>
             <span style="word-break: break-all;"> By {{ info.blog_name }}</span>
         </div>
 
-        <div class="card-body col-xs-12 col-sm-9 col-md-9 col-lg-9 col-xl-9" style="float: right;">
+        <div class="card-body col-xs-12 col-sm-9 col-md-9 col-lg-9 col-xl-9 align-right">
             <h4 class="card-title font-weight-bold">{{ info.post_title }}</h4>
             <p class="card-text" style="word-break: break-all;">{{ info.post_content }}</p>
             <a ng-href="{{ info.post_url }}" target="_self" style="float: right; vertical-align: bottom"

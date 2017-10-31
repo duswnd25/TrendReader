@@ -1,0 +1,13 @@
+.profile-image {
+    width: 120px;
+    height: 120px;
+    background-color: white;
+}
+
+.align-left {
+    float: left;
+}
+
+.align-right {
+    float: right;
+}
