@@ -1,6 +1,7 @@
 .profile-image {
     width: 120px;
     height: 120px;
+    align-self: center;
     background-color: white;
 }
 
