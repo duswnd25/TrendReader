@@ -12,3 +12,8 @@
 .align-right {
     float: right;
 }
+
+.auto-padding-margin {
+    padding: auto;
+    margin: auto;
+}
