@@ -29,8 +29,8 @@
 
     <div class="card col-12 border border-black"
          style="margin: 6px; display: inline-block" ng-repeat="info in list">
-        <div class="card-body text-center col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 align-left">
-            <div class="card-block text-center" style="margin: 12px;">
+        <div class="card-body text-center col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 align-left" style="background-color: darkgrey">
+            <div class="card-block text-center" style="padding: 12px;">
                 <a ng-href="{{ info.blog_url }}" target="_self">
                     <img ng-src="{{ info.favicon_url }}" class="border rounded-circle border-info profile-image"
                          alt="{{ info.blog_name }} 프로필 이미지">
