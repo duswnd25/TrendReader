@@ -28,7 +28,7 @@
      ng-controller="blog_controller">
 
     <div class="card" style="width: 20rem;" ng-repeat="info in list">
-        <img ng-src="{{ info.favicon_url }}" class="card-img-top border rounded-circle border-info profile-image"
+        <img ng-src="{{ info.favicon_url }}" class="card-img-top"
              alt="{{ info.blog_name }} 프로필 이미지">
         <div class="card-block">
             <h4 class="card-title">{{ info.post_title }}</h4>
