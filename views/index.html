@@ -23,18 +23,14 @@
 
     <title>Trend Reader : 전문가들의 관심사 엿보기</title>
 </head>
-<body ng-app="trendReaderApp" ng-controller="blog_controller" class="container-fluid">
+<body ng-app="trendReaderApp" ng-controller="blog_controller" class="container-fluid container">
 <!-- Hover Demo-->
 <div class="column" ng-repeat="info in list">
     <!-- Post-->
     <div class="post-module hover">
         <!-- Thumbnail-->
         <div class="thumbnail">
-            <div class="date">
-                <div class="day">27</div>
-                <div class="month">Mar</div>
-            </div>
-            <img ng-src="{{ info.favicon_url }}"  alt="{{ info.blog_name }} 프로필 이미지"    />
+            <img ng-src="{{ info.favicon_url}}"  alt="{{ info.blog_name }} 프로필 이미지"    />
         </div>
         <!-- Post Content-->
         <div class="post-content">
