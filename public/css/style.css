@@ -7,7 +7,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+.content {
     word-break: break-all;
     overflow: hidden;
 }
@@ -140,6 +140,8 @@ body {
     color: #666666;
     font-size: 14px;
     line-height: 1.8em;
+    overflow: auto;
+    word-break: break-all;
 }
 
 .post-module .post-content .post-meta {
