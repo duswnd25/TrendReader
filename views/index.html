@@ -23,30 +23,28 @@
 
     <title>Trend Reader : 전문가들의 관심사 엿보기</title>
 </head>
-<body class="row" ng-app="trendReaderApp" ng-controller="blog_controller">
-<div class="article-container" ng-repeat="info in list">
-    <div class="wrapper">
-        <div class="date">
-            <span class="day">12</span>
-            <span class="month">Aug</span>
-            <span class="year">2016</span>
-        </div>
-        <div class="data">
-            <div class="content">
-                <span class="author">Jane Doe</span>
-                <h1 class="title"><a href="#">Everything You Need to Know About Gold Medals</a></h1>
-                <p class="text">Olympic gold medals contain only about 1.34 percent gold, with the rest composed of
-                    sterling silver.</p>
-                <label for="show-menu" class="menu-button"><span></span></label>
+<body ng-app="trendReaderApp" ng-controller="blog_controller" class="col-12 row">
+<!-- Hover Demo-->
+<div class="column col-3" ng-repeat="info in list">
+    <!-- Post-->
+    <div class="post-module hover">
+        <!-- Thumbnail-->
+        <div class="thumbnail">
+            <div class="date">
+                <div class="day">27</div>
+                <div class="month">Mar</div>
             </div>
-            <input type="checkbox" id="show-menu"/>
-            <ul class="menu-content">
-                <li>
-                    <a href="#" class="fa fa-bookmark-o"></a>
-                </li>
-                <li><a href="#" class="fa fa-heart-o"><span>47</span></a></li>
-                <li><a href="#" class="fa fa-comment-o"><span>8</span></a></li>
-            </ul>
+            <img ng-src="{{ info.favicon_url }}"  alt="{{ info.blog_name }} 프로필 이미지"    />
+        </div>
+        <!-- Post Content-->
+        <div class="post-content">
+            <div class="category">{{ info.blog_name }}</div>
+            <h1 class="title">{{ info.post_title }}</h1>
+            <h2 class="sub_title">The city that never sleeps.</h2>
+            <p class="description">{{ info.post_content }}</p>
+            <div class="post-meta">
+                <span class="timestamp"><i class="fa fa-clock-o"></i>{{ info.update_at }}</span>
+            </div>
         </div>
     </div>
 </div>
