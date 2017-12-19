@@ -7,6 +7,11 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+    word-break: break-all;
+    overflow: hidden;
+}
+
 .post-module {
     position: relative;
     z-index: 1;
