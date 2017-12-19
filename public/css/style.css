@@ -7,6 +7,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.blog-image{
+    height: 100px;
+}
+
 .post-module {
     position: relative;
     z-index: 1;
