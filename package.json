@@ -8,8 +8,13 @@
     "start": "node server.js"
   },
   "engines": {
+<<<<<<< HEAD
     "node": "9.3.0",
     "npm": "5.6.0"
+=======
+    "node": "9.1.0",
+    "npm": "5.5.1"
+>>>>>>> parent of ba7bb4e... update
   },
   "repository": {
     "type": "git",
