@@ -51,10 +51,6 @@ function parseFeed(item) {
         postContent.replace(/<br\/>/ig, "\n");
         postContent = postContent.replace(/(<([^>]+)>)/ig, "");
 
-        if (postContent.length > 250) {
-            postContent = postContent.substring(0, 250);
-        }
-
         // 글 링크
         let postLink = (feed.link === undefined ? item.blog_url : feed.link).toString();
 
