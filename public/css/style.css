@@ -13,6 +13,7 @@ body {
     margin: 16px;
 }
 
+
 .content-image {
     margin: 0;
     width: 100%;
@@ -23,6 +24,7 @@ body {
 
 .content-detail {
     width: 100%;
+    overflow: hidden;
     height: 320px;
 }
 
@@ -45,6 +47,5 @@ body {
 
 .content-post-description {
     word-break: break-all;
-    overflow: hidden;
     height: 240px;
 }
