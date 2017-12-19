@@ -27,26 +27,18 @@
 <div ng-app="trendReaderApp" class="container-fluid col-12"
      ng-controller="blog_controller">
 
-    <div class="card col-12 border border-black"
-         style="display: inline-block; background-color: white;padding: 0;" ng-repeat="info in list">
-        <div class="card-body text-center col-xs-12 col-sm-3 col-md-3 col-lg-3 col-xl-3 align-left"
-             style="background-color: black;">
-            <div class="card-block text-center" style="padding: 12px;">
-                <a ng-href="{{ info.blog_url }}" target="_self">
-                    <img ng-src="{{ info.favicon_url }}" class="border rounded-circle border-info profile-image"
-                         alt="{{ info.blog_name }} 프로필 이미지">
-                </a>
-            </div>
-            <span style="word-break: break-all;" class="text-white"> By {{ info.blog_name }}</span>
+    <div class="card" style="width: 20rem;" ng-repeat="info in list">
+        <img ng-src="{{ info.favicon_url }}" class="card-img-top border rounded-circle border-info profile-image"
+             alt="{{ info.blog_name }} 프로필 이미지">
+        <div class="card-block">
+            <h4 class="card-title">{{ info.post_title }}</h4>
+            <p class="card-text">{{ info.post_content }}</p>
         </div>
-
-        <div class="card-body col-xs-12 col-sm-9 col-md-9 col-lg-9 col-xl-9 align-right"
-             style="background-color: white;margin: 0; height: 100%">
-            <h4 class="card-title font-weight-bold">{{ info.post_title }}</h4>
-            <p class="card-text" style="word-break: break-all;">{{ info.post_content }}</p>
-            <a ng-href="{{ info.post_url }}" target="_self" class="card-link text-right align-right">
-                Read More
-            </a>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">By {{ info.blog_name }}</li>
+        </ul>
+        <div class="card-block">
+            <a ng-href="{{ info.post_url }}" class="card-link">Read More</a>
         </div>
     </div>
     <!-- End -->
