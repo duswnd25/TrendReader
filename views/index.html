@@ -26,37 +26,39 @@
 <body class="auto-padding-margin row container-fluid">
 <div ng-app="trendReaderApp" class="row container-fluid col-12"
      ng-controller="blog_controller">
-    <aside class="profile-card" ng-repeat="info in list">
-        <header>
-            <!-- here’s the avatar -->
-            <a target="_blank" href="#">
-                <img ng-src="{{ info.favicon_url }}" class="hoverZoomLink">
-            </a>
-            <!-- the username -->
-            <h1>
-                {{ info.blog_name }}
-            </h1>
-            <!-- and role or location -->
-            <h2>
-                {{ info.post_title }}
-            </h2>
-        </header>
-        <!-- bit of a bio; who are you? -->
-        <div class="profile-bio">
-            <p>
-                {{ info.post_content }}
-            </p>
-        </div>
-        <!-- some social links to show off -->
-        <ul class="profile-social-links">
-            <li>
-                <a target="_blank" href="https://www.facebook.com/creativedonut">
-                    <i class="fa fa-facebook"></i>
+    <div class="container">
+        <aside class="profile-card" ng-repeat="info in list">
+            <header>
+                <!-- here’s the avatar -->
+                <a target="_blank" href="#">
+                    <img ng-src="{{ info.favicon_url }}" class="hoverZoomLink">
                 </a>
-            </li>
-            <li>
-        </ul>
-    </aside>
+                <!-- the username -->
+                <h1>
+                    {{ info.blog_name }}
+                </h1>
+                <!-- and role or location -->
+                <h2>
+                    {{ info.post_title }}
+                </h2>
+            </header>
+            <!-- bit of a bio; who are you? -->
+            <div class="profile-bio">
+                <p>
+                    {{ info.post_content }}
+                </p>
+            </div>
+            <!-- some social links to show off -->
+            <ul class="profile-social-links">
+                <li>
+                    <a target="_blank" href="https://www.facebook.com/creativedonut">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                <li>
+            </ul>
+        </aside>
+    </div>
 </div>
 
 <!-- JavaScript -->

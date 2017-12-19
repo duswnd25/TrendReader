@@ -50,6 +50,10 @@ p {
     margin: 0;
 }
 
+.container {
+    display: inline-flex;
+}
+
 .profile-card {
     background: #FFB300;
     width: 56px;
