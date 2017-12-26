@@ -48,6 +48,8 @@ body {
 
 .content-post-description {
     word-break: break-all;
+    text-decoration: none;
+    text-decoration-color: black;
     height: 240px;
 }
 
