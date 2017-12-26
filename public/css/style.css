@@ -53,12 +53,15 @@ body {
 
 a:hover {
     text-decoration: none;
+    text-decoration-color: black;
 }
 
 a:link {
+    text-decoration-color: black;
     text-decoration: none;
 }
 
 a:visited {
+    text-decoration-color: black;
     text-decoration: none;
 }
