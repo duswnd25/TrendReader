@@ -141,11 +141,11 @@ exports.getNewDataCount = function (isMorning, callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
     if (isMorning === true) {
-        query.greaterThan("updateAt", new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 0, 0, 0));
-        query.lessThan("updateAt", new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 7, 0, 0, 0));
+        query.greaterThan("updateAt", new Date(Date.UTC(now.getFullYear() - 1900, now.getMonth(), now.getDate(), 18, 0, 0, 0)));
+        query.lessThan("updateAt", new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate() + 1, 7, 0, 0, 0)));
     } else {
-        query.greaterThan("updateAt", new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 7, 0, 0, 0));
-        query.lessThan("updateAt", new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 18, 0, 0, 0));
+        query.greaterThan("updateAt", new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate() + 1, 7, 0, 0, 0)));
+        query.lessThan("updateAt", new Date(Date.UTC(now.getFullYear() - 1900, now.getMonth(), now.getDate(), 18, 0, 0, 0)));
     }
     query.count().then(function (count) {
         callback(count);
