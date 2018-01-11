@@ -13,9 +13,6 @@ if (time === 7) {
     channel = "EVENING";
 }
 
-isMorning = false;
-channel = "EVENING";
-
 DBManager.getNewDataCount(isMorning, function (count) {
     Fcm.sendFCM(channel, count+"개 의 안읽은 소식이 있습니다.");
 });
