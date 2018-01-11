@@ -135,6 +135,23 @@ exports.getAvailableList = function (callback) {
     });
 };
 
+exports.getNewDataCount = function (isMorning, callback) {
+    let now = new Date;
+
+    let Post = Parse.Object.extend("Post");
+    let query = new Parse.Query(Post);
+    if (isMorning === true) {
+        query.greaterThan("updateAt", new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 0, 0, 0));
+        query.lessThan("updateAt", new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 7, 0, 0, 0));
+    } else {
+        query.greaterThan("updateAt", new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 7, 0, 0, 0));
+        query.lessThan("updateAt", new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 18, 0, 0, 0));
+    }
+    query.count().then(function (count) {
+        callback(count);
+    });
+};
+
 Date.prototype.getCustomType = function () {
     let year = this.getFullYear().toString();
     let month = (this.getMonth() + 1).toString();
