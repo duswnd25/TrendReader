@@ -3,6 +3,7 @@
 const DBManager = require("./../db/database_manager");
 const FeedParser = require("feedparser");
 const Request = require("request");
+const Fcm = require("./../../service/fcm/fcm_send");
 
 DBManager.getParsingList(function (results, error) {
     if (error) {
@@ -69,6 +70,7 @@ function parseFeed(item) {
         DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
                 DBManager.updateData(data);
+                Fcm.sendFCM("QUICK", data.post_title);
             }
         });
     });
