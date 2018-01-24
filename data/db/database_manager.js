@@ -52,6 +52,7 @@ exports.updateData = function (data) {
 exports.getData = function (target_column, user_query, callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
+    query.limit(1000);
     query.descending("updatedAt");
     if (user_query !== "all") {
         query.equalTo(target_column, user_query);
