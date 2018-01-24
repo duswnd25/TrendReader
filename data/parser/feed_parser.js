@@ -24,7 +24,7 @@ function parseFeed(item) {
     let feedParser = new FeedParser({});
 
     req.on("error", function (error) {
-        console.error("PARSER : REQUEST ERROR ");
+        console.error("PARSER : REQUEST ERROR = " + item.blog_url);
         console.error(error.message);
     });
 
