@@ -78,10 +78,11 @@ function parseFeed(item) {
                     data["blog_name"] = metadata.title + " " + metadata.description;
                     data.profile_url = metadata.image;
 
-                    DBManager.updateData(data);
-                    Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
                 })().catch((error) => {
                     console.error("OPEN-GRAPH : ERROR" + item.blog_url + error.message);
+                }).finally(function () {
+                    DBManager.updateData(data);
+                    Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
                 });
             }
         });
