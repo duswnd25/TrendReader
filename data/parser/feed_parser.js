@@ -4,9 +4,22 @@ const DBManager = require("./../db/database_manager");
 const FeedParser = require("feedparser");
 const Request = require("request");
 const Fcm = require("./../../service/fcm/fcm_send");
+const metaScraper = require('metascraper');
+const got = require('got');
 
-exports.parseFeed = function (item) {
-    console.log(JSON.stringify(item));
+DBManager.getParsingList(function (results, error) {
+    if (error) {
+        console.error("PARSER : GET BLOG LIST ERROR = " + error.code);
+        console.error(error.message);
+    } else {
+        results.forEach(function (item) {
+            parseFeed(item)
+        });
+    }
+});
+
+function parseFeed(item) {
+
     let req = Request(item.feed_url);
     let feedParser = new FeedParser({});
 
@@ -63,7 +76,7 @@ exports.parseFeed = function (item) {
                     if (error !== null) {
                         try {
                             if (results.data.ogTitle !== undefined) {
-                                data["blog_name"] = results.data.ogTitle;
+                                data["blog_name"] = results.data.ogTitle + " " + results.data.ogDescription;
                             }
                             if (results.data.ogImage.url !== undefined) {
                                 data.profile_url = results.data.ogImage.url;
@@ -78,4 +91,4 @@ exports.parseFeed = function (item) {
             }
         });
     });
-};
+}
