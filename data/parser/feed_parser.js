@@ -19,6 +19,8 @@ DBManager.getParsingList(function (results, error) {
 });
 
 function parseFeed(item) {
+    console.log(item.feed_url);
+    
     let req = Request(item.feed_url);
     let feedParser = new FeedParser({});
 
