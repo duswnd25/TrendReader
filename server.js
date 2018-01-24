@@ -92,6 +92,12 @@ app.use(function (req, res, next) {
     res.render("index.html");
 });
 
+const schedule = require('node-schedule');
+
+let job = schedule.scheduleJob('*/1 * * * *', function(){
+    console.log('The answer to life, the universe, and everything!');
+});
+
 app.listen(PORT, function () {
     console.log("Trend Reader Working");
 });
