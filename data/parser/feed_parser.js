@@ -4,19 +4,20 @@ const DBManager = require("./../db/database_manager");
 const FeedParser = require("feedparser");
 const Request = require("request");
 const Fcm = require("./../../service/fcm/fcm_send");
-const metaScraper = require('metascraper');
-const got = require('got');
 
-DBManager.getParsingList(function (results, error) {
-    if (error) {
-        console.error("PARSER : GET BLOG LIST ERROR = " + error.code);
-        console.error(error.message);
-    } else {
-        results.forEach(function (item) {
-            parseFeed(item)
-        });
-    }
-});
+exports.startParsing = function () {
+
+    DBManager.getParsingList(function (results, error) {
+        if (error) {
+            console.error("PARSER : GET BLOG LIST ERROR = " + error.code);
+            console.error(error.message);
+        } else {
+            results.forEach(function (item) {
+                parseFeed(item)
+            });
+        }
+    });
+};
 
 function parseFeed(item) {
 

@@ -6,6 +6,7 @@ const Express = require("express");
 const Compression = require("compression");
 const Favicon = require("serve-favicon");
 const helmet = require("helmet");
+const Parser = require("/data/parser/feed_parser");
 
 // Server Config
 const DB_URL = process.env.MONGODB_URI;
@@ -76,9 +77,6 @@ app.locals.newrelic = NewRelic;
 // From http://www.favicon-generator.org/
 app.use(Favicon(__dirname + "/public/favicon/favicon-32x32.png"));
 
-
-
-
 // Router
 app.use("/parse", api);
 app.use("/dashboard", dashboard);
@@ -94,10 +92,10 @@ app.use(function (req, res, next) {
 
 const schedule = require('node-schedule');
 
-let job = schedule.scheduleJob('*/1 * * * *', function(){
-    console.log('The answer to life, the universe, and everything!');
+// Parser Scheduler
+let job = schedule.scheduleJob('*/1 * * * *', function () {
+    Parser.startParsing();
 });
-
 app.listen(PORT, function () {
     console.log("Trend Reader Working");
 });
