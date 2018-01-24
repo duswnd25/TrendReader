@@ -24,13 +24,7 @@ const api = new ParseServer({
     appId: APP_ID,
     masterKey: MASTER_KEY,
     fileKey: FILE_KEY,
-    serverURL: SERVER_URL,
-    "filesAdapter": {
-        "module": "parse-server-fs-adapter",
-        "options": {
-            "filesSubDirectory": "my/files/folder" // optional
-        }
-    }
+    serverURL: SERVER_URL
 });
 
 // Parse Platform Dashboard
