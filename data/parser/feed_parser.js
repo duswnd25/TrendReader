@@ -70,7 +70,7 @@ function parseFeed(item) {
         DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
                 DBManager.updateData(data);
-                Fcm.sendFCM("QUICK", data.post_title);
+                Fcm.sendFCM("QUICK", data.post_title, data.post_content);
             }
         });
     });
