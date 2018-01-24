@@ -103,11 +103,12 @@ let job = schedule.scheduleJob('* */5 * * *', function () {
         } else {
             console.log("DB PARSING LIST = " + results.size);
             results.forEach(function (item) {
-                parseFeed(item)
+                Parser.parseFeed(item)
             });
         }
     });
 });
+
 app.listen(PORT, function () {
     console.log("Trend Reader Working");
 });

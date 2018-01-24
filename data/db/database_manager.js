@@ -95,6 +95,7 @@ exports.getParsingList = function (callback) {
     query.find({
         success: function (results) {
             let temp = [];
+            console.log("TEST" + results.size);
             results.forEach(function (item) {
                 temp.push({
                     "feed_url": item.get("feed_url"),
