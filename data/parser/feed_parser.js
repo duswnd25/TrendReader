@@ -83,10 +83,11 @@ function parseFeed(item) {
                             }
                         } catch (e) {
                             console.error(item.blog_url + " / " + e);
+                        } finally {
+                            DBManager.updateData(data);
+                            Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
                         }
                     }
-                    DBManager.updateData(data);
-                    Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
                 });
             }
         });
