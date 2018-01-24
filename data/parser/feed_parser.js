@@ -71,24 +71,8 @@ function parseFeed(item) {
 
         DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
-                const ogs = require('open-graph-scraper');
-                ogs({'url': item.blog_url, 'timeout': 4000}, function (error, results) {
-                    if (error !== null) {
-                        try {
-                            if (results.data.ogTitle !== undefined) {
-                                data["blog_name"] = results.data.ogTitle + " " + results.data.ogDescription;
-                            }
-                            if (results.data.ogImage.url !== undefined) {
-                                data.profile_url = results.data.ogImage.url;
-                            }
-                        } catch (e) {
-                            console.error(item.blog_url + " / " + e);
-                        } finally {
-                            DBManager.updateData(data);
-                            Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
-                        }
-                    }
-                });
+                DBManager.updateData(data);
+                Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
             }
         });
     });
