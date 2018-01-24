@@ -29,6 +29,7 @@
     "express": "^4.16.2",
     "fcm-push": "^1.1.3",
     "feedparser": "^2.2.3",
+    "got": "latest",
     "helmet": "^3.9.0",
     "metascraper": "^3.6.0",
     "newrelic": "^2.3.1",
@@ -37,7 +38,6 @@
     "parse-dashboard": "^1.1.2",
     "parse-server": "^2.6.5",
     "request": "^2.83.0",
-    "serve-favicon": "^2.4.5",
-    "got": "latest"
+    "serve-favicon": "^2.4.5"
   }
 }
