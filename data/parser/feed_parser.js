@@ -12,7 +12,6 @@ DBManager.getParsingList(function (results, error) {
         console.error("PARSER : GET BLOG LIST ERROR = " + error.code);
         console.error(error.message);
     } else {
-        console.log("PARSER : GET BLOG LIST SUCCESS");
         results.forEach(function (item) {
             parseFeed(item)
         });
@@ -84,6 +83,7 @@ function parseFeed(item) {
                         Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
                     })();
                 } catch (e) {
+                    console.log("OPEN-GRAPH : ERROR");
                     console.log(e);
                 }
             }
