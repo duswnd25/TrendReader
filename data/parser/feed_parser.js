@@ -66,7 +66,7 @@ function parseFeed(item) {
             "post_title": feed.title,
             "post_url": postLink,
             "post_content": postContent,
-            "favicon_url": ""
+            "profile_url": ""
         };
 
         DBManager.isNewData(feed.title, function (error, isNewData) {
