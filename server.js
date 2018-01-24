@@ -6,6 +6,8 @@ const Express = require("express");
 const Compression = require("compression");
 const Favicon = require("serve-favicon");
 const helmet = require("helmet");
+const Parser = require("./data/parser/feed_parser");
+const DBManager = require("./data/db/database_manager");
 
 // Server Config
 const DB_URL = process.env.MONGODB_URI;
@@ -76,9 +78,6 @@ app.locals.newrelic = NewRelic;
 // From http://www.favicon-generator.org/
 app.use(Favicon(__dirname + "/public/favicon/favicon-32x32.png"));
 
-
-
-
 // Router
 app.use("/parse", api);
 app.use("/dashboard", dashboard);
@@ -90,6 +89,25 @@ app.use(function (req, res, next) {
     res.status(404);
     res.send("404: File Not Found");
     res.render("index.html");
+});
+
+const schedule = require('node-schedule');
+
+// Parser Scheduler
+let job = schedule.scheduleJob('* */5 * * *', function () {
+    console.log("JOB START");
+    DBManager.getData("blog","all",function (results, error) {
+        if (error) {
+            console.error("PARSER : GET BLOG LIST ERROR = " + error.code);
+            console.error(error.message);
+        } else {
+            console.log("DB PARSING LIST = " + results.size);
+            results.forEach(function (item) {
+                console.log(item.blog_url);
+                Parser.parseFeed(item)
+            });
+        }
+    });
 });
 
 app.listen(PORT, function () {

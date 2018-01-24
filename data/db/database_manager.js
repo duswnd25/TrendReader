@@ -31,13 +31,14 @@ exports.isNewData = function (post_title, callback) {
 exports.updateData = function (data) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
-    query.equalTo("blog_tag", data.blog_tag);
+    query.equalTo("blog_url", data.blog_url);
     query.first({
         success: function (result) {
             result.set("blog_name", data.blog_name);
             result.set("post_title", data.post_title);
             result.set("post_url", data.post_url);
             result.set("post_content", data.post_content);
+            result.set("profile_url", data.profile_url);
             result.save();
             console.log("DB : UPDATE SUCCESS");
         },
@@ -51,6 +52,7 @@ exports.updateData = function (data) {
 exports.getData = function (target_column, user_query, callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
+    query.limit(1000);
     query.descending("updatedAt");
     if (user_query !== "all") {
         query.equalTo(target_column, user_query);
@@ -60,10 +62,8 @@ exports.getData = function (target_column, user_query, callback) {
         success: function (results) {
             let temp = [];
             results.forEach(function (item) {
-                console.log("DB : FETCH DATA SUCCESS = " + item.get("blog_name"));
 
                 let tempJson = PostItem.getResultItem();
-                tempJson.blog_tag = item.get("blog_tag");
                 tempJson.blog_name = item.get("blog_name");
                 tempJson.post_title = item.get("post_title");
                 tempJson.post_url = item.get("post_url");
@@ -76,38 +76,12 @@ exports.getData = function (target_column, user_query, callback) {
                 } else {
                     tempJson.favicon_url = item.get("profile_url");
                 }
-
                 temp.push(tempJson);
             });
             callback(temp, null);
         },
         error: function (error) {
             console.error("DB : FETCH DATA ERROR = " + error.code);
-            console.error(error.message);
-            callback(null, error);
-        }
-    });
-};
-
-exports.getParsingList = function (callback) {
-    let Post = Parse.Object.extend("Post");
-    let query = new Parse.Query(Post);
-
-    query.find({
-        success: function (results) {
-            let temp = [];
-            results.forEach(function (item) {
-                console.log("DB : FETCH FEED LIST SUCCESS = " + item.get("blog_name"));
-                temp.push({
-                    "blog_tag": item.get("blog_tag"),
-                    "feed_url": item.get("feed_url"),
-                    "blog_url": item.get("blog_url")
-                });
-            });
-            callback(temp, null);
-        },
-        error: function (error) {
-            console.error("DB : FETCH FEED LIST ERROR = " + error.code);
             console.error(error.message);
             callback(null, error);
         }
@@ -121,8 +95,8 @@ exports.getAvailableList = function (callback) {
     query.find({
         success: function (results) {
             let temp = [];
+            console.log("DB : FETCH AVAILABLE LIST = " + results.size);
             results.forEach(function (item) {
-                console.log("DB : FETCH AVAILABLE SUCCESS = " + item.get("blog_name"));
                 temp.push(item.get("blog_name"));
             });
             callback(temp, null);
@@ -132,23 +106,6 @@ exports.getAvailableList = function (callback) {
             console.error(error.message);
             callback(null, error);
         }
-    });
-};
-
-exports.getNewDataCount = function (isMorning, callback) {
-    let now = new Date;
-
-    let Post = Parse.Object.extend("Post");
-    let query = new Parse.Query(Post);
-    if (isMorning === true) {
-        query.greaterThan("updateAt", new Date(Date.UTC(now.getFullYear() - 1900, now.getMonth(), now.getDate(), 18, 0, 0, 0)));
-        query.lessThan("updateAt", new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate() + 1, 7, 0, 0, 0)));
-    } else {
-        query.greaterThan("updateAt", new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate() + 1, 7, 0, 0, 0)));
-        query.lessThan("updateAt", new Date(Date.UTC(now.getFullYear() - 1900, now.getMonth(), now.getDate(), 18, 0, 0, 0)));
-    }
-    query.count().then(function (count) {
-        callback(count);
     });
 };
 

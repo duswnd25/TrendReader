@@ -5,24 +5,12 @@ const FeedParser = require("feedparser");
 const Request = require("request");
 const Fcm = require("./../../service/fcm/fcm_send");
 
-DBManager.getParsingList(function (results, error) {
-    if (error) {
-        console.error("PARSER : GET BLOG LIST ERROR = " + error.code);
-        console.error(error.message);
-    } else {
-        console.log("PARSER : GET BLOG LIST SUCCESS");
-        results.forEach(function (item) {
-            parseFeed(item)
-        });
-    }
-});
-
-function parseFeed(item) {
+exports.parseFeed = function (item) {
     let req = Request(item.feed_url);
     let feedParser = new FeedParser({});
 
     req.on("error", function (error) {
-        console.error("PARSER : REQUEST ERROR ");
+        console.error("PARSER : REQUEST ERROR = " + item.blog_url);
         console.error(error.message);
     });
 
@@ -60,18 +48,33 @@ function parseFeed(item) {
         }
 
         let data = {
-            "blog_tag": item.blog_tag,
             "blog_name": meta.title,
             "post_title": feed.title,
             "post_url": postLink,
-            "post_content": postContent
+            "post_content": postContent,
+            "profile_url": ""
         };
 
         DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
-                DBManager.updateData(data);
-                Fcm.sendFCM("QUICK", data.post_title);
+                const ogs = require('open-graph-scraper');
+                ogs({'url': item.blog_url, 'timeout': 4000}, function (error, results) {
+                    if (error !== null) {
+                        try {
+                            if (results.data.ogTitle !== undefined) {
+                                data["blog_name"] = results.data.ogTitle;
+                            }
+                            if (results.data.ogImage.url !== undefined) {
+                                data.profile_url = results.data.ogImage.url;
+                            }
+                        } catch (e) {
+                            console.error(item.blog_url + " / " + e);
+                        }
+                    }
+                    DBManager.updateData(data);
+                    Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
+                });
             }
         });
     });
-}
+};

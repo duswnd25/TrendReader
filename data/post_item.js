@@ -1,7 +1,6 @@
 exports.getResultItem = function () {
     return (
         {
-            "blog_tag": "",
             "favicon_url": "",
             "blog_name": "",
             "blog_url": "",

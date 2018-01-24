@@ -63,3 +63,5 @@ typings/
 
 # 이건 어째야 쫌 안생길까
 .idea/
+temp.json
+test.js
