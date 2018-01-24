@@ -75,7 +75,7 @@ function parseFeed(item) {
                 ogs({'url': item.blog_url, 'timeout': 4000}, function (error, results) {
                     if (error !== null) {
                         data["blog_name"] = results.data.ogTitle + " " + results.data.ogDescription;
-                        if (results.data.ogImage.url !== null && results.data.ogImage.url !== undefined) {
+                        if (results.data.ogImage.url !== undefined) {
                             data.profile_url = results.data.ogImage.url;
                         }
                     }
