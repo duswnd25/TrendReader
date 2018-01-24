@@ -20,7 +20,7 @@ DBManager.getParsingList(function (results, error) {
 
 function parseFeed(item) {
     console.log(item.feed_url);
-    
+
     let req = Request(item.feed_url);
     let feedParser = new FeedParser({});
 
@@ -73,7 +73,7 @@ function parseFeed(item) {
 
         DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
-                let openGraphOptions = {'url': item.blog_url};
+                let openGraphOptions = {'url': item.post_url};
                 OpenGraphScraper(openGraphOptions, function (error, results) {
                     if (error === false) {
                         data.blog_name = results.data.ogTitle + " " + results.data.ogDescription;
