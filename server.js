@@ -101,7 +101,7 @@ let job = schedule.scheduleJob('* */5 * * *', function () {
             console.error("PARSER : GET BLOG LIST ERROR = " + error.code);
             console.error(error.message);
         } else {
-            console.log("DB PARSING LIST = " + results.size);
+            console.log("DB PARSING LIST = " + results.size());
             results.forEach(function (item) {
                 Parser.parseFeed(item)
             });
