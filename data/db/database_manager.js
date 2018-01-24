@@ -88,30 +88,6 @@ exports.getData = function (target_column, user_query, callback) {
     });
 };
 
-exports.getParsingList = function (callback) {
-    let Post = Parse.Object.extend("Post");
-    let query = new Parse.Query(Post);
-
-    query.find({
-        success: function (results) {
-            let temp = [];
-            console.log("TEST" + results.size);
-            results.forEach(function (item) {
-                temp.push({
-                    "feed_url": item.get("feed_url"),
-                    "blog_url": item.get("blog_url")
-                });
-            });
-            callback(temp, null);
-        },
-        error: function (error) {
-            console.error("DB : FETCH FEED LIST ERROR = " + error.code);
-            console.error(error.message);
-            callback(null, error);
-        }
-    });
-};
-
 exports.getAvailableList = function (callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
