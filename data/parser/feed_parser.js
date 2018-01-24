@@ -71,7 +71,7 @@ function parseFeed(item) {
 
         DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
-                let openGraphOptions = {'url': item.feed_url};
+                let openGraphOptions = {'url': item.blog_url};
                 OpenGraphScraper(openGraphOptions, function (error, results) {
                     if (error === false) {
                         data.blog_name = results.data.ogTitle + " " + results.data.ogDescription;
