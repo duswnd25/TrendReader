@@ -120,8 +120,8 @@ exports.getAvailableList = function (callback) {
     query.find({
         success: function (results) {
             let temp = [];
+            console.log("DB : FETCH AVAILABLE LIST = " + results.size);
             results.forEach(function (item) {
-                console.log("DB : FETCH AVAILABLE SUCCESS = " + item.get("blog_name"));
                 temp.push(item.get("blog_name"));
             });
             callback(temp, null);
