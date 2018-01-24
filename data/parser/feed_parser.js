@@ -72,8 +72,7 @@ function parseFeed(item) {
         DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
                 const ogs = require('open-graph-scraper');
-                let options = {'url': item.blog_url, 'timeout': 4000};
-                ogs(options, function (error, results) {
+                ogs({'url': item.blog_url, 'timeout': 4000}, function (error, results) {
                     if (error !== null) {
                         data["blog_name"] = results.data.ogTitle + " " + results.data.ogDescription;
                         data.profile_url = results.data.ogImage.url;
