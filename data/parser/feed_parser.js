@@ -19,7 +19,6 @@ DBManager.getParsingList(function (results, error) {
 });
 
 function parseFeed(item) {
-    console.log(item.feed_url);
 
     let req = Request(item.feed_url);
     let feedParser = new FeedParser({});
@@ -76,9 +75,10 @@ function parseFeed(item) {
                 let openGraphOptions = {'url': item.post_url};
                 OpenGraphScraper(openGraphOptions, function (error, results) {
                     if (error === false) {
-                        data.blog_name = results.data.ogTitle + " " + results.data.ogDescription;
+                        data["blog_name"] = results.data.ogTitle + " " + results.data.ogDescription;
                         data.profile_url = results.data.ogImage.url;
-                        console.log(data.profile_url);
+                    }else{
+                        console.log("OPEN-GRAPH : ERROR");
                     }
                     DBManager.updateData(data);
                 });
