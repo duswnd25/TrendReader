@@ -85,7 +85,7 @@ function parseFeed(item) {
                         console.log(error.message);
                     });
                 } catch (e) {
-                    console.log("OPEN-GRAPH : ERROR");
+                    console.log("OPEN-GRAPH : ERROR" + item.blog_url);
                     console.log(e);
                 }
             }
