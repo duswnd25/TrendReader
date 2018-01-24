@@ -103,6 +103,7 @@ let job = schedule.scheduleJob('* */5 * * *', function () {
         } else {
             console.log("DB PARSING LIST = " + results.size);
             results.forEach(function (item) {
+                console.log(item.blog_url);
                 Parser.parseFeed(item)
             });
         }
