@@ -93,7 +93,7 @@ app.use(function (req, res, next) {
 const schedule = require('node-schedule');
 
 // Parser Scheduler
-let job = schedule.scheduleJob('*/1 * * * *', function () {
+let job = schedule.scheduleJob('* */5 * * *', function () {
     Parser.startParsing();
 });
 app.listen(PORT, function () {
