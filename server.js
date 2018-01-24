@@ -7,6 +7,7 @@ const Compression = require("compression");
 const Favicon = require("serve-favicon");
 const helmet = require("helmet");
 const Parser = require("./data/parser/feed_parser");
+const DBManager = require("./data/db/database_manager");
 
 // Server Config
 const DB_URL = process.env.MONGODB_URI;
@@ -94,7 +95,18 @@ const schedule = require('node-schedule');
 
 // Parser Scheduler
 let job = schedule.scheduleJob('* */5 * * *', function () {
-    Parser.startParsing();
+    console.log("JOB START");
+    DBManager.getParsingList(function (results, error) {
+        if (error) {
+            console.error("PARSER : GET BLOG LIST ERROR = " + error.code);
+            console.error(error.message);
+        } else {
+            console.log("DB PARSING LIST = " + results.size);
+            results.forEach(function (item) {
+                parseFeed(item)
+            });
+        }
+    });
 });
 app.listen(PORT, function () {
     console.log("Trend Reader Working");
