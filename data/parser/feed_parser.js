@@ -4,7 +4,8 @@ const DBManager = require("./../db/database_manager");
 const FeedParser = require("feedparser");
 const Request = require("request");
 const Fcm = require("./../../service/fcm/fcm_send");
-const OpenGraphScraper = require('open-graph-scraper');
+const metaScraper = require('metascraper');
+const got = require('got');
 
 DBManager.getParsingList(function (results, error) {
     if (error) {
@@ -72,17 +73,17 @@ function parseFeed(item) {
 
         DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
-                let openGraphOptions = {'url': item.post_url};
-                OpenGraphScraper(openGraphOptions, function (error, results) {
-                    if (error === false) {
-                        data["blog_name"] = results.data.ogTitle + " " + results.data.ogDescription;
-                        data.profile_url = results.data.ogImage.url;
-                    }else{
-                        console.log("OPEN-GRAPH : ERROR");
-                    }
+                (async () => {
+                    let {body: html, url} = await got(postLink);
+                    let metadata = await metaScraper({html, url});
+
+                    data["blog_name"] = metadata.title + " " + metadata.description;
+                    data.profile_url = metadata.image;
+
                     DBManager.updateData(data);
-                });
-                Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
+                    Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
+                })();
+
             }
         });
     });
