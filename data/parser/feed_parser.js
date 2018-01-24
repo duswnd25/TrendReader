@@ -78,6 +78,7 @@ function parseFeed(item) {
                     if (error === false) {
                         data.blog_name = results.data.ogTitle + " " + results.data.ogDescription;
                         data.profile_url = results.data.ogImage.url;
+                        console.log(data.profile_url);
                     }
                     DBManager.updateData(data);
                 });
