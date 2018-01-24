@@ -86,7 +86,6 @@ function parseFeed(item) {
                     });
                 } catch (e) {
                     console.log("OPEN-GRAPH : ERROR" + item.blog_url);
-                    console.log(e);
                 }
             }
         });
