@@ -4,14 +4,13 @@ const DBManager = require("./../db/database_manager");
 const FeedParser = require("feedparser");
 const Request = require("request");
 const Fcm = require("./../../service/fcm/fcm_send");
-const metaScraper = require('metascraper');
-const got = require('got');
 
 DBManager.getParsingList(function (results, error) {
     if (error) {
         console.error("PARSER : GET BLOG LIST ERROR = " + error.code);
         console.error(error.message);
     } else {
+        console.log("PARSER : GET BLOG LIST SUCCESS");
         results.forEach(function (item) {
             parseFeed(item)
         });
@@ -19,12 +18,11 @@ DBManager.getParsingList(function (results, error) {
 });
 
 function parseFeed(item) {
-
     let req = Request(item.feed_url);
     let feedParser = new FeedParser({});
 
     req.on("error", function (error) {
-        console.error("PARSER : REQUEST ERROR = " + item.blog_url);
+        console.error("PARSER : REQUEST ERROR ");
         console.error(error.message);
     });
 
@@ -62,17 +60,17 @@ function parseFeed(item) {
         }
 
         let data = {
+            "blog_tag": item.blog_tag,
             "blog_name": meta.title,
             "post_title": feed.title,
             "post_url": postLink,
-            "post_content": postContent,
-            "profile_url": ""
+            "post_content": postContent
         };
 
         DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
                 DBManager.updateData(data);
-                Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
+                Fcm.sendFCM("QUICK", data.post_title);
             }
         });
     });
