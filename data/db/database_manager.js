@@ -75,7 +75,7 @@ exports.getData = function (target_column, user_query, callback) {
                 } else {
                     tempJson.favicon_url = item.get("profile_url");
                 }
-
+                console.log(tempJson.blog_url);
                 temp.push(tempJson);
             });
             callback(temp, null);

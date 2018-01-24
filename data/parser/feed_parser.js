@@ -6,7 +6,6 @@ const Request = require("request");
 const Fcm = require("./../../service/fcm/fcm_send");
 
 exports.parseFeed = function (item) {
-
     let req = Request(item.feed_url);
     let feedParser = new FeedParser({});
 
