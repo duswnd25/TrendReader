@@ -74,8 +74,10 @@ function parseFeed(item) {
                 const ogs = require('open-graph-scraper');
                 ogs({'url': item.blog_url, 'timeout': 4000}, function (error, results) {
                     if (error !== null) {
-                        data["blog_name"] = results.data.ogTitle + " " + results.data.ogDescription;
                         try {
+                            if (results.data.ogTitle !== undefined) {
+                                data["blog_name"] = results.data.ogTitle + " " + results.data.ogDescription;
+                            }
                             if (results.data.ogImage.url !== undefined) {
                                 data.profile_url = results.data.ogImage.url;
                             }
