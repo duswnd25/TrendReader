@@ -77,7 +77,7 @@ function parseFeed(item) {
                 OpenGraphScraper(openGraphOptions, function (error, results) {
                     if (error === false) {
                         data.blog_name = results.data.ogTitle + " " + results.data.ogDescription;
-                        data.favicon_url = results.data.ogImage.url;
+                        data.profile_url = results.data.ogImage.url;
                     }
                     DBManager.updateData(data);
                 });
