@@ -12,7 +12,7 @@ let message = {
     time_to_live: 14400 // 4시간
 };
 
-exports.sendFCM = function (channel, notificationTitle, notificationBody) {
+exports.sendFCM = function (channel, notificationTitle) {
     let topicKey = 'channel_notice';
     let type = '';
     if (channel.includes('MORNING')) {
@@ -26,20 +26,18 @@ exports.sendFCM = function (channel, notificationTitle, notificationBody) {
         type = 'quick';
     }
 
+    message.notification.body = notificationTitle;
     message.notification.title = notificationTitle;
-    message.notification.body = notificationBody;
     message.collapse_key = type;
     message.to = '/topics/' + topicKey;
 
-    if (process.env.MAINTAIN_MODE === false) {
-        fcm.send(message, function (err, response) {
-            if (err) {
-                console.log(type + " FCM   : ", err);
-            } else {
-                console.log(type + " FCM   : ", response);
-                console.log(type + " FCM   : ", message.notification.title);
-                console.log(type + " FCM   : ", message.notification.body);
-            }
-        });
-    }
+    fcm.send(message, function (err, response) {
+        if (err) {
+            console.log(type + " FCM   : ", err);
+        } else {
+            console.log(type + " FCM   : ", response);
+            console.log(type + " FCM   : ", message.notification.title);
+            console.log(type + " FCM   : ", message.notification.body);
+        }
+    });
 };
