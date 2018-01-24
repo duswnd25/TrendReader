@@ -71,22 +71,18 @@ function parseFeed(item) {
 
         DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
-                try {
-                    (async () => {
-                        let {body: html, url} = await got(postLink);
-                        let metadata = await metaScraper({html, url});
+                (async () => {
+                    let {body: html, url} = await got(postLink);
+                    let metadata = await metaScraper({html, url});
 
-                        data["blog_name"] = metadata.title + " " + metadata.description;
-                        data.profile_url = metadata.image;
+                    data["blog_name"] = metadata.title + " " + metadata.description;
+                    data.profile_url = metadata.image;
 
-                        DBManager.updateData(data);
-                        Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
-                    })().catch((error) => {
-                        console.log(error.message);
-                    });
-                } catch (e) {
-                    console.log("OPEN-GRAPH : ERROR" + item.blog_url);
-                }
+                    DBManager.updateData(data);
+                    Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
+                })().catch((error) => {
+                    console.error("OPEN-GRAPH : ERROR" + item.blog_url + error.message);
+                });
             }
         });
     });
