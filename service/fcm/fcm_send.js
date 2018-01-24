@@ -12,7 +12,7 @@ let message = {
     time_to_live: 14400 // 4시간
 };
 
-exports.sendFCM = function (channel, notificationTitle) {
+exports.sendFCM = function (channel, notificationTitle, notificationBody) {
     let topicKey = 'channel_notice';
     let type = '';
     if (channel.includes('MORNING')) {
@@ -26,8 +26,8 @@ exports.sendFCM = function (channel, notificationTitle) {
         type = 'quick';
     }
 
-    message.notification.body = notificationTitle;
     message.notification.title = notificationTitle;
+    message.notification.body = notificationBody;
     message.collapse_key = type;
     message.to = '/topics/' + topicKey;
 
