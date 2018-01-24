@@ -10,6 +10,7 @@ exports.isNewData = function (post_title, callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
     query.equalTo("post_title", post_title);
+    query.limit(1000);
     query.count({
         success: function (count) {
             count = String(count);
@@ -32,6 +33,7 @@ exports.updateData = function (data) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
     query.equalTo("blog_tag", data.blog_tag);
+    query.limit(1000);
     query.first({
         success: function (result) {
             result.set("blog_name", data.blog_name);
@@ -51,6 +53,7 @@ exports.updateData = function (data) {
 exports.getData = function (target_column, user_query, callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
+    query.limit(1000);
     query.descending("updatedAt");
     if (user_query !== "all") {
         query.equalTo(target_column, user_query);
@@ -92,7 +95,7 @@ exports.getData = function (target_column, user_query, callback) {
 exports.getParsingList = function (callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
-
+    query.limit(1000);
     query.find({
         success: function (results) {
             let temp = [];
@@ -117,7 +120,7 @@ exports.getParsingList = function (callback) {
 exports.getAvailableList = function (callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
-
+    query.limit(1000);
     query.find({
         success: function (results) {
             let temp = [];
