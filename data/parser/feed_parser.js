@@ -62,7 +62,7 @@ exports.parseFeed = function (item) {
                     if (error !== null) {
                         try {
                             if (results.data.ogTitle !== undefined) {
-                                data["blog_name"] = results.data.ogTitle + " " + results.data.ogDescription;
+                                data["blog_name"] = results.data.ogTitle;
                             }
                             if (results.data.ogImage.url !== undefined) {
                                 data.profile_url = results.data.ogImage.url;
