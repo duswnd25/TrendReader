@@ -72,17 +72,20 @@ function parseFeed(item) {
 
         DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
-                (async () => {
-                    let {body: html, url} = await got(postLink);
-                    let metadata = await metaScraper({html, url});
+                try {
+                    (async () => {
+                        let {body: html, url} = await got(postLink);
+                        let metadata = await metaScraper({html, url});
 
-                    data["blog_name"] = metadata.title + " " + metadata.description;
-                    data.profile_url = metadata.image;
+                        data["blog_name"] = metadata.title + " " + metadata.description;
+                        data.profile_url = metadata.image;
 
-                    DBManager.updateData(data);
-                    Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
-                })();
-
+                        DBManager.updateData(data);
+                        Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
+                    })();
+                } catch (e) {
+                    console.log(e);
+                }
             }
         });
     });
