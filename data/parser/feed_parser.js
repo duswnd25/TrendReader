@@ -81,7 +81,9 @@ function parseFeed(item) {
 
                         DBManager.updateData(data);
                         Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
-                    })();
+                    })().catch((error) => {
+                        console.log(error.message);
+                    });
                 } catch (e) {
                     console.log("OPEN-GRAPH : ERROR");
                     console.log(e);
