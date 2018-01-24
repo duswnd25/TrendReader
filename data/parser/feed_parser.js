@@ -79,7 +79,7 @@ function parseFeed(item) {
                     }
                     DBManager.updateData(data);
                 });
-                Fcm.sendFCM("QUICK", data.post_title);
+                Fcm.sendFCM("QUICK", data.blog_name, data.post_title);
             }
         });
     });
