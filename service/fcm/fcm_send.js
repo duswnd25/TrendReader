@@ -31,13 +31,15 @@ exports.sendFCM = function (channel, notificationTitle, notificationBody) {
     message.collapse_key = type;
     message.to = '/topics/' + topicKey;
 
-    fcm.send(message, function (err, response) {
-        if (err) {
-            console.log(type + " FCM   : ", err);
-        } else {
-            console.log(type + " FCM   : ", response);
-            console.log(type + " FCM   : ", message.notification.title);
-            console.log(type + " FCM   : ", message.notification.body);
-        }
-    });
+    if (process.env.MAINTAIN_MODE === false) {
+        fcm.send(message, function (err, response) {
+            if (err) {
+                console.log(type + " FCM   : ", err);
+            } else {
+                console.log(type + " FCM   : ", response);
+                console.log(type + " FCM   : ", message.notification.title);
+                console.log(type + " FCM   : ", message.notification.body);
+            }
+        });
+    }
 };
