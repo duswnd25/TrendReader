@@ -4,6 +4,7 @@ const DBManager = require("./../db/database_manager");
 const FeedParser = require("feedparser");
 const Request = require("request");
 const Fcm = require("./../../service/fcm/fcm_send");
+const OpenGraphScraper = require('open-graph-scraper');
 
 DBManager.getParsingList(function (results, error) {
     if (error) {
@@ -64,12 +65,20 @@ function parseFeed(item) {
             "blog_name": meta.title,
             "post_title": feed.title,
             "post_url": postLink,
-            "post_content": postContent
+            "post_content": postContent,
+            "favicon_url": ""
         };
 
         DBManager.isNewData(feed.title, function (error, isNewData) {
             if (isNewData && !error) {
-                DBManager.updateData(data);
+                let openGraphOptions = {'url': item.feed_url};
+                OpenGraphScraper(openGraphOptions, function (error, results) {
+                    if (error === false) {
+                        data.blog_name = results.data.ogTitle + " " + results.data.ogDescription;
+                        data.favicon_url = results.data.ogImage.url;
+                    }
+                    DBManager.updateData(data);
+                });
                 Fcm.sendFCM("QUICK", data.post_title);
             }
         });
