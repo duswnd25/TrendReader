@@ -96,11 +96,11 @@ const schedule = require('node-schedule');
 // Parser Scheduler
 let job = schedule.scheduleJob('* */5 * * *', function () {
     console.log("JOB START");
-    DBManager.getData(function (results, error) {
+    DBManager.getData("blog", "all", function (results, error) {
         if (error) {
             console.error("PARSER : GET BLOG LIST ERROR = " + error.code);
             console.error(error.message);
-        } else { 
+        } else {
             console.log("DB PARSING LIST = " + results.size);
             results.forEach(function (item) {
                 Parser.parseFeed(item)
