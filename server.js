@@ -6,7 +6,7 @@ const Express = require("express");
 const Compression = require("compression");
 const Favicon = require("serve-favicon");
 const helmet = require("helmet");
-const Parser = require("/data/parser/feed_parser");
+const Parser = require("./data/parser/feed_parser");
 
 // Server Config
 const DB_URL = process.env.MONGODB_URI;
