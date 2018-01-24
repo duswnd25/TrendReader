@@ -63,7 +63,6 @@ function parseFeed(item) {
         }
 
         let data = {
-            "blog_tag": item.blog_tag,
             "blog_name": meta.title,
             "post_title": feed.title,
             "post_url": postLink,

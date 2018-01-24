@@ -31,7 +31,7 @@ exports.isNewData = function (post_title, callback) {
 exports.updateData = function (data) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
-    query.equalTo("blog_tag", data.blog_tag);
+    query.equalTo("blog_url", data.blog_url);
     query.first({
         success: function (result) {
             result.set("blog_name", data.blog_name);
@@ -64,7 +64,6 @@ exports.getData = function (target_column, user_query, callback) {
                 console.log("DB : FETCH DATA SUCCESS = " + item.get("blog_name"));
 
                 let tempJson = PostItem.getResultItem();
-                tempJson.blog_tag = item.get("blog_tag");
                 tempJson.blog_name = item.get("blog_name");
                 tempJson.post_title = item.get("post_title");
                 tempJson.post_url = item.get("post_url");
@@ -100,7 +99,6 @@ exports.getParsingList = function (callback) {
             results.forEach(function (item) {
                 console.log("DB : FETCH FEED LIST SUCCESS = " + item.get("blog_name"));
                 temp.push({
-                    "blog_tag": item.get("blog_tag"),
                     "feed_url": item.get("feed_url"),
                     "blog_url": item.get("blog_url")
                 });
