@@ -76,7 +76,6 @@ exports.getData = function (target_column, user_query, callback) {
 
                 temp.push(tempJson);
             });
-            console.log(temp);
             callback(temp, null);
         },
         error: function (error) {
