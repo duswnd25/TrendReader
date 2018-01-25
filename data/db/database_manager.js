@@ -65,6 +65,7 @@ exports.getData = function (target_column, user_query, callback) {
                 tempJson.post_url = item.get("post_url");
                 tempJson.blog_url = item.get("blog_url");
                 tempJson.post_content = item.get("post_content");
+                tempJson.feed_url = item.get("feed_url");
                 tempJson.update_at = new Date(item.updatedAt).getCustomType();
 
                 if (item.get("profile_url") === undefined || item.get("profile_url") === "") {
