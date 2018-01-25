@@ -5,12 +5,12 @@ const Cheerio = require('cheerio');
 const Fcm = require("./../../service/fcm/fcm_send");
 
 DBManager.getData("blog", "all", 1000, function (result, error) {
-    if (error) {
+    if (error !== null) {
         console.error("DB : GET BLOG LIST ERROR = " + error.code);
         console.error(error.message);
     } else {
         console.log("DB : GET BLOG LIST SUCCESS");
-        JSON.parse(results).forEach(function (item) {
+        results.forEach(function (item) {
             parseFeed(item);
         });
     }
@@ -20,13 +20,6 @@ function parseFeed(item) {
     console.log(item);
     let request = Request(item.feed_url);
     let feedParser = new FeedParser({});
-    let data = {
-        "blog_name": "",
-        "profile_url": "",
-        "post_title": "",
-        "post_url": "",
-        "post_content": ""
-    };
 
     request.on("error", function (error) {
         console.error("FEED PARSER : REQUEST ERROR ");
@@ -64,25 +57,25 @@ function parseFeed(item) {
             postLink = item.blog_url + postLink;
         }
 
-        data.blog_name = meta.title;
-        data.post_title = feed.title;
-        data.post_url = postLink;
-        data.post_content = postContent;
+        item.blog_name = meta.title;
+        item.post_title = feed.title;
+        item.post_url = postLink;
+        item.post_content = postContent;
 
         DBManager.isNewData(feed.title, function (isNewData, error) {
             if (isNewData && !error) {
-                Request(data.post_url, function (error, response, html) {
+                Request(item.post_url, function (error, response, html) {
                     if (error) {
                         console.error("" + error.message);
                     }
                     let $ = Cheerio.load(html);
 
-                    data.profile_url = $('meta[property="og:image"]').attr('content');
+                    item.profile_url = $('meta[property="og:image"]').attr('content');
 
-                    console.log("FEED PARSER : " + data.profile_image);
+                    console.log("FEED PARSER : " + item.profile_url);
 
                     DBManager.updateData(data);
-                    Fcm.sendFCM("QUICK", data.post_title, data.post_content);
+                    Fcm.sendFCM("QUICK", item.post_title, item.post_content);
                 });
             }
         });
