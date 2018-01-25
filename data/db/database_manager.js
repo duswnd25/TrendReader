@@ -11,7 +11,6 @@ exports.isNewData = function (post_title, callback) {
     query.equalTo("post_title", post_title);
     query.count({
         success: function (count) {
-            count = String(count);
             console.log("DB : NEW POST = " + (count === 0 ? "TRUE" : "FALSE").toString());
             callback(count === 0, null);
         },
