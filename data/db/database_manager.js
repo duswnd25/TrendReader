@@ -59,8 +59,6 @@ exports.getData = function (target_column, user_query, callback) {
         success: function (results) {
             let temp = [];
             results.forEach(function (item) {
-                console.log("DB : FETCH DATA SUCCESS = " + item.get("blog_name"));
-
                 let tempJson = PostItem.getResultItem();
                 tempJson.blog_name = item.get("blog_name");
                 tempJson.post_title = item.get("post_title");
