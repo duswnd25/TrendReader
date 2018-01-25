@@ -7,10 +7,10 @@ const Fcm = require("./../../service/fcm/fcm_send");
 
 DBManager.getParsingList(function (results, error) {
     if (error) {
-        console.error("PARSER : GET BLOG LIST ERROR = " + error.code);
+        console.error("DB : GET BLOG LIST ERROR = " + error.code);
         console.error(error.message);
     } else {
-        console.log("PARSER : GET BLOG LIST SUCCESS");
+        console.log("DB : GET BLOG LIST SUCCESS " + results.size);
         results.forEach(function (item) {
             parseFeed(item)
         });
@@ -60,14 +60,13 @@ function parseFeed(item) {
         }
 
         let data = {
-            "blog_tag": item.blog_tag,
             "blog_name": meta.title,
             "post_title": feed.title,
             "post_url": postLink,
             "post_content": postContent
         };
 
-        DBManager.isNewData(feed.title, function (error, isNewData) {
+        DBManager.isNewData(feed.title, function (isNewData, error) {
             if (isNewData && !error) {
                 DBManager.updateData(data);
                 Fcm.sendFCM("QUICK", data.post_title, data.post_content);
