@@ -67,9 +67,13 @@ function parseFeed(item) {
                     if (error) {
                         console.error("FEED PARSER ERROR : " + error.message);
                     }
-                    let $ = Cheerio.load(html);
+                    try {
+                        let $ = Cheerio.load(html);
 
-                    item.profile_url = $('meta[property="og:image"]').attr('content');
+                        item.profile_url = $('meta[property="og:image"]').attr('content');
+                    }catch (e){
+                        console.error("FEED PARSER ERROR : " + e.message);
+                    }
 
                     DBManager.updateData(item);
                     Fcm.sendFCM("QUICK", item.post_title, item.post_content);
