@@ -31,7 +31,7 @@ exports.sendFCM = function (channel, notificationTitle, notificationBody) {
     message.collapse_key = type;
     message.to = '/topics/' + topicKey;
 
-    if (process.env.MAINTAIN_MODE === false) {
+    if (process.env.MAINTAIN_MODE === 'false') {
         fcm.send(message, function (err, response) {
             if (err) {
                 console.log(type + " FCM   : ", err);
