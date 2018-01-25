@@ -33,7 +33,7 @@ exports.updateData = function (data) {
             result.set("post_title", data.post_title);
             result.set("post_url", data.post_url);
             result.set("post_content", data.post_content);
-            result.set("profile_image", data.profile_url);
+            result.set("profile_url", data.profile_url);
             result.save();
             console.log("DB : UPDATE SUCCESS");
         },
