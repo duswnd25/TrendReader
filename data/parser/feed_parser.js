@@ -10,7 +10,7 @@ DBManager.getData("blog", "all", function (result, error) {
         console.error(error.message);
     } else {
         console.log("DB : GET BLOG LIST SUCCESS");
-        
+        console.log(result);
         results.forEach(function (item) {
             parseFeed(item);
         });
