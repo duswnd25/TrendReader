@@ -110,27 +110,6 @@ exports.getParsingList = function (callback) {
     });
 };
 
-exports.getAvailableList = function (callback) {
-    let Post = Parse.Object.extend("Post");
-    let query = new Parse.Query(Post);
-    query.limit(1000);
-    query.find({
-        success: function (results) {
-            let temp = [];
-            results.forEach(function (item) {
-                console.log("DB : FETCH AVAILABLE SUCCESS = " + item.get("blog_name"));
-                temp.push(item.get("blog_name"));
-            });
-            callback(temp, null);
-        },
-        error: function (error) {
-            console.error("DB : FETCH AVAILABLE ERROR = " + error.code);
-            console.error(error.message);
-            callback(null, error);
-        }
-    });
-};
-
 Date.prototype.getCustomType = function () {
     let year = this.getFullYear().toString();
     let month = (this.getMonth() + 1).toString();
