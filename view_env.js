@@ -1,3 +1,3 @@
 console.log(process.env);
 
-console.log(process.env.MAINTAIN_MODE === true);
+console.log(process.env.MAINTAIN_MODE === 'true');
