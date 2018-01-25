@@ -46,10 +46,10 @@ exports.updateData = function (data) {
     });
 };
 
-exports.getData = function (target_column, user_query, callback) {
+exports.getData = function (target_column, user_query, limit, callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
-    query.limit(1000);
+    query.limit(limit);
     query.descending("updatedAt");
     if (user_query !== "all") {
         query.equalTo(target_column, user_query);
