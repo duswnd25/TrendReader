@@ -78,6 +78,8 @@ function parseFeed(item) {
 
                     data.profile_image = $('meta[property="og:image"]').attr('content');
 
+                    console.log("FEED PARSER : " + data.profile_image);
+
                     DBManager.updateData(data);
                     Fcm.sendFCM("QUICK", data.post_title, data.post_content);
                 });
