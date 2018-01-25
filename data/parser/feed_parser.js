@@ -73,7 +73,7 @@ function parseFeed(item) {
 
                     console.log("FEED PARSER : " + item.profile_url);
 
-                    DBManager.updateData(data);
+                    DBManager.updateData(item);
                     Fcm.sendFCM("QUICK", item.post_title, item.post_content);
                 });
             }
