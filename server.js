@@ -76,9 +76,6 @@ app.locals.newrelic = NewRelic;
 // From http://www.favicon-generator.org/
 app.use(Favicon(__dirname + "/public/favicon/favicon-32x32.png"));
 
-
-
-
 // Router
 app.use("/parse", api);
 app.use("/dashboard", dashboard);

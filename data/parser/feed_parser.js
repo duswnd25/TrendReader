@@ -85,7 +85,3 @@ function parseFeed(item) {
         });
     });
 }
-
-function getPostOpenGraph() {
-
-}
