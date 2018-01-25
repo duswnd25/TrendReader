@@ -10,7 +10,7 @@ DBManager.getData("blog", "all", function (result, error) {
         console.error(error.message);
     } else {
         console.log("DB : GET BLOG LIST SUCCESS");
-        console.log(result);
+        console.log(typeof result);
         results.forEach(function (item) {
             parseFeed(item);
         });
@@ -22,7 +22,7 @@ function parseFeed(item) {
     let feedParser = new FeedParser({});
     let data = {
         "blog_name": "",
-        "profile_image": "",
+        "profile_url": "",
         "post_title": "",
         "post_url": "",
         "post_content": ""
@@ -77,7 +77,7 @@ function parseFeed(item) {
                     }
                     let $ = Cheerio.load(html);
 
-                    data.profile_image = $('meta[property="og:image"]').attr('content');
+                    data.profile_url = $('meta[property="og:image"]').attr('content');
 
                     console.log("FEED PARSER : " + data.profile_image);
 
