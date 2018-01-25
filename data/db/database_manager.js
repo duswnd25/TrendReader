@@ -10,7 +10,6 @@ exports.isNewData = function (post_title, callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
     query.equalTo("post_title", post_title);
-    query.limit(1000);
     query.count({
         success: function (count) {
             count = String(count);
@@ -135,23 +134,6 @@ exports.getAvailableList = function (callback) {
             console.error(error.message);
             callback(null, error);
         }
-    });
-};
-
-exports.getNewDataCount = function (isMorning, callback) {
-    let now = new Date;
-
-    let Post = Parse.Object.extend("Post");
-    let query = new Parse.Query(Post);
-    if (isMorning === true) {
-        query.greaterThan("updateAt", new Date(Date.UTC(now.getFullYear() - 1900, now.getMonth(), now.getDate(), 18, 0, 0, 0)));
-        query.lessThan("updateAt", new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate() + 1, 7, 0, 0, 0)));
-    } else {
-        query.greaterThan("updateAt", new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate() + 1, 7, 0, 0, 0)));
-        query.lessThan("updateAt", new Date(Date.UTC(now.getFullYear() - 1900, now.getMonth(), now.getDate(), 18, 0, 0, 0)));
-    }
-    query.count().then(function (count) {
-        callback(count);
     });
 };
 
