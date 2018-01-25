@@ -1,7 +1,7 @@
 exports.getResultItem = function () {
     return (
         {
-            "favicon_url": "",
+            "profile_image": "",
             "blog_name": "",
             "blog_url": "",
             "post_title": "",

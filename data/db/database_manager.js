@@ -35,6 +35,7 @@ exports.updateData = function (data) {
             result.set("post_title", data.post_title);
             result.set("post_url", data.post_url);
             result.set("post_content", data.post_content);
+            result.set("profile_image", data.profile_image);
             result.save();
             console.log("DB : UPDATE SUCCESS");
         },
@@ -69,9 +70,9 @@ exports.getData = function (target_column, user_query, callback) {
                 tempJson.update_at = new Date(item.updatedAt).getCustomType();
 
                 if (item.get("profile_url") === undefined || item.get("profile_url") === "") {
-                    tempJson.favicon_url = "https://www.google.com/s2/favicons?domain=" + item.get("blog_url");
+                    tempJson.profile_url = "https://www.google.com/s2/favicons?domain=" + item.get("blog_url");
                 } else {
-                    tempJson.favicon_url = item.get("profile_url");
+                    tempJson.profile_url = item.get("profile_url");
                 }
 
                 temp.push(tempJson);
