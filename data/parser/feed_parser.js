@@ -4,7 +4,7 @@ const Request = require("request");
 const Cheerio = require('cheerio');
 const Fcm = require("./../../service/fcm/fcm_send");
 
-DBManager.getData("blog", "all", 1000, function (result, error) {
+DBManager.getData("blog", "all", 1000, function (results, error) {
     if (error !== null) {
         console.error("DB : GET BLOG LIST ERROR = " + error.code);
         console.error(error.message);
