@@ -43,7 +43,7 @@ function parseFeed(item) {
     });
 
     feedParser.on("error", function (error) {
-        console.error("PARSER : FEED PARSER ERROR = " + error.code);
+        console.error("FEED PARSER : FEED PARSER ERROR = " + error.code);
         console.error(error.message);
     });
 
@@ -70,7 +70,7 @@ function parseFeed(item) {
 
         DBManager.isNewData(feed.title, function (isNewData, error) {
             if (isNewData && !error) {
-                Request('http://www.google.com', function (error, response, html) {
+                Request(data.post_url, function (error, response, html) {
                     if (error) {
                         console.error("" + error.message);
                     }
