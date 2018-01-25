@@ -4,14 +4,14 @@ const Request = require("request");
 const Cheerio = require('cheerio');
 const Fcm = require("./../../service/fcm/fcm_send");
 
-DBManager.getParsingList(function (results, error) {
+DBManager.getData("blog", "all", function (result, error) {
     if (error) {
         console.error("DB : GET BLOG LIST ERROR = " + error.code);
         console.error(error.message);
     } else {
         console.log("DB : GET BLOG LIST SUCCESS " + results.size);
         results.forEach(function (item) {
-            parseFeed(item)
+            parseFeed(item);
         });
     }
 });
