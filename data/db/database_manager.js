@@ -90,7 +90,6 @@ exports.getData = function (target_column, user_query, callback) {
 exports.getParsingList = function (callback) {
     let Post = Parse.Object.extend("Post");
     let query = new Parse.Query(Post);
-    query.limit(1000);
     query.find({
         success: function (results) {
             let temp = [];
