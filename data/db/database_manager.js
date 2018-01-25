@@ -1,5 +1,4 @@
 const Parse = require("parse/node");
-const PostItem = require("./../post_item");
 
 // Server init
 Parse.initialize(process.env.APP_ID);
@@ -59,14 +58,16 @@ exports.getData = function (target_column, user_query, limit, callback) {
         success: function (results) {
             let temp = [];
             results.forEach(function (item) {
-                let tempJson = PostItem.getResultItem();
-                tempJson.blog_name = item.get("blog_name");
-                tempJson.post_title = item.get("post_title");
-                tempJson.post_url = item.get("post_url");
-                tempJson.blog_url = item.get("blog_url");
-                tempJson.post_content = item.get("post_content");
-                tempJson.feed_url = item.get("feed_url");
-                tempJson.update_at = new Date(item.updatedAt).getCustomType();
+                let tempJson = {
+                    "profile_url": "",
+                    "blog_name": item.get("blog_name"),
+                    "blog_url": item.get("blog_url"),
+                    "feed_url": item.get("feed_url"),
+                    "post_title": item.get("post_title"),
+                    "post_url": item.get("post_url"),
+                    "post_content": item.get("post_content"),
+                    "update_at": new Date(item.updatedAt).getCustomType()
+                };
 
                 if (item.get("profile_url") === undefined || item.get("profile_url") === "") {
                     tempJson.profile_url = "https://www.google.com/s2/favicons?domain=" + item.get("blog_url");
