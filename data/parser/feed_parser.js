@@ -17,12 +17,11 @@ DBManager.getData("blog", "all", 1000, function (results, error) {
 });
 
 function parseFeed(item) {
-    console.log(item);
     let request = Request(item.feed_url);
     let feedParser = new FeedParser({});
 
     request.on("error", function (error) {
-        console.error("FEED PARSER : REQUEST ERROR ");
+        console.error("FEED PARSER ERROR : REQUEST ERROR ");
         console.error(error.message);
     });
 
@@ -37,36 +36,36 @@ function parseFeed(item) {
     });
 
     feedParser.on("error", function (error) {
-        console.error("FEED PARSER : FEED PARSER ERROR = " + error.code);
+        console.error("FEED PARSER ERROR : " + error.code);
         console.error(error.message);
     });
 
     feedParser.once("readable", function () {
         let stream = this;
-        let meta = this.meta;
-        let feed = stream.read();
+        let metaData = this.meta;
+        let feedData = stream.read();
 
         // 내용에서 태그를 정리한다.
-        let postContent = feed.summary || feed.description;
+        let postContent = feedData.summary || feedData.description;
         postContent.replace(/<br\/>/ig, "\n");
         postContent = postContent.replace(/(<([^>]+)>)/ig, "");
 
         // 글 링크
-        let postLink = (feed.link === undefined ? item.blog_url : feed.link).toString();
+        let postLink = (feedData.link === undefined ? item.blog_url : feedData.link).toString();
         if (!postLink.includes("http")) {
             postLink = item.blog_url + postLink;
         }
 
-        item.blog_name = meta.title;
-        item.post_title = feed.title;
+        item.blog_name = metaData.title;
+        item.post_title = feedData.title;
         item.post_url = postLink;
         item.post_content = postContent;
 
-        DBManager.isNewData(feed.title, function (isNewData, error) {
-            if (isNewData && !error) {
+        DBManager.isNewData(feedData.title, function (isNewData, error) {
+            if (isNewData === true && error === null) {
                 Request(item.post_url, function (error, response, html) {
                     if (error) {
-                        console.error("" + error.message);
+                        console.error("FEED PARSER ERROR : " + error.message);
                     }
                     let $ = Cheerio.load(html);
 

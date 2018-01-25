@@ -12,7 +12,7 @@ exports.isNewData = function (post_title, callback) {
     query.count({
         success: function (count) {
             count = String(count);
-            console.log("DB : NEW POST = " + count === 0 ? "TRUE" : "FALSE");
+            console.log("DB : NEW POST = " + (count === 0 ? "TRUE" : "FALSE").toString());
             callback(count === 0, null);
         },
         error: function (error) {
