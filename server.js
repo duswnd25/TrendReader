@@ -24,7 +24,7 @@ const api = new ParseServer({
     appId: APP_ID,
     masterKey: MASTER_KEY,
     fileKey: FILE_KEY,
-    serverURL: SERVER_URL,
+    serverURL: SERVER_URL
 });
 
 // Parse Platform Dashboard
