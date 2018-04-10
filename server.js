@@ -11,7 +11,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const bodyParser = require("body-parser");
 
-// Server Config
+/** ================== SERVER CONFIG ================== **/
 const DB_URL = process.env.MONGODB_URI;
 const PORT = process.env.PORT;
 const SERVER_URL = process.env.SERVER_URL;
@@ -21,7 +21,7 @@ const FILE_KEY = process.env.FILE_KEY;
 const MASTER_KEY = process.env.MASTER_KEY;
 const ALLOW_INSECURE_HTTP = true;
 
-// Parse Platform Server
+/** ================== PARSE SERVER & DASHBOARD ================== **/
 const api = new parseServer({
     databaseURI: DB_URL,
     cloud: process.cwd() + "/cloud/main.js",
@@ -50,32 +50,24 @@ const dashboard = new parseDashboard({
     "trustProxy": 1
 }, ALLOW_INSECURE_HTTP);
 
-// express 설정
+/** ================== EXPRESS CONFIG ================== **/
 const app = express();
-
-// user helmet for safety
-app.use(helmet());
-// disable for safety
-app.disable("x-powered-by");
-// gzip
-app.use(compression());
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.use(helmet()); // user helmet for safety
+app.disable("x-powered-by"); // disable for safety
+app.use(compression()); // gzip
+app.set('views', path.join(__dirname, 'views')); // view engine setup
 app.set('view engine', 'ejs');
-// body parser
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true})); // body parser
 app.use(bodyParser.json());
-// NewRelic
-app.locals.newrelic = newRelic;
-// Favicon From http://www.favicon-generator.org/
-app.use(favicon(__dirname + "/public/favicon/favicon-32x32.png"));
+app.locals.newrelic = newRelic; // NewRelic
+app.use(favicon(__dirname + "/public/favicon/favicon-32x32.png")); // Favicon From http://www.favicon-generator.org/
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Router
+/** ================== ROUTER ================== **/
 app.use("/parse", api);
 app.use("/dashboard", dashboard);
 app.use("/", require("./router/main/main.js"));
