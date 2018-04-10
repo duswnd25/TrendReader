@@ -25,6 +25,7 @@
 </head>
 <body class="row col-lg-12 col-md-12 col-sm-12 container-fluid justify-content-md-center justify-content-sm-center justify-content-lg-center">
 <div class="card content-container col-lg-3 col-md-3 col-sm-12 col-md-offset-3 col-lg-offset-3 col-md-offset-12">
+    <%- data %>
     <% for(var index = 0; index < data.length; index++) { %>
     <a href="<%= data[index].post_url %>">
         <img class="content-image img-fluid rounded" src="<%= data[index].profile_url %>">
