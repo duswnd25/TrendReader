@@ -70,8 +70,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 /** ================== ROUTER ================== **/
 app.use("/parse", api);
 app.use("/dashboard", dashboard);
-app.use("/", require("./router/main/main.js"));
-app.use("/api/data/read", require("./router/api/read"));
+app.use("/", require("./routes/main/main.js"));
+app.use("/api/data/read", require("./routes/api/read"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

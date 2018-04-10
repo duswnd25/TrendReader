@@ -23,20 +23,21 @@
 
     <title>Trend Reader : 전문가들의 관심사 엿보기</title>
 </head>
-<body ng-app="trendReaderApp" ng-controller="blog_controller"
-      class="row col-lg-12 col-md-12 col-sm-12 container-fluid justify-content-md-center justify-content-sm-center justify-content-lg-center">
-<div class="card content-container col-lg-3 col-md-3 col-sm-12 col-md-offset-3 col-lg-offset-3 col-md-offset-12"
-     ng-repeat="info in list">
-    <a ng-href="{{ info.post_url }}">
-        <img class="content-image img-fluid rounded" ng-src="{{ info.profile_url}}">
+<body class="row col-lg-12 col-md-12 col-sm-12 container-fluid justify-content-md-center justify-content-sm-center justify-content-lg-center">
+<div class="card content-container col-lg-3 col-md-3 col-sm-12 col-md-offset-3 col-lg-offset-3 col-md-offset-12">
+    <% for(var index = 0; index < data.length; index++) { %>
+    <a href="<%= data[index].post_url %>">
+        <img class="content-image img-fluid rounded" src="<%= data[index].profile_url %>">
         <div class="content-detail rounded">
-            <p class="content-blog-name"> {{ info.blog_name }} </p><br>
-            <h4 class="content-post-title"> {{ info.post_title }} </h4>
+            <p class="content-blog-name"> <%= data[index].blog_name %> </p><br>
+            <h4 class="content-post-title"> <%= data[index].post_title %></h4>
             <hr>
-            <p class="content-post-description"> {{ info.post_content }} </p>
+            <p class="content-post-description"> <%= data[index].post_content %></p>
         </div>
     </a>
+    <% } %>
 </div>
+
 <!-- JavaScript -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -47,14 +48,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
         integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
         crossorigin="anonymous" content-type="text/javascript" charset="UTF-8"></script>
-
-<!-- AngularJS -->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="UTF-8"
-        crossorigin="anonymous"
-        content-type="text/javascript"></script>
-
-<!-- Controller -->
-<script src="/public/js/blog_controller.js" charset="UTF-8" content-type="text/javascript"></script>
 
 <!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
