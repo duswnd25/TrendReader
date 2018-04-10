@@ -23,25 +23,23 @@
 
     <title>Trend Reader : 전문가들의 관심사 엿보기</title>
 </head>
-<body class="wrap">
+<body>
 <% for(var index = 0; index < data.length; index++) { %>
-<a href="<%= data[index].post_url %>">
-    <div class="tile">
-        <img src='<%- data[index].profile_url %>'/>
-        <div class="text">
-            <h1><%- data[index].post_title %></h1>
-            <h2 class="animate-text"><%- data[index].blog_name %></h2>
-            <p class="animate-text"><%- data[index].post_content %></p>
-            <div class="dots">
-                <span></span>
-                <span></span>
-                <span></span>
+<% if(index % 3 == 0) { %>
+<div class="wrap">
+    <% } %>
+    <a href="<%= data[index].post_url %>">
+        <div class="tile">
+            <img src='<%- data[index].profile_url %>'/>
+            <div class="text">
+                <h1><%- data[index].post_title %></h1>
+                <h2 class="animate-text"><%- data[index].blog_name %></h2>
+                <p class="animate-text"><%- data[index].post_content %></p>
             </div>
         </div>
-    </div>
-</a>
-<% if(index % 3 == 0) { %>
-<br>
+    </a>
+    <% if(index % 3 == 0) { %>
+</div>
 <% } %>
 <% } %>
 <!-- JavaScript -->
