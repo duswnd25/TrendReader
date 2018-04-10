@@ -1,11 +1,15 @@
-const NewRelic = require("newrelic");
-const ParseServer = require("parse-server").ParseServer;
-const ParseDashboard = require("parse-dashboard");
-const BodyParser = require("body-parser");
-const Express = require("express");
-const Compression = require("compression");
-const Favicon = require("serve-favicon");
+const newRelic = require("newrelic");
+const parseServer = require("parse-server").ParseServer;
+const parseDashboard = require("parse-dashboard");
+const express = require("express");
+const compression = require("compression");
+const favicon = require("serve-favicon");
 const helmet = require("helmet");
+const createError = require('http-errors');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const bodyParser = require("body-parser");
 
 // Server Config
 const DB_URL = process.env.MONGODB_URI;
@@ -18,7 +22,7 @@ const MASTER_KEY = process.env.MASTER_KEY;
 const ALLOW_INSECURE_HTTP = true;
 
 // Parse Platform Server
-const api = new ParseServer({
+const api = new parseServer({
     databaseURI: DB_URL,
     cloud: process.cwd() + "/cloud/main.js",
     appId: APP_ID,
@@ -26,9 +30,8 @@ const api = new ParseServer({
     fileKey: FILE_KEY,
     serverURL: SERVER_URL
 });
-
 // Parse Platform Dashboard
-const dashboard = new ParseDashboard({
+const dashboard = new parseDashboard({
     "apps": [
         {
             "serverURL": SERVER_URL,
@@ -47,28 +50,30 @@ const dashboard = new ParseDashboard({
     "trustProxy": 1
 }, ALLOW_INSECURE_HTTP);
 
-// Express 설정
-const app = Express();
+// express 설정
+const app = express();
+
 // user helmet for safety
 app.use(helmet());
-
 // disable for safety
 app.disable("x-powered-by");
-
 // gzip
-app.use(Compression());
-
-app.set("views", __dirname + "/views");
-app.set("view engine", "ejs");
-app.engine("html", require("ejs").renderFile);
-app.use("/public", Express.static(__dirname + "/public"));
-app.use(BodyParser.urlencoded({extended: true}));
-app.use(BodyParser.json());
-app.locals.newrelic = NewRelic;
-
-// Favicon
-// From http://www.favicon-generator.org/
-app.use(Favicon(__dirname + "/public/favicon/favicon-32x32.png"));
+app.use(compression());
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+// body parser
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+// NewRelic
+app.locals.newrelic = newRelic;
+// Favicon From http://www.favicon-generator.org/
+app.use(favicon(__dirname + "/public/favicon/favicon-32x32.png"));
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Router
 app.use("/parse", api);
@@ -76,13 +81,23 @@ app.use("/dashboard", dashboard);
 app.use("/", require("./router/main/main.js"));
 app.use("/api/data/read", require("./router/api/read"));
 
-// Handle 404 - Keep this as a last route
+// catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    res.status(404);
-    res.send("404: File Not Found");
-    res.render("index.html");
+    next(createError(404));
+});
+
+// error handler
+app.use(function (err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
 });
 
 app.listen(PORT, function () {
     console.log("Trend Reader Working");
 });
+
+module.exports = app;
