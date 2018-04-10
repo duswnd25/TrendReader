@@ -25,7 +25,8 @@
 </head>
 <body>
 <% for(var index = 0; index < data.length; index++) { %>
-<% if(index % 3 == 0) { %>
+<% var isEnd = index !== 0 && index % 3 == 0; %>
+<% if(isEnd) { %>
 <div class="wrap">
     <% } %>
     <a href="<%= data[index].post_url %>">
@@ -38,7 +39,7 @@
             </div>
         </div>
     </a>
-    <% if(index % 3 == 0) { %>
+    <% if(isEnd) { %>
 </div>
 <% } %>
 <% } %>
