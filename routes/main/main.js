@@ -4,7 +4,7 @@ const router = express.Router();
 const createError = require('http-errors');
 
 router.get("/", function (req, res, next) {
-    dbManager.getData('blog', 'all', 200, function (result, error) {
+    dbManager.getData('blog', 'all', 20, function (result, error) {
         if (error) {
             next(createError(404));
         } else {
