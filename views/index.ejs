@@ -24,24 +24,25 @@
     <title>Trend Reader : 전문가들의 관심사 엿보기</title>
 </head>
 <body>
-<% for(var index = 0; index < data.length; index++) { %>
-<% if(index % 3 == 0) { %>
-<div class="wrap">
-    <% } %>
-    <a href="<%= data[index].post_url %>">
-        <div class="tile">
-            <img src='<%- data[index].profile_url %>'/>
-            <div class="text">
-                <h1><%- data[index].post_title %></h1>
-                <h2 class="animate-text"><%- data[index].blog_name %></h2>
-                <p class="animate-text"><%- data[index].post_content %></p>
-            </div>
+<div class="container">
+
+    <% for(var index = 0; index < data.length; index++) { %>
+    <div class="row">
+        <div class="col-md-7">
+            <a href="#">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="<%- data[index].profile_url %>" alt="">
+            </a>
         </div>
-    </a>
-    <% if(index % 3 == 2) { %>
+        <div class="col-md-5">
+            <h3><%- data[index].blog_name %></h3>
+            <h4><%- data[index].post_title %></h4>
+            <p><%- data[index].post_content %></p>
+            <a class="btn btn-primary" href="<%= data[index].post_url %>">상세보기</a>
+        </div>
+    </div>
+    <% } %>
+
 </div>
-<% } %>
-<% } %>
 <!-- JavaScript -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
