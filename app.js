@@ -27,8 +27,8 @@ app.use(cookieParser());
 
 /** ================== ROUTER ================== **/
 app.use("/public", express.static(path.join(__dirname, 'public')));
-app.use("/parse", parseConfig.ParseServer);
-app.use("/dashboard", parseConfig.Dashboard);
+app.use("/parse", parseConfig.ParseServer());
+app.use("/dashboard", parseConfig.Dashboard());
 app.use("/", require("./src/routes/main/main.js"));
 app.use("/api/data/read", require("./src/routes/api/read"));
 
