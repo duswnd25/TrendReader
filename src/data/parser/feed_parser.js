@@ -1,8 +1,8 @@
-const DBManager = require("./../db/database_manager");
+const DBManager = require("../db/database_manager");
 const FeedParser = require("feedparser");
 const Request = require("request");
 const Cheerio = require('cheerio');
-const Fcm = require("./../../service/fcm/fcm_send");
+const Fcm = require("../../service/fcm/fcm_send");
 
 DBManager.getData("blog", "all", 1000, function (results, error) {
     if (error !== null) {
