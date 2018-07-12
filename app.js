@@ -3,7 +3,6 @@ const express = require("express");
 const compression = require("compression");
 const favicon = require("serve-favicon");
 const helmet = require("helmet");
-const createError = require('http-errors');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
