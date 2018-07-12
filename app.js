@@ -13,7 +13,6 @@ const bodyParser = require("body-parser");
 
 /** ================== SERVER CONFIG ================== **/
 const DB_URL = process.env.MONGODB_URI;
-const PORT = process.env.PORT;
 const SERVER_URL = process.env.SERVER_URL;
 const APP_NAME = process.env.APP_NAME;
 const APP_ID = process.env.APP_ID;
